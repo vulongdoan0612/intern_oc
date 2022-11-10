@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+
+.clear {
+    clear: both;
+}
+:root {
+    --pr-color: #0fe6ad;
+    --se-color: #e16969;
+    --te-color: #ffcadc;
+  }
+  *{
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Josefin Sans;
+  }
+      
+  body {
+  /*     color: #fff; */
+      text-align: center;
+      background: #333;
+      font-size: 20px;
+      color: #fff;
+      background-image: url('https://j.gifs.com/KYGlEG.gif');
+      background-size: cover;
+      
+  }
+  .main {
+  /*     background: var(--pr-color); */
+      background: linear-gradient(120deg,#89ebd1,#04c592);
+      border-radius: 10px;
+      margin: 100px auto;
+      max-width: 1040px;
+      padding: 70px;
+      position: relative;
+  }
+  .tabs {
+      position: absolute;
+      display: flex;
+      top: -70px;
+      left: 0px;
+  }
+  .tabs .line {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0px;
+      height: 6px;
+      border-radius: 15px;
+      background-color: var(--pr-color);
+      transition: all 0.2s ease;
+  }
+  .tab-item {
+      padding: 11px 0px;
+      text-align: center;
+      color: #fff;
+      cursor: pointer;
+      margin-right: 20px;
+  }
+  .tab-item:hover {
+      color: var(--se-color);
+      transition: all 0.3s ease;
+  }
+  
+  .tab-pane {
+      display: none;
+  }
+  .tab-pane.active {
+      display: block;
+  }
+  
+  .title {
+      font-size: 36px;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+  }
+  .title span {
+      text-transform: none;
+      font-weight: normal;
+  }
+  .desc {
+      font-size: 20px;
+  }
+  .input-contain {
+  /*     display: flex; */
+      margin: 0 -10px;
+      margin-top: 40px;
+  }
+  .input-item {
+      width: calc(50% - 20px);
+      float: left;
+      background: rgba(66,29,29,0.15);
+      margin: 0 10px;
+      border-radius: 5px;
+      padding-top: 30px;
+      height: 180px;
+      position: relative;
+  }
+  .input-item i {
+      font-size: 50px;
+      margin-bottom: 15px;
+  }
+  
+  .input-item p {
+      margin-top: 15px;
+      font-size: 16px;
+  }
+  .input-item div {
+      font-size: 15px;
+      font-weight: bold;
+      height: 40px;
+      line-height: 40px;
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 5px;
+      margin-top: 14px;
+  }
+  .input-item input {
+      cursor: pointer;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding-top: 156px;
+      text-indent: -999em;
+      border-radius: 5px;
+  }
+  .input-item input:hover {
+      box-shadow: 1px 2px 8px -3px #181616;
+      transition: all 0.3s ease;
+  }
+
+
+#feedback {
+    margin: 50px 0 20px 0;
+}
+#img-preview {
+    text-align: left;
+}
+
+#img-preview img {
+    height: 150px;
+    width: auto;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+  

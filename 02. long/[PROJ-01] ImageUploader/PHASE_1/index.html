@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Photo</title>
+    <link rel="stylesheet" href="./styles/main.css">
+    <link rel="stylesheet" href="./styles/responsive.css">
+    <link rel="stylesheet" href="./styles/fontawesome-free-6.2.0-web/css/all.css">
+</head>
+<body>
+    <div class="main">
+        <div class="tabs">
+            <div class="tab-item active">
+                <i class="fas fa-home-lg-alt"></i>
+                Home
+            </div>
+
+            <div class="tab-item">
+                <i class="far fa-folder-open"></i>
+                Management
+            </div>
+            
+            <div class="line"></div>
+        </div>
+
+        <div class="content">
+
+            <!-- Tab Upload Photo -->
+            <div class="tab-pane active">
+                <div class="title">MEDIA <span>Upload</span></div>
+                <div class="desc">Upload your pictures, gif, video.</div>
+                <div class="input-contain">
+                    <div class="input-item">
+                        <!-- <img src="./accets/pic-icon.png" alt=""> -->
+                        <i class="fa-regular fa-image"></i>
+                        <p>IMG, PNG, JPEG, GIF</p>
+                        <input type="file" id="img-input" class="file-input" onchange="previewImg(this)"  multiple accept="image/jpeg, image/png, image/jpg" >
+                        <div>Choose File</div>
+                    </div>
+                    
+                    <div class="input-item">
+                        <i class="far fa-file-video"></i>
+                        <p>MP4</p>
+                        <input type="file" id="video-input" onclick="previewVideo();"  class="file-input" multiple >
+                        <div>Choose File</div>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div id="feedback"></div>
+                <div id="clearBtn"></div>
+                <!-- Photo Preview here -->
+                <div id="img-preview"></div>
+
+
+                
+            </div>
+
+
+            <!-- Tab Quan Ly Photo -->
+            <div class="tab-pane">
+                <h1>Trang quản lý ảnh đang được phát triển</h1>
+            </div>
+        </div>
+    </div>
+
+    <script src="./main.js"></script>
+
+
+
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+      
+        // Your web app's Firebase configuration
+        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+          apiKey: "AIzaSyCTYtAmz0GSxDJYoc72SUITwdR7a-iuOKk",
+          authDomain: "media-upload-7c171.firebaseapp.com",
+          projectId: "media-upload-7c171",
+          storageBucket: "media-upload-7c171.appspot.com",
+          messagingSenderId: "39716356203",
+          appId: "1:39716356203:web:2cbcc5d2f1409dec67b12e",
+          measurementId: "G-L9LR6NKH5S"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+
+        import {getStorage, ref as sRef, uploadBytesResumable, getDownloadURL}
+        from "https://www.gstatic.com/firebasejs/9.13.0/firebase-storage.js";
+      </script>
+</body>
+</html>
+
