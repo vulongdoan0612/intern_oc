@@ -1,0 +1,93 @@
+@media (max-width: 740px) {
+    .title h4 b {
+        font-size: 40px;
+    }
+
+    .title h4 span {
+        font-size: 40px;
+    }
+
+    .title h2 {
+        font-size: 12px;
+    }
+
+    .title .col-6 {
+        flex: 100%;
+        max-width: 100%;
+    }
+
+    .box-upload {
+        flex: 100%;
+        max-width: 100%;
+    }
+
+    .float {
+        position: fixed;
+        bottom: 30px;
+        right: 5px;
+    }
+
+    .float a {
+        text-decoration: none;
+        color: white;
+        font-size: 10px;
+        background-color: gray;
+        padding: 10px;
+        margin: 5px;
+        border-radius: 5px;
+    }
+
+
+    .btn-login {
+        font-size: 18px;
+    }
+
+    .header h1 {
+        font-size: 40px;
+    }
+
+    .foot h3 {
+        font-size: 17px;
+    }
+
+    .foot p {
+        font-size: 12px;
+    }
+
+    .inp-text input {
+        height: 45px;
+    }
+
+    .link a {
+        font-size: 12px;
+    }
+
+    #div-show-img img {
+        width: 135px;
+    }
+}
+
+@media(max-width: 540px) {
+    .body-show {
+        padding: 0;
+    }
+
+    .upload-col {
+        padding: 15px;
+    }
+
+    #div-show-img img {
+        width: 100%;
+    }
+
+    #inp-link::placeholder {
+        font-size: 10px;
+    }
+
+  
+    .btn-login i {
+        text-align: center;
+        padding-right: 2px;
+        border: none;
+    }
+}
