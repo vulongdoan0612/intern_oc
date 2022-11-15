@@ -1,0 +1,170 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+.clear {
+    clear: both;
+}
+body {
+    background-image: url(https://images.pexels.com/photos/370799/pexels-photo-370799.jpeg?cs=srgb&dl=pexels-dana-tentis-370799.jpg&fm=jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+
+.header h1 {
+    font-size: 60px;
+    font-weight: 800;
+}
+
+
+.btn-login {
+    opacity: 0.5;
+    width: 18%;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    background-color: rgb(223, 213, 213);
+}
+
+.btn-login i {
+    padding-right: 30px;
+    border-right: solid 1px;
+}
+
+.background-body {
+    background-color: #67ba70;
+    opacity: 0.8;
+    padding: 70px;
+}
+
+
+.title h4 b {
+    font-size: 65px;
+    font-weight: 800;
+}
+
+.title span {
+    font-size: 65px;
+    font-weight: 300;
+}
+
+.title h2 {
+    font-size: 18px;
+    text-align: center;
+}
+
+.box-upload{
+    padding: 15px;
+}
+.upload-col {
+    padding: 40px;
+    background-color: #1b9428;
+   
+}
+
+.upload-col :hover {
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.upload-col i {
+    font-size: 70px;
+}
+
+.upload-col h3 {
+    padding-top: 5px;
+    font-weight: 800;
+}
+
+.upload-col p {
+    padding-top: 5px;
+    font-size: 20px;
+}
+
+.choose-file {
+    font-weight: bold;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    background-color: rgb(188, 188, 221);
+    border-radius: 5px;
+}
+
+#inp-image title {
+    display: none;
+}
+
+
+.inp-upload {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    text-indent: -999px;
+}
+
+.box-upload {
+    padding: 5px;
+}
+
+.foot {
+    margin: 0;
+    background-color: #1b9428;
+    padding: 30px;
+}
+
+.inp-text input {
+    height: 50px;
+}
+
+.link {
+    padding: 50px;
+}
+
+.link a {
+    text-decoration: none;
+    color: white;
+    margin: 8px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.float a {
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    background-color: gray;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.div-show-img {
+    text-align: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+#div-show-img img {
+    width: 170px;
+    height: auto;
+    border: 2px dashed #333;
+    margin: 10px;
+}
+
+#btn-cancel i {
+    font-size: 30px;
+}
+#btn-cancel{
+    text-align: center;
+}
