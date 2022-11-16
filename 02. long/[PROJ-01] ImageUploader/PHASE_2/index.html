@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload Photo</title>
-    <link rel="stylesheet" href="./styles/main.css">
-    <link rel="stylesheet" href="./styles/responsive.css">
-    <link rel="stylesheet" href="./styles/fontawesome-free-6.2.0-web/css/all.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/fontawesome-free-6.2.0-web/css/all.css">
 </head>
 <body>
     <div class="main">
@@ -45,33 +45,27 @@
                         <input type="file" id="video-input" onclick="previewVideo();"  class="file-input" multiple >
                         <div>Choose File</div>
                     </div>
-
                     <div class="clear"></div>
                 </div>
 
                 <div id="upprogress"></div>
 
-                <div id="clearBtn"></div>
-                <!-- Photo Preview here -->
-                <!-- <div id="img-preview"></div> -->
-
-
-
                 <div id="exten"></div>
-                <br><br>
+
                 <img id="imgPreview">
-                <br><br>
-
-
-                <button id="upbtn">Upload</button>
-
+                
+                <div class="btns">
+                    <button id="upBtn" class="btn">Upload</button>
+                    <button id ="clearBtn" class="btn">Clear</button>
+                </div>
                 
             </div>
 
 
             <!-- Tab Quan Ly Photo -->
             <div class="tab-pane">
-                <h1>Trang quản lý ảnh đang được phát triển</h1>
+                <h1>Your Files</h1>
+                <div id="gridMedia"></div>
             </div>
         </div>
     </div>
@@ -94,18 +88,12 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
-
-        
-
-        
-    
-    
     </script>
     
 
     <script src="./main.js"></script>
     <script type="module" src="./upload.js"></script>
-
+    <script type="module" src="./display.js"></script>
 </body>
 </html>
 

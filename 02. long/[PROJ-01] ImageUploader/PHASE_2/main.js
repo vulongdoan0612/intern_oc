@@ -31,7 +31,7 @@ tabs.forEach((tab, index) => {
 const preview = document.getElementById('img-preview')
 const fileInput = document.getElementById("img-input")
 
-function previewImg(input) {
+const previewImg = (input) => {
     const { files } = input
 
     Array.from(files).forEach(file => {

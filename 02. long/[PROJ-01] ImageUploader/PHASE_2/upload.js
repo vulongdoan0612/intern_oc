@@ -1,26 +1,33 @@
 import {getStorage, ref as sRef, uploadBytesResumable, getDownloadURL}
 from "https://www.gstatic.com/firebasejs/9.13.0/firebase-storage.js"
 
+import { getFirestore, doc, getDoc, setDoc, collection, addDoc }
+from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
+const clouddb = getFirestore()
 
-var files = []
-var reader = new FileReader()
 
-var exten = document.getElementById('exten')
-var imgPreview = document.getElementById('imgPreview')
-var proglab = document.getElementById('upprogress')
-var UpBtn = document.getElementById('upbtn')
+let files = []
+let reader = new FileReader()
 
-var input = document.getElementById('img-input')
+let exten = document.getElementById('exten')
+let imgPreview = document.getElementById('imgPreview')
+let upprogress = document.getElementById('upprogress')
+let upBtn = document.getElementById('upBtn')
+let clearBtn = document.getElementById('clearBtn')
+let btns = document.querySelector('.btns')
+let input = document.getElementById('img-input')
 
-input.onchange = e => {
+input.onchange = e =>{
     files = e.target.files;
 
-    var extention = GetFileExt(files[0])
-    var name = GetFileName(files[0]);
+    let extention = GetFileExt(files[0])
+    let name = GetFileName(files[0]);
 
     exten.innerHTML = name + extention
 
     reader.readAsDataURL(files[0])
+
+    btns.className = "displayBlock"
 }
 
 reader.onload = function() {
@@ -31,37 +38,37 @@ reader.onload = function() {
 // chọn hình
 
 
-function GetFileExt(file) {
-    var temp = file.name.split('.')
-    var ext = temp.slice((temp.length - 1),(temp.length))
+const  GetFileExt = (file)=>{
+    let temp = file.name.split('.')
+    let ext = temp.slice((temp.length - 1),(temp.length))
     return '.' + ext[0]
 }
 
-function GetFileName(file) {
-    var temp = file.name.split('.')
-    var fname = temp.slice(0,-1).join('.')
+const GetFileName = (file)=>{
+    let temp = file.name.split('.')
+    let fname = temp.slice(0,-1).join('.')
     return fname
 }
 
 // upload lên fisebase
-async function UploadProcess() {
-    var ImgToUpload = files[0] 
+const uploadProcess = async () => {
+    let imgToUpload = files[0] 
     
-    var ImgName = exten.innerHTML
+    let imgName = exten.innerHTML
 
     const metaData = {
-        contentType: ImgToUpload.type
+        contentType: imgToUpload.type
     }
 
     const storage = getStorage()
 
-    const stroageRef = sRef(storage, "image/"+ImgName)
+    const storageRef = sRef(storage, "image/"+imgName)
 
-    const UploadTask=uploadBytesResumable(stroageRef, ImgToUpload, metaData)
+    const UploadTask=uploadBytesResumable(storageRef, imgToUpload, metaData)
 
     UploadTask.on('state-changed', (snapshot) => {
-        var progess = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        proglab.innerHTML = "Upload" + progess + "%";
+        let progess = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        upprogress.innerHTML = "Upload" + progess + "%";
     },
     (error) =>{
         alert("error: image not uploaded")
@@ -69,9 +76,38 @@ async function UploadProcess() {
     ()=> {
         getDownloadURL(UploadTask.snapshot.ref).then((downloadURL)=>{
             console.log(downloadURL)
+            SaveURLtoFirestore(downloadURL)
         })
     }
     );
 }
 
-UpBtn.onclick = UploadProcess
+
+// Firestore database
+
+async function SaveURLtoFirestore(url) {
+            var name = GetFileName(files[0]);
+            var ext = exten.innerHTML; 
+
+            var ref = doc(clouddb, "ImageLinks/"+name)
+
+            await setDoc(ref,{
+                ImageName: (name+ext),
+                ImageURL: url
+            })
+        }
+
+upBtn.onclick = uploadProcess
+
+// clear
+
+const clearImg = () => {
+    imgPreview.src = ""
+    upprogress.innerHTML = ""
+    exten.innerHTML = ""
+    btns.className = "displayNone"
+}
+clearBtn.onclick = clearImg
+
+
+
