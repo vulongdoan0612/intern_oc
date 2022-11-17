@@ -35,8 +35,6 @@ reader.onload = function() {
 }
 
 
-// chọn hình
-
 
 const  GetFileExt = (file)=>{
     let temp = file.name.split('.')
@@ -68,7 +66,8 @@ const uploadProcess = async () => {
 
     UploadTask.on('state-changed', (snapshot) => {
         let progess = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        upprogress.innerHTML = "Upload" + progess + "%";
+        let progressF = progess.toFixed()
+        upprogress.innerHTML = "Upload " + progressF + "%";
     },
     (error) =>{
         alert("error: image not uploaded")
@@ -85,7 +84,7 @@ const uploadProcess = async () => {
 
 // Firestore database
 
-async function SaveURLtoFirestore(url) {
+const SaveURLtoFirestore = async (url) => {
             var name = GetFileName(files[0]);
             var ext = exten.innerHTML; 
 

@@ -155,17 +155,7 @@
     margin: 50px 0 20px 0;
 }
 
-#gridMedia {
-    margin-top: 40px;
-    text-align: left;
-}
 
-#gridMedia img {
-    height: 150px;
-    width: auto;
-    margin-right: 20px;
-    margin-bottom: 10px;
-}
 
 
 
@@ -180,4 +170,101 @@
 
 .displayBlock {
     display: block;
+}
+
+
+
+
+h5 {
+    padding: 10px 0;
+}
+
+#gridMedia {
+    margin-top: 40px;
+    text-align: left;
+    margin-left: -10px;
+    margin-right: -10px
+}
+#gridMedia div {
+    height: 150px;
+    width: calc(25% - 20px);
+    float: left;
+    border-radius: 7px;
+    overflow: hidden;
+    margin: 10px;
+    transition: 0.4s;
+}
+#gridMedia img {
+    height: 100%;;
+    width: 100%;
+    object-fit: cover;
+    
+    cursor: pointer;
+    
+}
+#gridMedia div:hover {
+    transform: scale(1.1)
+}
+
+.gallery {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.8);
+    transition: 0.5s
+}
+
+.closeBtn {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    font-size: 35px;
+    transition: 0.2s;
+}
+.closeBtn:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.prevBtn {
+    font-size: 35px;
+    position: absolute;
+    left: 50px;
+    transition: 0.2s;
+}
+.prevBtn:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.nextBtn {
+    font-size: 35px;
+    position: absolute;
+    right: 50px;
+    transition: 0.2s;
+}
+.nextBtn:hover {
+    transform: scale(1.2);
+    cursor: pointer;
+}
+.innerGallery {
+    width: 70%;
+    height: 90%;
+/*     overflow: hidden; */
+}
+.innerGallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.showGallery {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
 }
