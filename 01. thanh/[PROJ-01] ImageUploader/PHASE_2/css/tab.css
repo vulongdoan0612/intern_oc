@@ -1,0 +1,26 @@
+.tab {
+    background-color: rgb(94, 224, 94);
+    text-align: center;
+    height: 50px;
+}
+.tab row {
+    height: 100%;
+    width: 100%;
+}
+
+.tablink {
+    padding: 0;
+}
+
+.tablink a{
+    display: block;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 900;
+    color: rgb(10, 89, 103);
+    line-height: 50px;
+}
+
+#a-first{
+    border-right: 1px solid;
+}

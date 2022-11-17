@@ -4,14 +4,16 @@
     box-sizing: border-box;
 
 }
+
 .clear {
     clear: both;
 }
+
 body {
     background-image: url(https://images.pexels.com/photos/370799/pexels-photo-370799.jpeg?cs=srgb&dl=pexels-dana-tentis-370799.jpg&fm=jpg);
     background-size: cover;
     background-repeat: no-repeat;
-    
+
 }
 
 .header h1 {
@@ -56,13 +58,14 @@ body {
     text-align: center;
 }
 
-.box-upload{
+.box-upload {
     padding: 15px;
 }
+
 .upload-col {
     padding: 40px;
     background-color: #1b9428;
-   
+
 }
 
 .upload-col :hover {
@@ -149,22 +152,90 @@ body {
     border-radius: 5px;
 }
 
-.div-show-img {
+#handle {
     text-align: center;
-    width: 100%;
-    flex-wrap: wrap;
+    padding-top: 50px;
 }
 
-#div-show-img img {
+#imgPreview {
     width: 170px;
     height: auto;
-    border: 2px dashed #333;
     margin: 10px;
 }
 
-#btn-cancel i {
-    font-size: 30px;
+.btn-handle {
+    display: none;
 }
-#btn-cancel{
+
+.displayBlock {
+    display: block;
+}
+
+.displayNone {
+    display: none;
+}
+
+#show-img {
     text-align: center;
+}
+
+#show-img img {
+    height: 150px;
+    width: auto;
+    margin-right: 20px;
+    margin-bottom: 10px;
+
+}
+
+#btn-handle button {
+    margin-top: 15px;
+    width: 20%;
+    height: 35px;
+}
+
+.btn-hover {
+    width: 200px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+    height: 55px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+    outline: none;
+}
+
+.btn-hover.color-1 {
+    background-image: linear-gradient(to right, #25aae1, #40e495, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(49, 196, 190, 0.75);
+}
+
+.btn-hover.color-11 {
+    background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);
+    box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+}
+
+#upprogress {
+    font-size: 30px;
+    font-weight: 900;
+    color: rebeccapurple;
 }

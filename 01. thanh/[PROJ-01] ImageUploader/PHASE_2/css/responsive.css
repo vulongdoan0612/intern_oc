@@ -62,9 +62,11 @@
         font-size: 12px;
     }
 
-    #div-show-img img {
-        width: 135px;
+    #show-img img {
+        width: 175px;
+    
     }
+
 }
 
 @media(max-width: 540px) {

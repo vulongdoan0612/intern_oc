@@ -9,6 +9,7 @@ const clouddb = getFirestore()
 let files = []
 let reader = new FileReader()
 
+let vDivHandle = document.querySelector('.handle');
 let exten = document.getElementById('name-img')
 let imgPreview = document.getElementById('imgPreview')
 let upprogress = document.getElementById('upprogress')
@@ -17,11 +18,15 @@ let clearBtn = document.getElementById('clearBtn')
 let btns = document.querySelector('.btn-handle')
 let input = document.getElementById('inp-image')
 
+vDivHandle.className = "displayBlock";
+
 input.onchange = e =>{
     files = e.target.files;
-
+    upprogress.innerHTML = '';
     let extention = GetFileExt(files[0])
     let name = GetFileName(files[0]);
+
+    vDivHandle.className = "displayBlock"
 
     exten.innerHTML = name + extention
 
@@ -68,7 +73,7 @@ const uploadProcess = async () => {
 
     UploadTask.on('state-changed', (snapshot) => {
         let progess = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        upprogress.innerHTML = "Upload" + progess + "%";
+        upprogress.innerHTML = "Upload " + progess + " %";
     },
     (error) =>{
         alert("error: image not uploaded")
@@ -102,6 +107,7 @@ upBtn.onclick = uploadProcess
 // clear
 
 const clearImg = () => {
+    vDivHandle.className = "displayNone"
     imgPreview.src = ""
     upprogress.innerHTML = ""
     exten.innerHTML = ""
