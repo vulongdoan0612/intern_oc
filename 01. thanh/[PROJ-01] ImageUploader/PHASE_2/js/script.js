@@ -18,7 +18,6 @@ function onPageLoading() {
     //     }
     // });
 
-
 }
 
 // get img src cách 2
@@ -84,6 +83,5 @@ function previewFiles2(input) {
         reader.readAsDataURL(file)
     })
 }
-
 
 
