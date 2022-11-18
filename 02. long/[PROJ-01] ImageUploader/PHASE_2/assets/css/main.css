@@ -193,6 +193,7 @@ h5 {
     overflow: hidden;
     margin: 10px;
     transition: 0.4s;
+    position: relative;
 }
 #gridMedia img {
     height: 100%;;
@@ -267,4 +268,23 @@ h5 {
     opacity: 1;
     transform: scale(1);
     pointer-events: auto;
+}
+
+
+.delImg {
+    color: rgb(255,2,2);
+    font-size: 25px;
+    position: absolute;
+    top: 6px;
+    right: 5px;
+    transition: 0.2s;
+    cursor: pointer;
+    text-shadow: 0 0 3px #dbcfcf;
+    opacity: 0;
+}
+.delImg:hover {
+    transform: scale(1.2)
+}
+#gridMedia div:hover .delImg {
+    opacity: 1;
 }
