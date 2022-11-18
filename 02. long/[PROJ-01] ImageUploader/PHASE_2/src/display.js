@@ -49,15 +49,13 @@ listAll(listRef)
                       }
                   }).catch((error) => {
                     console.log("co loi")
-                  })
-                       
+                  })   
               });
             });
 
 
 
             //gallery
-
             const images = document.querySelectorAll('.imgItem img')
             const prevBtn = document.querySelector('.prevBtn')
             const nextBtn = document.querySelector('.nextBtn')

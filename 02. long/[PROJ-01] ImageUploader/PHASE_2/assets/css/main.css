@@ -42,16 +42,7 @@
       top: -70px;
       left: 0px;
   }
-  .tabs .line {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0px;
-      height: 6px;
-      border-radius: 15px;
-      background-color: var(--pr-color);
-      transition: all 0.2s ease;
-  }
+
   .tab-item {
       padding: 11px 0px;
       text-align: center;
@@ -59,18 +50,26 @@
       cursor: pointer;
       margin-right: 20px;
   }
-  .tab-item:hover {
-      color: var(--se-color);
-      transition: all 0.3s ease;
-  }
-  
-  .tab-pane {
-      display: none;
-  }
-  .tab-pane.active {
-      display: block;
-  }
-  
+
+  .tab-item a {
+    text-decoration: none;
+    color: #fff;
+    padding-bottom: 7px;
+    display: block
+}
+.tab-item a:hover {
+    color: var(--se-color);
+    transition: all 0.3s ease;
+}
+
+.tabs .line {
+      width: 100%;
+      height: 6px;
+      border-radius: 15px;
+      background-color: var(--pr-color);
+      transition: all 0.4s ease;
+}
+
   .title {
       font-size: 36px;
       font-weight: bold;

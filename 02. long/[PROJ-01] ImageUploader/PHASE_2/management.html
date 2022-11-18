@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Photo</title>
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <link rel="stylesheet" href="./assets/fontawesome-free-6.2.0-web/css/all.css">
+</head>
+<body>
+    <div class="main">
+        <div class="tabs">
+            <div class="tab-item ">
+                <a href="index.html">
+                    <i class="fas fa-home-lg-alt"></i>
+                    Home
+                </a>
+            </div>
+
+            <div class="tab-item active">
+                <a href="#">
+                    <i class="far fa-folder-open"></i>
+                    Management
+                </a>
+                <div class="line"></div>
+            </div>
+        </div>
+
+        <div class="content">
+
+            <!-- Tab Quan Ly Photo -->
+            <div class="tab-pane">
+                <div class="title">Your <span>Files</span></div>
+                <div class="desc">Click to view full size</div>
+                <div id="gridMedia"></div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery">
+        <i class="fas fa-times closeBtn"></i>
+        <div class="innerGallery">
+            <img src="">
+        </div>
+        <div class="prevBtn"><i class="fas fa-angle-left"></i></div>
+        <div class="nextBtn"><i class="fas fa-angle-right"></i></div>
+    </div>
+  
+    <script type="module" src="src/config.js"></script>
+    <script type="module" src="src/upload.js"></script>
+    <script type="module" src="src/display.js"></script>
+</body>
+</html>
+
+
+
+
+
+
