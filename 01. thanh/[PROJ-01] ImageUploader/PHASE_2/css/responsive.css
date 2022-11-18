@@ -62,10 +62,6 @@
         font-size: 12px;
     }
 
-    #show-img img {
-        width: 175px;
-    
-    }
 
 }
 
@@ -91,5 +87,12 @@
         text-align: center;
         padding-right: 2px;
         border: none;
+    }
+}
+
+@media(max-width: 540px) {
+    .vDiv img {
+        width: 100%;
+        height: auto;
     }
 }
