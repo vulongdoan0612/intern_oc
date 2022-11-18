@@ -1,35 +1,58 @@
-import { listAll, getStorage, ref, getDownloadURL}
+import { listAll, getStorage, ref, getDownloadURL, deleteObject}
 from "https://www.gstatic.com/firebasejs/9.13.0/firebase-storage.js"
 
 
 const storage = getStorage();
 
-
-// Create a reference under which you want to list
 const listRef = ref(storage, 'image');
-
-// Find all the prefixes and items.
 
 listAll(listRef)
   .then((res) => {
     res.prefixes.forEach((folderRef) => {
-      // All the prefixes under listRef.
-      // You may call listAll() recursively on them.
     });
     res.items.forEach((itemRef) => {
-        console.log("item-ref: " + itemRef)
+        // console.log("item-ref: " + itemRef)
 
         const a = getDownloadURL(itemRef)
 
         a.then((url) => {
 
-            console.log(url)
+            //display all files from firebase
+
+            // console.log(url)
             let gridMedia = document.getElementById("gridMedia")
 
             const imgItem = document.createElement('div')
             imgItem.className="imgItem"
-            imgItem.innerHTML = `<img src=${url}>`
+            imgItem.innerHTML = `<i class="delImg fa-solid fa-circle-xmark"></i><img src=${url}>`
             gridMedia.appendChild(imgItem)
+
+
+            // delete file 
+            const delImg = document.querySelectorAll('.imgItem .delImg')
+
+            delImg.forEach((e) => {
+              e.addEventListener('click', function(){
+                  let sib = this.nextSibling;
+                  const src = sib.getAttribute('src')
+                  // console.log(src)
+
+                  const storageRef = ref(storage, src)
+                  let fileName = storageRef.name
+                  console.log(fileName)
+
+                  const desertRef = ref(storage, 'image/'+fileName)
+
+                  deleteObject(desertRef).then(() => {
+                      if(!alert("Deleted " + fileName)) {
+                        window.location.reload();
+                      }
+                  }).catch((error) => {
+                    console.log("co loi")
+                  })
+                       
+              });
+            });
 
 
 
@@ -75,10 +98,11 @@ listAll(listRef)
                 gallery.classList.add('showGallery')
               }
             })
-
-
         })
     });
   }).catch((error) => {
     // Uh-oh, an error occurred!
 });
+
+
+

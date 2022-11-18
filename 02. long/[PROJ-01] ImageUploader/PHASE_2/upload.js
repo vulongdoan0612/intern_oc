@@ -67,7 +67,7 @@ const uploadProcess = async () => {
     UploadTask.on('state-changed', (snapshot) => {
         let progess = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         let progressF = progess.toFixed()
-        upprogress.innerHTML = "Upload " + progressF + "%";
+        upprogress.innerHTML = "Upload " + progressF + "%"
     },
     (error) =>{
         alert("error: image not uploaded")
@@ -80,7 +80,6 @@ const uploadProcess = async () => {
     }
     );
 }
-
 
 // Firestore database
 
