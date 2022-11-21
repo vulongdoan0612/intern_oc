@@ -1,7 +1,7 @@
 import {getStorage, ref as sRef, uploadBytesResumable, getDownloadURL}
 from "https://www.gstatic.com/firebasejs/9.13.0/firebase-storage.js"
 
-import { getFirestore, doc, getDoc, setDoc, collection, addDoc }
+import { getFirestore, doc, setDoc }
 from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
 const clouddb = getFirestore()
 
@@ -98,7 +98,6 @@ const SaveURLtoFirestore = async (url) => {
 upBtn.onclick = uploadProcess
 
 // clear
-
 const clearImg = () => {
     imgPreview.src = ""
     upprogress.innerHTML = ""
