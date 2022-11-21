@@ -42,16 +42,7 @@
       top: -70px;
       left: 0px;
   }
-  .tabs .line {
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0px;
-      height: 6px;
-      border-radius: 15px;
-      background-color: var(--pr-color);
-      transition: all 0.2s ease;
-  }
+
   .tab-item {
       padding: 11px 0px;
       text-align: center;
@@ -59,18 +50,26 @@
       cursor: pointer;
       margin-right: 20px;
   }
-  .tab-item:hover {
-      color: var(--se-color);
-      transition: all 0.3s ease;
-  }
-  
-  .tab-pane {
-      display: none;
-  }
-  .tab-pane.active {
-      display: block;
-  }
-  
+
+  .tab-item a {
+    text-decoration: none;
+    color: #fff;
+    padding-bottom: 7px;
+    display: block
+}
+.tab-item a:hover {
+    color: var(--se-color);
+    transition: all 0.3s ease;
+}
+
+.tabs .line {
+      width: 100%;
+      height: 6px;
+      border-radius: 15px;
+      background-color: var(--pr-color);
+      transition: all 0.4s ease;
+}
+
   .title {
       font-size: 36px;
       font-weight: bold;
@@ -270,7 +269,6 @@ h5 {
     pointer-events: auto;
 }
 
-
 .delImg {
     color: rgb(255,2,2);
     font-size: 25px;
@@ -288,3 +286,70 @@ h5 {
 #gridMedia div:hover .delImg {
     opacity: 1;
 }
+
+.modal {
+    position: fixed;
+    top:0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* display: none; */
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.8);
+    transition: 0.5s
+}
+.popDel {
+    background: var(--pr-color);
+    padding: 30px;
+    border-radius: 5px;
+}
+.popDel__tt {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.popDel .delBtn {
+    background: #dc3545;
+    color: #fff;
+}
+.popDel .canBtn {
+    background: #6c757d;
+    color: #fff;
+}
+
+.showModal {
+
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.lds-dual-ring {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+  }
+.lds-dual-ring:after {
+    content: " ";
+    display: block;
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border-radius: 50%;
+    border: 6px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: lds-dual-ring 1.2s linear infinite;
+  }
+  @keyframes lds-dual-ring {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }

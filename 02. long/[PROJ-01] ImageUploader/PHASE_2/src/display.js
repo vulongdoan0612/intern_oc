@@ -26,6 +26,8 @@ listAll(listRef)
             imgItem.className="imgItem"
             imgItem.innerHTML = `<i class="delImg fa-solid fa-circle-xmark"></i><img src=${url}>`
             gridMedia.appendChild(imgItem)
+            const loader = document.querySelector(".lds-dual-ring")
+            loader.style.display="none"
 
 
             // delete file 
@@ -41,23 +43,37 @@ listAll(listRef)
                   let fileName = storageRef.name
                   console.log(fileName)
 
-                  const desertRef = ref(storage, 'image/'+fileName)
+                  
+                  const modal = document.querySelector(".modal")
+                  const popDel = document.querySelector(".popDel")
+                  const delBtn = document.querySelector(".delBtn")
+                  const canBtn = document.querySelector(".canBtn")
+                  modal.classList.add("showModal")
 
-                  deleteObject(desertRef).then(() => {
-                      if(!alert("Deleted " + fileName)) {
-                        window.location.reload();
-                      }
-                  }).catch((error) => {
-                    console.log("co loi")
+                  const cancelDelete = () => {
+                    modal.classList.remove("showModal")
+                  }
+                  canBtn.addEventListener('click', cancelDelete)
+                  modal.addEventListener('click', cancelDelete)
+                  popDel.addEventListener('click', (e)=>{
+                    e.stopPropagation()
                   })
-                       
+
+                  const deleteImg = () => {
+                    const desertRef = ref(storage, 'image/'+fileName)
+                    deleteObject(desertRef).then(() => {
+                        window.location.reload();
+                    }).catch((error) => {
+                      console.log("co loi")
+                    })   
+                  }
+                  delBtn.addEventListener('click', deleteImg)
               });
             });
 
 
 
             //gallery
-
             const images = document.querySelectorAll('.imgItem img')
             const prevBtn = document.querySelector('.prevBtn')
             const nextBtn = document.querySelector('.nextBtn')
@@ -103,6 +119,8 @@ listAll(listRef)
   }).catch((error) => {
     // Uh-oh, an error occurred!
 });
+
+
 
 
 

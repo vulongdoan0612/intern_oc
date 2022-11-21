@@ -17,4 +17,14 @@
         margin: 0;
         margin-bottom: 30px;
     }
+
+    #gridMedia div {
+        width: calc(50% - 20px);
+    }
+
+    .innerGallery {
+        width: 90%;
+        height: 90%;
+    /*     overflow: hidden; */
+    }
 }

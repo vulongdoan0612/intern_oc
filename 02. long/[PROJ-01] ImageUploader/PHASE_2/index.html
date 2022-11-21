@@ -13,22 +13,27 @@
     <div class="main">
         <div class="tabs">
             <div class="tab-item active">
-                <i class="fas fa-home-lg-alt"></i>
-                Home
+                <a href="#">
+                    <i class="fas fa-home-lg-alt"></i>
+                    Home
+                </a>
+                <div class="line"></div>
             </div>
 
             <div class="tab-item">
-                <i class="far fa-folder-open"></i>
-                Management
+                <a href="management.html">
+                    <i class="far fa-folder-open"></i>
+                    Management
+                </a>
             </div>
             
-            <div class="line"></div>
+            
         </div>
 
         <div class="content">
 
             <!-- Tab Upload Photo -->
-            <div class="tab-pane active">
+            <div class="tab-pane">
                 <div class="title">MEDIA <span>Upload</span></div>
                 <div class="desc">Upload your pictures, gif and video.</div>
                 <div class="input-contain">
@@ -60,52 +65,11 @@
                 </div>
                 
             </div>
-
-
-            <!-- Tab Quan Ly Photo -->
-            <div class="tab-pane">
-                <div class="title">Your <span>Files</span></div>
-                <div class="desc">Click to view full size</div>
-                <div id="gridMedia"></div>
-                <div class="clear"></div>
-            </div>
         </div>
     </div>
 
-    <div class="gallery">
-        <i class="fas fa-times closeBtn"></i>
-        <div class="innerGallery">
-            <img src="">
-        </div>
-        <div class="prevBtn"><i class="fas fa-angle-left"></i></div>
-        <div class="nextBtn"><i class="fas fa-angle-right"></i></div>
-    </div>
-
-    <script type="module">
-
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics.js";
-
-            const firebaseConfig = {
-                apiKey: "AIzaSyCTYtAmz0GSxDJYoc72SUITwdR7a-iuOKk",
-                authDomain: "media-upload-7c171.firebaseapp.com",
-                projectId: "media-upload-7c171",
-                storageBucket: "media-upload-7c171.appspot.com",
-                messagingSenderId: "39716356203",
-                appId: "1:39716356203:web:2cbcc5d2f1409dec67b12e",
-                measurementId: "G-L9LR6NKH5S"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-    </script>
-    
-
-    <script src="./main.js"></script>
-    <script type="module" src="./upload.js"></script>
-    <script type="module" src="./display.js"></script>
-    <script type="module" src="./delete.js"></script>
+    <script type="module" src="src/config.js"></script>
+    <script type="module" src="src/upload.js"></script>
 </body>
 </html>
 
