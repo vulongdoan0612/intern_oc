@@ -104,6 +104,12 @@ async function SaveURLtoFirestore(url) {
 
 upBtn.onclick = uploadProcess
 
-
-
+//Nút cancel
+clearBtn.addEventListener('click', function (e) {
+    vDivHandle.className = "displayNone";
+    exten.innerHTML = '';
+    imgPreview.src = '';
+    upprogress.innerHTML = '';
+    input.innerHTML = '';
+});
 

@@ -40,6 +40,7 @@ body {
     background-color: #67ba70;
     opacity: 0.8;
     padding: 70px;
+    padding-bottom: 120px;
 }
 
 
@@ -181,13 +182,14 @@ body {
 .vDiv {
     display: inline-block;
     position: relative;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    width: 25%;
 }
 .vDiv img {
     height: 150px;
-    width: auto;
+    width: 100%;
     display: block;
+    padding: 8px;
+    object-fit: cover;
 }
 .vDiv i {
     position: absolute;

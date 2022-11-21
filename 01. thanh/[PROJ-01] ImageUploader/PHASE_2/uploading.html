@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/responsive.css">
     <link rel="stylesheet" href="./css/tab.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <link rel="stylesheet" href="./css/loading.css">
     <title>UploadIMG</title>
 </head>
 
@@ -48,7 +50,10 @@
             </div>
 
             <div id="News" class="tabcontent">
-                <div id="show-img" class="background-body"></div>
+                <div id="show-img" class="background-body">
+                    <div class="lds-heart"><div></div></div>
+                </div>
+                
             </div>
         </div>
 
@@ -67,6 +72,23 @@
             <a href="" class="floating-links">Privacy</a>
             <a href="" class="floating-links">Terms</a>
         </div>
+    </div>
+
+    <!--Modal confirm delete-->
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="head-close bg-warning">
+                <span class="close">&times;</span>
+            </div>
+            <p id="p-confirm">DELETE THIS IMG ???</p>
+            <div class="foot-close bg-warning">
+                <button class="btn-confirm-delete color-8" id="btn-cancel-confirm">Cancel</button>
+                <button class="btn-confirm-delete color-11" id="btn-ok-confirm">OK</button>
+            </div>
+        </div>
+
     </div>
 
 
