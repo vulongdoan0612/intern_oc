@@ -8,8 +8,6 @@ const listRef = ref(storage, 'image');
 
 listAll(listRef)
   .then((res) => {
-    res.prefixes.forEach((folderRef) => {
-    });
     res.items.forEach((itemRef) => {
         // console.log("item-ref: " + itemRef)
 
@@ -18,7 +16,6 @@ listAll(listRef)
         a.then((url) => {
 
             //display all files from firebase
-
             // console.log(url)
             let gridMedia = document.getElementById("gridMedia")
 
@@ -35,12 +32,12 @@ listAll(listRef)
 
             delImg.forEach((e) => {
               e.addEventListener('click', function(){
-                  let sib = this.nextSibling;
+                  const sib = this.nextSibling;
                   const src = sib.getAttribute('src')
                   // console.log(src)
 
                   const storageRef = ref(storage, src)
-                  let fileName = storageRef.name
+                  const fileName = storageRef.name
                   console.log(fileName)
 
                   
@@ -55,6 +52,7 @@ listAll(listRef)
                   }
                   canBtn.addEventListener('click', cancelDelete)
                   modal.addEventListener('click', cancelDelete)
+                  
                   popDel.addEventListener('click', (e)=>{
                     e.stopPropagation()
                   })
