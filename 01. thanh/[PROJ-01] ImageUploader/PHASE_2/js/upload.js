@@ -7,24 +7,24 @@ const clouddb = getFirestore()
 
 
 let files = []
-let reader = new FileReader()
+const reader = new FileReader()
 
-let vDivHandle = document.querySelector('.handle');
-let exten = document.getElementById('name-img')
-let imgPreview = document.getElementById('imgPreview')
-let upprogress = document.getElementById('upprogress')
-let upBtn = document.getElementById('upBtn')
-let clearBtn = document.getElementById('clearBtn')
-let btns = document.querySelector('.btn-handle')
-let input = document.getElementById('inp-image')
+const vDivHandle = document.querySelector('.handle');
+const exten = document.getElementById('name-img')
+const imgPreview = document.getElementById('imgPreview')
+const upprogress = document.getElementById('upprogress')
+const upBtn = document.getElementById('upBtn')
+const clearBtn = document.getElementById('clearBtn')
+const btns = document.querySelector('.btn-handle')
+const input = document.getElementById('inp-image')
 
 vDivHandle.className = "displayBlock";
 
 input.onchange = e => {
     files = e.target.files;
     upprogress.innerHTML = '';
-    let extention = GetFileExt(files[0])
-    let name = GetFileName(files[0]);
+    const extention = GetFileExt(files[0])
+    const name = GetFileName(files[0]);
 
     vDivHandle.className = "displayBlock"
 
@@ -59,7 +59,7 @@ const GetFileName = (file) => {
 const uploadProcess = async () => {
     let imgToUpload = files[0]
 
-    let imgName = exten.innerHTML
+    const imgName = exten.innerHTML
 
     const metaData = {
         contentType: imgToUpload.type
@@ -72,7 +72,7 @@ const uploadProcess = async () => {
     const UploadTask = uploadBytesResumable(storageRef, imgToUpload, metaData)
 
     UploadTask.on('state-changed', (snapshot) => {
-        let progess = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+        const progess = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         upprogress.innerHTML = "Upload " + progess + " %";
     },
         (error) => {

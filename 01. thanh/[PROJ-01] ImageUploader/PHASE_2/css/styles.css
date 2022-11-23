@@ -159,8 +159,11 @@ body {
 }
 
 #imgPreview {
-    width: 170px;
-    height: auto;
+    display: inline-block;
+    padding: 10px;
+}
+
+#imgPreview img {
     margin: 10px;
 }
 
@@ -179,11 +182,13 @@ body {
 #show-img {
     text-align: center;
 }
+
 .vDiv {
     display: inline-block;
     position: relative;
     width: 25%;
 }
+
 .vDiv img {
     height: 150px;
     width: 100%;
@@ -191,6 +196,7 @@ body {
     padding: 8px;
     object-fit: cover;
 }
+
 .vDiv i {
     position: absolute;
     top: 5px;
@@ -201,7 +207,8 @@ body {
     transition: ease-in-out 0.4s;
     cursor: pointer;
 }
-.vDiv:hover i{
+
+.vDiv:hover i {
     opacity: 1;
 }
 
@@ -260,4 +267,14 @@ body {
     font-size: 30px;
     font-weight: 900;
     color: rebeccapurple;
+}
+
+.status-color-uploading {
+    color: red;
+    float: right;
+}
+
+.status-color-success {
+    color: blue;
+    float: right;
 }
