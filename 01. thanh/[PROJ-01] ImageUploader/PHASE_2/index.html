@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/responsive.css">
     <link rel="stylesheet" href="./css/tab.css">
+    <link rel="stylesheet" href="./css/modal1.css">
     <title>UploadIMG</title>
 </head>
 
@@ -39,7 +40,7 @@
             <div class="tab col-12">
                 <div class="row">
                     <div class="tablink col-6" id="a-first">
-                        <a href="index.html" >Home</a>
+                        <a href="index.html">Home</a>
                     </div>
                     <div class="tablink col-6">
                         <a href="uploading.html">Uploaded</a>
@@ -76,7 +77,7 @@
                                     <h3>Image</h3>
                                     <p>Upload a Image/Picture.</p>
                                     <div class="choose-file">Choose File</div>
-                                    <input class="inp-upload" accept="image/*" id="inp-image" type="file">
+                                    <input class="inp-upload" accept="image/*" id="inp-image" type="file" multiple>
                                 </div>
                             </div>
                             <div class="col-6 text-center box-upload">
@@ -94,13 +95,12 @@
                     <!--foot-->
                     <div class="handle" id="handle">
                         <div id="upprogress">
-                            <div class="continuous-2"></div>
                         </div>
 
-                        <div id="name-img"></div>
 
 
-                        <img id="imgPreview">
+
+                        <div id="imgPreview"></div>
                         <div class="btn-handle" id="btn-handle">
                             <button class="btn-hover color-1" id="upBtn">UPLOAD</button>
                             <button class="btn-hover color-11" id="clearBtn">CANCEL</button>
@@ -130,12 +130,27 @@
         </div>
     </div>
 
+    <!--Modal confirm delete-->
+    <div id="myModal1" class="modal">
 
+        <!-- Modal content -->
+        <div class="modal-content">
+            <div class="head-close bg-warning">
+                <span class="close">&times;</span>
+
+            </div>
+            <div class="show-status">
+                <div id="name-img"></div>
+                <div id="name-img1"></div>
+            </div>
+        </div>
+
+    </div>
+    
 </body>
 
 <script type="module" src="./js/cf.js"></script>
-<script type="module" src="./js/upload.js"></script>
-<script type="module" src="./js/showimg.js"></script>
+<script type="module" src="./js/upload2.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </html>
