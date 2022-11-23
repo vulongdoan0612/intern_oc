@@ -134,7 +134,7 @@
   #imgPreview {
     text-align: left;
 }
-#imgPreview .btns {
+.btns {
     text-align: center;
     margin: 20px 0;
     display: none;
