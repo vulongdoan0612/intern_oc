@@ -81,13 +81,31 @@ listAll(listRef)
 
             let currentIndex = 0;
 
+            const showGallery = () => {
+              galleryImg.src = images[currentIndex].src
+                    gallery.classList.add('showGallery')
+
+              if(currentIndex == 0) {
+                prevBtn.classList.add('displayNone')
+              } else {
+                prevBtn.classList.remove('displayNone')
+              }
+
+              if(currentIndex == images.length - 1) {
+                nextBtn.classList.add('displayNone')
+              } else {
+                nextBtn.classList.remove('displayNone')
+              }
+            }
+
             images.forEach((item, index)=>{
                 item.addEventListener('click', () => {
                     currentIndex = index
-                    galleryImg.src = images[currentIndex].src
-                    gallery.classList.add('showGallery')
+                    showGallery()
                 }) 
             })
+
+            
 
             // close gallery
             closeBtn.addEventListener('click', () => {
@@ -101,15 +119,13 @@ listAll(listRef)
             prevBtn.addEventListener('click', () => {
               if(currentIndex > 0) {
                 currentIndex--
-                galleryImg.src = images[currentIndex].src
-                gallery.classList.add('showGallery')
+                showGallery()
               }
             })
             nextBtn.addEventListener('click', () => {
               if(currentIndex < images.length - 1) {
                 currentIndex++
-                galleryImg.src = images[currentIndex].src
-                gallery.classList.add('showGallery')
+                showGallery()
               }
             })
         })
