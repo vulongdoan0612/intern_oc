@@ -69,7 +69,6 @@ const uploadProcess = async () => {
 
             UploadTask.on('state-changed', (snapshot) => {
                 const progess = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                
                 if (progess < 100){
                     exten.innerHTML += imgName + `<span class="status-color-uploading"> uploading</span>` + `<br>`
                 }else if(progess == 100){

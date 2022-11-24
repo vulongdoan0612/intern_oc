@@ -27,11 +27,14 @@ var vLoading = document.querySelector(".lds-heart");
 
 listAll(listRef)
     .then((res) => {
-        res.prefixes.forEach((folderRef) => {
-            // All the prefixes under listRef.
-            // You may call listAll() recursively on them.
+        // res.prefixes.forEach((folderRef) => {
+        //     // All the prefixes under listRef.
+        //     // You may call listAll() recursively on them.
 
-        });
+        // });
+        if(res.length == 0){
+            return 0;
+        }
         res.items.forEach((itemRef) => {
 
             const a = getDownloadURL(itemRef)
@@ -41,6 +44,7 @@ listAll(listRef)
                 //console.log(url)
                 let gridMedia = document.getElementById("show-img")
 
+                const vNameImg = itemRef.name;
                 const vDiv = document.createElement('div')
                 vDiv.className = 'vDiv'
                 vDiv.innerHTML = `<i class="fas fa-times-circle icon-delete"></i><img alt=${itemRef.name} src=${url}>`
@@ -70,9 +74,9 @@ listAll(listRef)
                         let vImg = this.nextSibling;
                         let vSrc = vImg.getAttribute('alt');
                         vOkConfirm.onclick = function () {
-                            console.log(vSrc)
+                            console.log(vNameImg);
                             // Create a reference to the file to delete
-                            const desertRef = ref(storage, "image/" + vSrc);
+                            const desertRef = ref(storage, "image/" + vNameImg);
                             // Delete the file
                             deleteObject(desertRef).then(() => {
                                 //confirm('Delete IMG : ' + vSrc + " ???")
