@@ -132,9 +132,17 @@
       transition: all 0.3s ease;
   }
   #imgPreview {
-    width: 250px;
-    height: auto;
+    text-align: left;
+}
+.btns {
+    text-align: center;
     margin: 20px 0;
+    display: none;
+}
+#imgPreview .imgs {
+    height: 150px;
+    width: auto;
+    margin: 20px 20px 0 0;
 }
   .btn {
     font-size: 20px;
@@ -158,9 +166,6 @@
 
 
 
-.btns {
-    display: none;
-}
 
 
 .displayNone {
@@ -218,14 +223,14 @@ h5 {
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    transform: scale(0.8);
+    /* transform: scale(0.8); */
     transition: 0.5s
 }
 
 .closeBtn {
     position: fixed;
-    top: 50px;
-    right: 50px;
+    top: 8%;
+    right: 8%;
     font-size: 35px;
     transition: 0.2s;
 }
@@ -236,7 +241,7 @@ h5 {
 .prevBtn {
     font-size: 35px;
     position: absolute;
-    left: 50px;
+    left: 8%;
     transition: 0.2s;
 }
 .prevBtn:hover {
@@ -246,7 +251,7 @@ h5 {
 .nextBtn {
     font-size: 35px;
     position: absolute;
-    right: 50px;
+    right: 8%;
     transition: 0.2s;
 }
 .nextBtn:hover {
@@ -255,7 +260,7 @@ h5 {
 }
 .innerGallery {
     width: 70%;
-    height: 90%;
+    height: 80%;
 /*     overflow: hidden; */
 }
 .innerGallery img {
@@ -265,7 +270,7 @@ h5 {
 }
 .showGallery {
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.1);
     pointer-events: auto;
 }
 
@@ -300,7 +305,7 @@ h5 {
     /* display: none; */
     opacity: 0;
     pointer-events: none;
-    transform: scale(0.8);
+    /* transform: scale(0.8); */
     transition: 0.5s
 }
 .popDel {
@@ -309,7 +314,7 @@ h5 {
     border-radius: 5px;
 }
 .popDel__tt {
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: 30px;
 }
 
@@ -325,7 +330,7 @@ h5 {
 .showModal {
 
     opacity: 1;
-    transform: scale(1);
+    transform: scale(1.2);
     pointer-events: auto;
 }
 
@@ -353,3 +358,23 @@ h5 {
       transform: rotate(360deg);
     }
   }
+
+
+  .popOk__is {
+    text-align: center;  
+     padding: 10px 0;
+ }
+ .okBtn {
+     font-size: 20px;
+ }
+
+ .ok__ss {
+    text-align: left;
+    line-height: 30px;
+}
+
+.success {
+    color: blue;
+    float: right;
+    padding-left: 20px;
+}

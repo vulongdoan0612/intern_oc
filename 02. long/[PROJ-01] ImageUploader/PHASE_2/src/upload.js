@@ -1,108 +1,106 @@
 import {getStorage, ref as sRef, uploadBytesResumable, getDownloadURL}
 from "https://www.gstatic.com/firebasejs/9.13.0/firebase-storage.js"
 
-import { getFirestore, doc, setDoc }
-from "https://www.gstatic.com/firebasejs/9.13.0/firebase-firestore.js";
-const clouddb = getFirestore()
-
-
 let files = []
-let reader = new FileReader()
+let FileReaders = []
 
-let exten = document.getElementById('exten')
-let imgPreview = document.getElementById('imgPreview')
-let upprogress = document.getElementById('upprogress')
-let upBtn = document.getElementById('upBtn')
-let clearBtn = document.getElementById('clearBtn')
-let btns = document.querySelector('.btns')
-let input = document.getElementById('img-input')
+const info = document.getElementById('info')
+const imgPreview = document.getElementById('imgPreview')
+const upprogress = document.getElementById('upprogress')
+const upBtn = document.getElementById('upBtn')
+const clearBtn = document.getElementById('clearBtn')
+const btns = document.querySelector('.btns')
+const input = document.getElementById('img-input')
 
 input.onchange = e =>{
+
+    // imgPreview.innerHTML=""
+
     files = e.target.files;
+    let numOfFiles = 0;
+    for (let i=0; i<files.length; i++) {
+        // info.innerHTML += files[i].name + " "
+        FileReaders[i] = new FileReader()
+        console.log(FileReaders[i])
+        FileReaders[i].onload = function() {
+            const img = document.createElement('img')
+            img.classList.add('imgs')
+            img.src= FileReaders[i].result;
+            imgPreview.append(img);
+        }
+        FileReaders[i].readAsDataURL(files[i])
+        numOfFiles ++
+    }
+    info.innerHTML = numOfFiles + " files selected"
 
-    let extention = GetFileExt(files[0])
-    let name = GetFileName(files[0]);
+    btns.style.display="block"
 
-    exten.innerHTML = name + extention
-
-    reader.readAsDataURL(files[0])
-
-    btns.className = "displayBlock"
-}
-
-reader.onload = function() {
-    imgPreview.src = reader.result
-}
-
-
-
-const  GetFileExt = (file)=>{
-    let temp = file.name.split('.')
-    let ext = temp.slice((temp.length - 1),(temp.length))
-    return '.' + ext[0]
-}
-
-const GetFileName = (file)=>{
-    let temp = file.name.split('.')
-    let fname = temp.slice(0,-1).join('.')
-    return fname
 }
 
 // upload lên fisebase
 const uploadProcess = async () => {
-    let imgToUpload = files[0] 
+    if(files.length > 0) {
+        for (var i = 0; i < files.length; i++) {
+            let imgToUpload = files[i]
     
-    let imgName = exten.innerHTML
+            const imgName = files[i].name
+    
+            const metaData = {
+                contentType: imgToUpload.type
+            }
+    
+            const storage = getStorage()
+    
+            const storageRef = sRef(storage, "image/" + imgName)
+    
+            const UploadTask = uploadBytesResumable(storageRef, imgToUpload, metaData)
+            const modal = document.querySelector(".modal")
+            modal.classList.add("showModal")
 
-    const metaData = {
-        contentType: imgToUpload.type
+            const okClick = () => {
+                window.location.reload();
+            }
+            // window.onclick= okClick
+            const okBtn = document.querySelector(".okBtn")
+            okBtn.onclick = okClick
+            UploadTask.on('state-changed', (snapshot) => {
+                let progess = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                let progressF = progess.toFixed()
+                const ok__ld = document.querySelector(".ok__ld")
+                const ok__ss = document.querySelector(".ok__ss")
+                // upprogress.innerHTML = "Upload " + progressF + " %";
+                // ok__tt.innerHTML = "Upload " + progressF + " %";
+                if (progess < 100){
+                    ok__ld.innerHTML = "Uploading " + progressF + " %"
+                }else {
+                    ok__ld.innerHTML =""
+                    ok__ss.innerHTML += imgName + `<span class="success"> uploaded</span>` + `<br>`      
+                }
+
+            },
+                (error) => {
+                    alert("error: image not uploaded")
+                },
+                () => {
+                    getDownloadURL(UploadTask.snapshot.ref).then((downloadURL) => {
+                        console.log(downloadURL)
+                        // SaveURLtoFirestore(downloadURL)
+                    })
+                }
+            );
+        }
+    } else {
+        console.log("chua chon file")
     }
-
-    const storage = getStorage()
-
-    const storageRef = sRef(storage, "image/"+imgName)
-
-    const UploadTask=uploadBytesResumable(storageRef, imgToUpload, metaData)
-
-    UploadTask.on('state-changed', (snapshot) => {
-        let progess = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        let progressF = progess.toFixed()
-        upprogress.innerHTML = "Upload " + progressF + "%"
-    },
-    (error) =>{
-        alert("error: image not uploaded")
-    },
-    ()=> {
-        getDownloadURL(UploadTask.snapshot.ref).then((downloadURL)=>{
-            console.log(downloadURL)
-            SaveURLtoFirestore(downloadURL)
-        })
-    }
-    );
+    
 }
 
-// Firestore database
-
-const SaveURLtoFirestore = async (url) => {
-            var name = GetFileName(files[0]);
-            var ext = exten.innerHTML; 
-
-            var ref = doc(clouddb, "ImageLinks/"+name)
-
-            await setDoc(ref,{
-                ImageName: (name+ext),
-                ImageURL: url
-            })
-        }
 
 upBtn.onclick = uploadProcess
 
 // clear
 const clearImg = () => {
-    imgPreview.src = ""
-    upprogress.innerHTML = ""
-    exten.innerHTML = ""
-    btns.className = "displayNone"
+    window.location.reload();
 }
 clearBtn.onclick = clearImg
 

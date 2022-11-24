@@ -8,8 +8,6 @@ const listRef = ref(storage, 'image');
 
 listAll(listRef)
   .then((res) => {
-    res.prefixes.forEach((folderRef) => {
-    });
     res.items.forEach((itemRef) => {
         // console.log("item-ref: " + itemRef)
 
@@ -18,7 +16,6 @@ listAll(listRef)
         a.then((url) => {
 
             //display all files from firebase
-
             // console.log(url)
             let gridMedia = document.getElementById("gridMedia")
 
@@ -35,12 +32,12 @@ listAll(listRef)
 
             delImg.forEach((e) => {
               e.addEventListener('click', function(){
-                  let sib = this.nextSibling;
+                  const sib = this.nextSibling;
                   const src = sib.getAttribute('src')
                   // console.log(src)
 
                   const storageRef = ref(storage, src)
-                  let fileName = storageRef.name
+                  const fileName = storageRef.name
                   console.log(fileName)
 
                   
@@ -55,6 +52,7 @@ listAll(listRef)
                   }
                   canBtn.addEventListener('click', cancelDelete)
                   modal.addEventListener('click', cancelDelete)
+                  
                   popDel.addEventListener('click', (e)=>{
                     e.stopPropagation()
                   })
@@ -83,13 +81,31 @@ listAll(listRef)
 
             let currentIndex = 0;
 
+            const showGallery = () => {
+              galleryImg.src = images[currentIndex].src
+                    gallery.classList.add('showGallery')
+
+              if(currentIndex == 0) {
+                prevBtn.classList.add('displayNone')
+              } else {
+                prevBtn.classList.remove('displayNone')
+              }
+
+              if(currentIndex == images.length - 1) {
+                nextBtn.classList.add('displayNone')
+              } else {
+                nextBtn.classList.remove('displayNone')
+              }
+            }
+
             images.forEach((item, index)=>{
                 item.addEventListener('click', () => {
                     currentIndex = index
-                    galleryImg.src = images[currentIndex].src
-                    gallery.classList.add('showGallery')
+                    showGallery()
                 }) 
             })
+
+            
 
             // close gallery
             closeBtn.addEventListener('click', () => {
@@ -103,15 +119,13 @@ listAll(listRef)
             prevBtn.addEventListener('click', () => {
               if(currentIndex > 0) {
                 currentIndex--
-                galleryImg.src = images[currentIndex].src
-                gallery.classList.add('showGallery')
+                showGallery()
               }
             })
             nextBtn.addEventListener('click', () => {
               if(currentIndex < images.length - 1) {
                 currentIndex++
-                galleryImg.src = images[currentIndex].src
-                gallery.classList.add('showGallery')
+                showGallery()
               }
             })
         })
