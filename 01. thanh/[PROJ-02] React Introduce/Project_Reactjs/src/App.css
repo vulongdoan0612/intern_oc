@@ -1,0 +1,59 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Header{
+  text-align: center;
+  font-size: 40px;
+  background-color: yellowgreen;
+}
+.Main {
+  display: flex;
+  text-align: center;
+  padding: 30px;
+}
+
+.btns {
+  width: 35%;
+}
+
+.red,.green,.blue {
+  width:40%;
+  height: 42px;
+}
+.red{
+  color: red;
+}
+.green{
+  color: green;
+}
+.blue{
+  color: blue;
+}
+
+.Footer{
+  text-align: center;
+  font-size: 32px;
+  font-weight: 900;
+}
+
+.bg-red{
+  background-color: red;
+  display: flex;
+  text-align: center;
+  padding: 30px;
+}
+.bg-blue{
+  background-color: blue;
+  display: flex;
+  text-align: center;
+  padding: 30px;
+}
+.bg-green{
+  background-color: green;
+  display: flex;
+  text-align: center;
+  padding: 30px;
+}
