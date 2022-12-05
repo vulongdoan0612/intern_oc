@@ -1,6 +1,6 @@
 function MusicPlayer() {
     return (
-        <div>
+        <div className="constainer">
             Music Player
         </div>
     )

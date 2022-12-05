@@ -1,7 +1,11 @@
+import '../assets/css/Main.css'
+
+import TopAlbums from "../components/TopAlbums"
+
 function Home() {
     return (
-        <div className="Home">
-            Home page
+        <div className="constainer">
+            <TopAlbums />
         </div>
     )
 }

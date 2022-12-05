@@ -1,6 +1,8 @@
 import styled from "styled-components"
 import {Link} from 'react-router-dom';
-import '../Main.css';
+import '../assets/css/Main.css';
+
+import SearchBar from './SearchBar'
 
 
 
@@ -11,9 +13,7 @@ function Header() {
           <Link to="/"><img src="/Logo.png"></img></Link>
         </div>
         <div className="headerIn">
-          <div className="search">
-            Search
-          </div>
+          <SearchBar />
           <div className="userLogin">
             User Name
           </div>
@@ -47,12 +47,12 @@ const StyledHeader = styled.div`
       display: flex;
       justify-content: space-between;
   }
-  .search {
+  /* .search {
     width: 364px;
     height: 40px;
     background-color: #fff;
     color: #000;
-  }
+  } */
   .userLogin {
     width: 40px;
     height: 40px;

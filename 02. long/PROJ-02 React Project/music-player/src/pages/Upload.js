@@ -1,6 +1,6 @@
 function Upload() {
     return (
-        <div>
+        <div className="constainer"> 
             Upload Page
         </div>
     )

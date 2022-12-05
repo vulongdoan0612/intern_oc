@@ -1,6 +1,6 @@
 function User() {
     return (
-        <div>
+        <div className="constainer">
             User page
         </div>
     )
