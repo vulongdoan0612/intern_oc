@@ -22,7 +22,7 @@
 }
 
 .react-tabs__tab {
-  font-size: 30px;
+  font-size: 20px;
   width: 20%;
   text-align: center;
 }
@@ -46,16 +46,22 @@
 }
 
 .keypad {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-rows: minmax(60px, auto);
+  text-align: center;
+  max-width: 864px;
+  margin: auto;
 }
 
-.keypad button{
+.keypad button {
   font-size: 25px;
+  width: 25%;
+  padding: 20px;
+}
+
+.last-result {
+  font-size: 20px;
 }
 
 .method {
-  font-size: 25px;
+  font-size: 40px;
   font-weight: 700;
 }
