@@ -6,9 +6,7 @@ import 'react-tabs/style/react-tabs.css';
 function Main() {
     const [result, setResult] = useState("");
     const [result1, setResult1] = useState("");
-    const [result2, setResult2] = useState("");
 
-    //const result1 = document.querySelector(".last-result");
 
     const clearClick = () => {
         setResult("");
@@ -33,17 +31,9 @@ function Main() {
             setResult("Error")
         }
 
-        setResult2(result1 + " = " + result)
 
-        const vDivHistory = document.getElementById("history");
-
-        const vHistoryResult = React.createElement("p", { result2 })
-
-        vDivHistory.append(vHistoryResult);
     }
-    const vDivHistory = document.getElementById("history");
 
-    vDivHistory.innerHTML += `abc`;
 
     return (
 
@@ -57,8 +47,8 @@ function Main() {
                 <TabPanel>
                     <div className='content'>
                         <div className='result'>
-                            <span id="last-result" className='last-result'>{result1}</span>
-                            <span className='method'>{result}</span>
+                            <div id="last-result" className='last-result'>{result1}</div>
+                            <div className='method'>{result}</div>
                         </div>
 
                         <div className='keypad'>
