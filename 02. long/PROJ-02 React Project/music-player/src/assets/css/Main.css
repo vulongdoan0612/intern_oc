@@ -18,8 +18,8 @@ body {
 }
 
 .constainer {
-    width: calc(100% - 410px);
+    width: calc(100% - 360px);
     /* background: #333; */
     margin-left: auto;
-    padding: 30px;
+    padding:20px 30px 30px 30px;
 }

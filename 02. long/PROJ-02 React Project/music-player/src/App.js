@@ -3,8 +3,8 @@ import './App.css';
 import Home from './pages/Home'
 import User from './pages/User'
 import Upload from './pages/Upload'
-import Sidebar from './components/Sidebar'
-import Header from './components/Header'
+import Sidebar from './components/Sidebar/Sidebar'
+import Header from './components/Header/Header'
 
 function App() {
   return (
