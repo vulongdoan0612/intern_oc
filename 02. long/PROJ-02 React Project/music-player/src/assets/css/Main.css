@@ -12,7 +12,7 @@
     margin: 0;
 }
 body {
-    background: #333;
+    background: #121212;
     color: #fff;
     font-family: Grandstander;
 }
@@ -21,5 +21,19 @@ body {
     width: calc(100% - 360px);
     /* background: #333; */
     margin-left: auto;
-    padding:20px 30px 30px 30px;
+    padding:20px 30px 90px 30px;
+}
+
+.playerFooter {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    background: #333;
+    padding: 5px 30px;
+    height: 90px;
+
 }

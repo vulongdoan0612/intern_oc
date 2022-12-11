@@ -13,7 +13,7 @@ import ab6 from "../../assets/album-cover/ab6.jpg"
 function TopAlbums() {
 
     const settings = {
-        dots: true,
+        dots: false,
         infinite: false,
         speed: 500,
         slidesToShow: 5,

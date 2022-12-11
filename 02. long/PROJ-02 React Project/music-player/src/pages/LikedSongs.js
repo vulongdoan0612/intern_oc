@@ -1,16 +1,14 @@
 import '../assets/css/Main.css'
 
-import TopAlbums from "../components/TopAlbums/TopAlbums"
 import HomePlaylist from "../components/HomePlaylist/HomePlaylist"
 
 
-function Home() {
+function LikedSongs() {
     return (
         <div className="constainer">
-            <TopAlbums />
             <HomePlaylist />
         </div>
     )
 }
 
-export default Home
+export default LikedSongs

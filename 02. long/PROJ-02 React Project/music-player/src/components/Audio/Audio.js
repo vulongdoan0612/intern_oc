@@ -22,7 +22,6 @@ const Audio = ( props,ref) => {
         setCurrentTime(time) {
             playerRef.current.currentTime = time;
         }
-
     }))
 
     return  (

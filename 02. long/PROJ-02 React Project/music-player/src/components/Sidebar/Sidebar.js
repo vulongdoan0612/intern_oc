@@ -19,7 +19,7 @@ function Sidebar() {
                     <Link to="/upload"><i className="fas fa-upload"></i> Upload</Link>
                 </div>
                 <div>
-                    <Link to="/upload"><i className="fas fa-upload"></i> Liked songs</Link>
+                    <Link to="/liked-song"><i className="fas fa-upload"></i> Liked songs</Link>
                 </div>
             </nav>
         </StyledSidebar>

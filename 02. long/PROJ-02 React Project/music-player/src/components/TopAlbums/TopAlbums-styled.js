@@ -3,7 +3,8 @@ import styled from "styled-components"
 export const SlideAlbums = styled.div`
     .topTitle {
     font-size: 21px;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    color: #b3b3b3;
     }
     .abItem {
         display: inline-block;
