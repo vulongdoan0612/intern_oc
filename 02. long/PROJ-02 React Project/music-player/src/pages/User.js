@@ -1,7 +1,9 @@
+import HomePlaylist from "../components/HomePlaylist/HomePlaylist"
+
 function User() {
     return (
         <div className="constainer">
-            User page
+            <HomePlaylist />
         </div>
     )
 }
