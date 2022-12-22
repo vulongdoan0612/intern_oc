@@ -6,14 +6,29 @@ import 'react-tabs/style/react-tabs.css';
 function Main() {
     const [result, setResult] = useState("");
     const [result1, setResult1] = useState("");
+    const [resultHistory, setResultHistory] = useState([]);
+    const [state,setState] = useState({
+        total: null,
+        next : null,
+        operation : null,
+    });
+
 
 
     const clearClick = () => {
         setResult("");
+        setResult1("");
     }
 
     const handleClick = (e) => {
-        setResult(result.concat(e.target.name));
+        // setResult(result.concat(e.target.name));
+        const value = e.target.name;
+        if(value === "." && result.includes(".")) return;
+
+        
+        setResult(result + value);
+        
+ 
     }
 
     const backspace = () => {
@@ -25,7 +40,11 @@ function Main() {
         setResult1(result);
         try {
             setResult(eval(result).toString());
-
+            const newHistory = [...resultHistory];
+            newHistory.push(`${result} = ${eval(result).toString()}`);
+            setResultHistory(newHistory);
+            setResult1(result + " = " + eval(result).toString());
+            setResult("")
 
         } catch (err) {
             setResult("Error")
@@ -77,7 +96,11 @@ function Main() {
 
                 </TabPanel>
                 <TabPanel>
-                    <div id="history" className='history'>{result1} = {result}</div>
+                    <div id="history" className='history'>
+                        {resultHistory.map((item) => (
+                            <div>{item}</div>
+                        ))}
+                        </div>
                 </TabPanel>
             </Tabs>
         </div>
