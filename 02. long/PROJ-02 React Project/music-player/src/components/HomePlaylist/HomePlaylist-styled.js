@@ -5,7 +5,7 @@ export const HomePlaylistStyled = styled.div`
     margin-top: 60px;;
 
     width: 70%;
-    border-right: 1px solid #fff;
+    border-right: 1px solid #b3b3b3;
     padding-right: 20px;
 
 

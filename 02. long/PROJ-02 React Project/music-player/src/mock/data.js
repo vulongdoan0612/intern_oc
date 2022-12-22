@@ -3,7 +3,7 @@ export const SONG_LIST = [
         id: 1,
         name: 'Blank Space',
         artist: 'Taylor Swift',
-        audio: 'https://www.bensound.com/bensound-music/bensound-slowmotion.mp3',
+        audio: 'https://www.bensound.com//bensound-music/bensound-sunny.mp3',
         img: 'https://upload.wikimedia.org/wikipedia/vi/7/7c/Taylor_Swift_-_Blank_Space_%28Official_Single_Cover%29.png',
         duration: '5:02',
         lyrics: 'Look at the stars Look how they shine for you And everything you do Yeah, they were all yellow I came along I wrote a song for you '

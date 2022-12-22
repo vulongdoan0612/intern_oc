@@ -4,6 +4,8 @@ import '../../assets/css/Main.css';
 import './Header-styled.js'
 import {StyledHeader} from './Header-styled'
 import SearchBar from '../SearchBar/SearchBar';
+import UserLogin from '../UserLogin/UserLogin';
+
 
 
 
@@ -16,9 +18,7 @@ function Header() {
         </div>
         <div className="headerIn">
           <SearchBar />
-          <div className="userLogin">
-            User Name
-          </div>
+          <UserLogin />
         </div>
     </StyledHeader>
   );

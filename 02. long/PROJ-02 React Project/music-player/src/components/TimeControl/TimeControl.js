@@ -24,7 +24,7 @@ export default function TimeControl({
                 <button onClick={playOrPause} className="play current-btn">
                     {
                         (pause.p) ? <i className="fas fa-play"></i>
-                            : <i class="fas fa-pause"></i>
+                            : <i className="fas fa-pause"></i>
                     }
                 </button>
                 {
@@ -39,10 +39,13 @@ export default function TimeControl({
                     <div  className="hover-playhead" data-content="0:00"></div>
                 </div>
                 {
-                    currentSong.duration && <div className="end-time">{currentSong.duration}</div>
+                    currentSong && currentSong.duration && <div className="end-time">{currentSong ? currentSong.duration : 0}</div>
                 }
             </div>
         </TimeControlStyled>
     )
 }
+
+
+
 

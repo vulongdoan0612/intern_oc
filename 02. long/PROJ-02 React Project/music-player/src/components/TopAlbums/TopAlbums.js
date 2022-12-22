@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 import '../../assets/css/Main.css';
 import {SlideAlbums} from './TopAlbums-styled'
+
 import ab1 from "../../assets/album-cover/ab1.jpg"
 import ab2 from "../../assets/album-cover/ab2.jpg"
 import ab3 from "../../assets/album-cover/ab3.jpg"
@@ -10,8 +11,40 @@ import ab4 from "../../assets/album-cover/ab4.jpg"
 import ab5 from "../../assets/album-cover/ab5.jpg"
 import ab6 from "../../assets/album-cover/ab6.jpg"
 
-function TopAlbums() {
+const topAlbums = [
+    {
+        name: 'Album 1',
+        artist: 'Artist 1',
+        image: ab1,
+    },
+    {
+        name: 'Album 2',
+        artist: 'Artist 2',
+        image: ab2,
+    },
+    {
+        name: 'Album 3',
+        artist: 'Artist 3',
+        image: ab3,
+    },
+    {
+        name: 'Album 4',
+        artist: 'Artist 4',
+        image: ab4,
+    },
+    {
+        name: 'Album 5',
+        artist: 'Artist 5',
+        image: ab5,
+    },
+    {
+        name: 'Album 6',
+        artist: 'Artist 6',
+        image: ab6,
+    },
+]
 
+const TopAlbums=()=> {
     const settings = {
         dots: false,
         infinite: false,
@@ -24,53 +57,24 @@ function TopAlbums() {
         <SlideAlbums>
             <div className="topTitle">Featured albums</div>
             <Slider {...settings}>
-                <div className="abItem">
-                    <Link to="/">
-                        <div className="abCover"><img src={ab1}></img></div>
-                        <div className="abName">Memories... Do Not Open</div>
-                        <div className="abArtist">The Chainsmokers</div>
-                    </Link>
-                </div>
-                <div className="abItem">
-                    <Link to="/">
-                        <div className="abCover"><img src={ab2}></img></div>
-                        <div className="abName">Meteora </div>
-                        <div className="abArtist">Linkin Park</div>
-                    </Link>
-                </div>
-                <div className="abItem">
-                    <Link to="/">
-                        <div className="abCover"><img src={ab3}></img></div>
-                        <div className="abName">Mylo Xyloto</div>
-                        <div className="abArtist">Coldplay</div>
-                    </Link>
-                </div>
-                <div className="abItem">
-                    <Link to="/">
-                        <div className="abCover"><img src={ab4}></img></div>
-                        <div className="abName">Pure Heroine</div>
-                        <div className="abArtist">Lorde</div>
-                    </Link>
-                </div>
-                <div className="abItem">
-                    <Link to="/">
-                        <div className="abCover"><img src={ab5}></img></div>
-                        <div className="abName">X</div>
-                        <div className="abArtist">Ed Sherran</div>
-                    </Link>
-                </div>
-                <div className="abItem">
-                    <Link to="/">
-                        <div className="abCover"><img src={ab6}></img></div>
-                        <div className="abName">Young Heath</div>
-                        <div className="abArtist">Birdy</div>
-                    </Link>
-                </div>
+                {topAlbums.map((item, index)=>(
+                    <Album prop={item} index={index} image={item.image} artist={item.artist} name={item.name}/>
+                ))}
             </Slider>
         </SlideAlbums>
     )
 }
 
-
+const Album=({image, name, artist})=>{
+    return (
+        <div className="abItem">
+            <Link to="/">
+                <div className="abCover"><img src={image}></img></div>
+                <div className="abName">{name}</div>
+                <div className="abArtist">{artist}</div>
+            </Link>
+        </div>
+    )
+}
 
 export default TopAlbums

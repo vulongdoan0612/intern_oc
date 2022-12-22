@@ -6,7 +6,7 @@ import HomePlaylist from "../components/HomePlaylist/HomePlaylist"
 function LikedSongs() {
     return (
         <div className="constainer">
-            <HomePlaylist />
+            {/* <HomePlaylist /> */}
         </div>
     )
 }

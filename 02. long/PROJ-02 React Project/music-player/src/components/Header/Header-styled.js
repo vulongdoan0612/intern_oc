@@ -31,11 +31,5 @@ export const StyledHeader = styled.div`
     background-color: #fff;
     color: #000;
   } */
-  .userLogin {
-    width: 40px;
-    height: 40px;
-    background-color: #fff;
-    color: #000;
-    border-radius: 100px;
-  }
+
 `

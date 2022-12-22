@@ -32,9 +32,18 @@ export const TimeControlStyled = styled.div`
     .controls {
         text-align: center;
         margin-bottom: 10px;
+        
     }
     .controls button {
-        margin: 0 10px;
+        margin: 0 15px;
+        cursor: pointer;
+        background: none;
+        border: none;
+    }
+
+    .controls button i {
+        font-size: 24px;
+        color: #fff;
     }
 
   

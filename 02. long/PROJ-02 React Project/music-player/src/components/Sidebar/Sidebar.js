@@ -13,7 +13,7 @@ function Sidebar() {
                     <Link to="/"><i className="fas fa-home"></i> Home</Link>
                 </div>
                 <div>
-                    <Link to="/user"><i className="fas fa-home"></i> User</Link>
+                    <Link to="/user"><i className="fas fa-home"></i> All Songs</Link>
                 </div>
                 <div>
                     <Link to="/upload"><i className="fas fa-upload"></i> Upload</Link>
@@ -21,6 +21,7 @@ function Sidebar() {
                 <div>
                     <Link to="/liked-song"><i className="fas fa-upload"></i> Liked songs</Link>
                 </div>
+
             </nav>
         </StyledSidebar>
     );
