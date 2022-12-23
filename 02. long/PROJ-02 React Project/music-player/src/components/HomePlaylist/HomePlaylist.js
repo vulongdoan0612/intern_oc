@@ -11,6 +11,9 @@ import SongInfo from "../SongInfo/SongInfo"
 import TimeControl from "../TimeControl/TimeControl"
 import { collection, getDocs } from "firebase/firestore"
 import { db } from "../../firebase"
+import NewSongs from "../NewSongs/NewSongs";
+
+
 
 const musicList = SONG_LIST
 
@@ -18,7 +21,7 @@ const HomePlaylist = () => {
   const [index, setIndex] = useState(3)
   const [currentTime, setCurrentTime] = useState("0:00")
   const [listSong, setListSong] = useState([])
-  const [listRender, setListRender] = useState([])
+  const [listRandom, setListRandom] = useState([])
   const [pause, setPause] = useState({ p: true })
   const playerRef = useRef()
   const timelineRef = useRef()
@@ -107,9 +110,20 @@ const HomePlaylist = () => {
 
   useEffect(() => {
     const listData = getRandomObject(listSong)
-    setListRender(listData);
+    setListRandom(listData);
 
   }, [listSong])
+
+  // xắp xếp thep thứ tự 
+  const orderListSong = listSong
+    orderListSong.sort(function(y, x){
+      return x.timestamp - y.timestamp;
+  })
+
+  //giới hạn 5 phần bài hát
+  const orderListSongCut = orderListSong.slice(0, 5);
+
+  
   return (
     <>
       <div
@@ -137,17 +151,17 @@ const HomePlaylist = () => {
         />
       </div>
 
-      <HomePlaylistStyled>
+        <HomePlaylistStyled>
           <div className="play-list">
-            <div className="title">Songs</div>
-            {listSong.length > 0
-              ? listSong.map((music, key = 0, index) => (
+            <div className="title">Random Songs</div>
+            {listRandom.length > 0
+              ? listRandom.map((music, key = 0, index) => (
                   <div
                     key={key}
                     onClick={() => clickAudio(key)}
                     className="track"
                   >
-                    <img className="track-img" src={music.urlImage} />
+                    <div className="track-img"><img src={music.urlImage} /></div>
 
                     <div className="track-discr">
                       <Link to={"/song/" + music.id}>
@@ -164,6 +178,8 @@ const HomePlaylist = () => {
               : null}
           </div>
         </HomePlaylistStyled>
+
+        <NewSongs listSong={orderListSongCut ? orderListSongCut : []} clickAudio={clickAudio} />
     </>
   );
 };

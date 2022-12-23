@@ -40,6 +40,7 @@ function UploadSong() {
             duration,
             id: Math.random().toString(),
             urlMp3,
+            timestamp: Date.now(),
           })
         }
       }).then(() => {
@@ -68,7 +69,7 @@ function UploadSong() {
               <input
                 className='choose-file'
                 type="file"
-                accept="audio/mpeg3"
+                accept="audio/mp3"
                 onChange={(e) => setMp3(e.target.files)}
               />
             </div>

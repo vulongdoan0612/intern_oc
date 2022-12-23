@@ -2,11 +2,12 @@ import styled from "styled-components"
 
 export const HomePlaylistStyled = styled.div`
 
-    margin-top: 60px;;
+    margin-top: 60px;
 
-    width: 70%;
+    width: 60%;
     border-right: 1px solid #b3b3b3;
     padding-right: 20px;
+    float: left;
 
 
     .title {
@@ -18,6 +19,7 @@ export const HomePlaylistStyled = styled.div`
     }
     .track  {
         height:  110px;
+        
         display: flex;
         align-items: center;
         position: relative;
@@ -26,9 +28,17 @@ export const HomePlaylistStyled = styled.div`
     }
     .track:hover {
         background: #2e2e2e;
+        transition: ease-in 0.2s;
+    }
+    .track-img {
+        width: 70px;
+        height: 100%;
+        overflow: hidden;
     }
     .track img {
         height: 100%;
+        width: 100%;
+        object-fit:cover;
     }
 
     .track-discr {
@@ -64,11 +74,13 @@ export const HomePlaylistStyled = styled.div`
         font-size: 15px;
         position: absolute;
         left: 50%;
-        display: none;
+        opacity: 0;
         cursor: pointer;
+        transition: ease-in 0.2s;
+
     }
     .track:hover .hover-play {
-        display: block;
+        opacity: 1;
     }
     
   
