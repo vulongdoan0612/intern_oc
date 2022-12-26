@@ -1,5 +1,11 @@
-import React from 'react'
+import { useState } from "react"
 import {TimeControlStyled} from "./TimeControl-style"
+
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import Slider from "@mui/material/Slider";
+import VolumeDown from "@mui/icons-material/VolumeDown";
+import VolumeUp from "@mui/icons-material/VolumeUp";
 
 export default function TimeControl({ 
     currentTime, 
@@ -10,10 +16,17 @@ export default function TimeControl({
     pause, 
     nextSong, 
     currentSong, 
-    playheadRef
+    playheadRef,
+    changeVolume,
 }) 
-
 {
+
+    const [value, setValue] = useState(30);
+
+    const handleChange = (event, newValue) => {
+        changeVolume(newValue)
+        setValue(newValue);
+    };
     return (
         <TimeControlStyled>
             <div className="controls">
@@ -32,15 +45,37 @@ export default function TimeControl({
                 }
             </div>
 
-            <div className="time">
-                <div className="current-time">{currentTime}</div>
-                <div ref={timelineRef} id="timeline" onClick={changeCurrentTime}  >
-                    <div ref={playheadRef} id="playhead"></div>
-                    <div  className="hover-playhead" data-content="0:00"></div>
+            
+
+            <div className="container-action">
+                
+                <div className="time">
+                    <div className="current-time">{currentTime}</div>
+                    <div ref={timelineRef} id="timeline" onClick={changeCurrentTime}  >
+                        <div ref={playheadRef} id="playhead"></div>
+                        <div  className="hover-playhead" data-content="0:00"></div>
+                    </div>
+                    {
+                        currentSong && currentSong.duration && <div className="end-time">{currentSong ? currentSong.duration : 0}</div>
+                    }
                 </div>
-                {
-                    currentSong && currentSong.duration && <div className="end-time">{currentSong ? currentSong.duration : 0}</div>
-                }
+
+                <Box sx={{ width:180 }}>
+                    <Stack
+                        spacing={2}
+                        direction="row"
+                        sx={{ mb: 1 }}
+                        alignItems="center"
+                    >
+                        <VolumeDown />
+                            <Slider
+                                aria-label="Volume"
+                                value={value}
+                                onChange={handleChange}
+                            />
+                        <VolumeUp />
+                    </Stack>
+                </Box>
             </div>
         </TimeControlStyled>
     )

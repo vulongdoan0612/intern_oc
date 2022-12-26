@@ -120,9 +120,14 @@ const HomePlaylist = () => {
       return x.timestamp - y.timestamp;
   })
 
-  //giới hạn 5 phần bài hát
+  //giới hạn 5 bài hát
   const orderListSongCut = orderListSong.slice(0, 5);
 
+
+  const changeVolume = (value) => {
+    playerRef.current.volume = value / 100
+    console.log(`Volume: ${playerRef.current.volume}`)
+  }
   
   return (
     <>
@@ -148,6 +153,7 @@ const HomePlaylist = () => {
           playOrPause={playOrPause}
           playheadRef={playheadRef}
           timelineRef={timelineRef}
+          changeVolume={changeVolume}
         />
       </div>
 

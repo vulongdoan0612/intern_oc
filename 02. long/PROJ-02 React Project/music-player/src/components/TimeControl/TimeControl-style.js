@@ -27,7 +27,7 @@ export const TimeControlStyled = styled.div`
     .time {
         display: flex;
         align-items: center;
-        
+        width: calc(100% - 200px)
     }
     .controls {
         text-align: center;
@@ -45,6 +45,9 @@ export const TimeControlStyled = styled.div`
         font-size: 24px;
         color: #fff;
     }
-
-  
+    .container-action {
+        display: flex;
+        justify-content: space-between;
+    }
+    
 `
