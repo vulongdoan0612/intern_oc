@@ -3,8 +3,8 @@ let dom_reset = document.querySelector("#reset");
 let dom_score = document.querySelector("#score");
 let dom_canvas = document.createElement("canvas");
 let dom_modal = document.querySelector("#Modal");
-let dom_btnYes = document.querySelector(".btnYes");
-let dom_btnNo = document.querySelector(".btnNo");
+let dom_btnYes = document.querySelector("#btnYes");
+let dom_btnNo = document.querySelector("#btnNo");
 let dom_menus = document.querySelector(".menus");
 let dom_tickets = document.querySelector("#tickets");
 let dom_replay = document.querySelector("#replay");
@@ -15,6 +15,7 @@ let CTX = dom_canvas.getContext("2d");
 console.log(CTX);
 
 window.localStorage.setItem("tickets", 3);
+window.sessionStorage.setItem("maxScore", 0);
 
 const W = (dom_canvas.width = 600);
 const H = (dom_canvas.height = 600);
