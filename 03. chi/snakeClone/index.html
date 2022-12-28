@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Snake</title>
+    <script
+      defer
+      src="https://pro.fontawesome.com/releases/v5.10.0/js/all.js"
+      integrity="sha384-G/ZR3ntz68JZrH4pfPJyRbjW+c0+ojii5f+GYiYwldYU69A+Ejat6yIfLSxljXxD"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <div class="container noselect">
+      <div class="wrapper">
+        <div class="menus">
+          <div class="menu">
+            <button class="button btnActive" id="start">
+              <i class="fas fa-play"></i>
+              Start
+            </button>
+          </div>
+
+          <button class="button" id="replay">RePlay</button>
+        </div>
+        <div class="play-container">
+          <div class="information">
+            <div id="ui">
+              <div class="info-wrapper">
+                <h2>SCORE</h2>
+                <span class="number" id="score">00</span>
+              </div>
+              <div class="info-wrapper">
+                <h2>MAX CORE</h2>
+                <span class="number" id="maxCore">00</span>
+              </div>
+            </div>
+            <div class="info-wrapper">
+              <h2>TICKETS</h2>
+              <span class="number" id="tickets">00</span>
+            </div>
+            <!-- <button class="button btnActive" id="reset">reset</button> -->
+          </div>
+          <div id="canvas"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- modal -->
+
+    <div id="Modal" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <span>Bạn có muốn dùng 1 lược để chơi ? </span>
+          <div class="btnWrapper">
+            <button class="btn btnYes">Yes</button>
+            <button class="btn btnNo">No</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- partial -->
+    <script src="./script.js"></script>
+  </body>
+</html>
