@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/main.css">
+    <link rel="stylesheet" href="./assets/themify-icons/themify-icons.css">
+</head>
+<body>
+    <div id="root">
+        <h1>TETRIS</h1>
+        <div class="main">
+            <div class="mid">
+                <div id="screen"></div>
+            </div>
+            
+            <div class="right">
+                
+                <div class="align-enter">
+                    <label>Your score: </label><div id="score">0</div>
+                </div>
+                <div class="align-enter">
+                    <label>High score: </label><div id="high-score">0</div>
+                </div>
+
+                <div id="preview-screen"></div>
+                <button id="start">Play</button>
+                <div class="guide">
+                    <i class="ti-arrow-circle-up"></i> <i class="ti-arrow-circle-right"></i> <i class="ti-arrow-circle-down"></i> <i class="ti-arrow-circle-left"></i>
+                </div>
+                <p>Ăn cắp by <a href="/" target="_blank">Long</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- start game modal -->
+    <div class="modal showModal start-modal">
+        <div class="pop">
+            <h1>TETRIS</h1>
+            <div class="pop__tt">Bạn có <span class="tickets">0</span> lượt chơi</div>
+            <div class="pop__btn">
+                <button class="btn playNow__btn">Play Now</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- restart game modal -->
+    <div class="modal restart-modal">
+        <div class="pop">
+            <div class="pop_re">
+                <div class="scoreM">
+                    <div class="align-enter">
+                        <label>Your score: </label><div id="score-pop">0</div>
+                    </div>
+                    <div class="align-enter">
+                        <label>High score: </label><div id="high-score-pop">0</div>
+                    </div>
+                </div>
+                <div class="pop__tt">Bạn còn <span class="tickets-left">0</span> lượt chơi.</div>
+                <div class="pop__btn">
+                    <button class="btn rePlay__btn">Replay Now ?</button>
+                </div>
+            </div>
+            <div class="warn">
+                <div class="pop__tt">
+                    Hết lượt chơi free, vui lòng mua thêm lượt chơi. <br/>(15.000 vnd / 3 lượt)
+                </div>
+                <div class="pop__btn">
+                    <button class="btn buy">Mua ngay</button>
+                    <button class="btn cancer">Thoát</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="main.js"></script>
+
+</html>
