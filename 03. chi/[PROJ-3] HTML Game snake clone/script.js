@@ -9,6 +9,9 @@ let dom_menus = document.querySelector(".menus");
 let dom_tickets = document.querySelector("#tickets");
 let dom_replay = document.querySelector("#replay");
 let dom_maxCore = document.querySelector("#maxCore");
+let dom_notification = document.querySelector("#notification");
+let dom_notificationYes = document.querySelector("#notificationYes");
+let dom_notificationNo = document.querySelector("#notificationNo");
 document.querySelector("#canvas").appendChild(dom_canvas);
 let CTX = dom_canvas.getContext("2d");
 
@@ -391,7 +394,6 @@ const gameOver = () => {
   CTX.font = "15px Poppins, sans-serif";
   CTX.fillText(`SCORE   ${score}`, W / 2, H / 2 + 10);
   CTX.fillText(`MAXSCORE   ${maxScore}`, W / 2, H / 2 + 30);
-
   dom_replay.classList.add("btnActive");
 };
 
@@ -414,6 +416,7 @@ const replay = () => {
   isGameOver = false;
 };
 
+//handle modal tickets
 const handleShowModal = () => {
   dom_modal.style.display = "block";
 };
@@ -428,23 +431,36 @@ dom_btnYes.addEventListener("click", () => {
     decreaseTickets();
     initialize();
     dom_modal.style.display = "none";
-  } else {
-    alert(
-      "Bạn đã hết lược chơi. Vui lòng tải lại page để nhận thêm lược chơi mới."
-    );
   }
 });
 
+//handles play game
 dom_start.addEventListener("click", () => {
-  dom_start.classList.remove("btnActive");
-  handleShowModal();
+  if (tickets > 0) {
+    dom_start.classList.remove("btnActive");
+    handleShowModal();
+  } else {
+    dom_notification.style.display = "block";
+  }
 });
 
 dom_replay.addEventListener("click", () => {
-  dom_replay.classList.remove("btnActive");
-  handleShowModal();
-  replay();
+  if (tickets > 0) {
+    dom_replay.classList.remove("btnActive");
+    handleShowModal();
+    replay();
+  } else {
+    dom_notification.style.display = "block";
+  }
 });
+
+//handle modal notification
+dom_notificationNo.addEventListener("click", () => {
+  dom_notification.style.display = "none";
+});
+
+dom_notificationYes.addEventListener("click", () => {});
+
 dom_tickets.innerText = tickets.toString();
 dom_maxCore.innerText = maxScore.toString();
 
