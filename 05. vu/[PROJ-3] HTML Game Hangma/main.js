@@ -57,7 +57,8 @@ if (playAgainBoolean === true) {
 }
 var score = 0;
 var highScore = 0;
-var token = 0;
+var token = 3;
+
 const displayHighscore = function (highest) {
   document.querySelector("#highScore").innerHTML = highest;
 };
@@ -142,7 +143,7 @@ lettersClick.addEventListener("click", (e) => {
 
       lettersContainer.classList.add("finished");
       if (tokenMinus < 1) {
-        alert("Het luot roi di subcrise đi");
+        alert("Bạn đã hết lượt, hãy đăng ký kênh để nhận thêm token");
       }
     }
     if (wrongTime == 1) {
@@ -184,7 +185,7 @@ playAgain.addEventListener("click", (e) => {
   let letter = document.querySelector(".letters");
 
   if (token < 1) {
-    alert("sao còn chưa đi nữa v ? chơi gì nữa");
+    alert("Bạn đã hết token. Hãy Donate để chơi tiếp");
     letter.classList.add(".finished");
   }
 });
@@ -193,7 +194,7 @@ let letter = document.querySelector(".letters");
 
 if (token3 < 1) {
   console.log("true");
-  alert("sao còn chưa đi nữa v ? chơi gì nữa");
+  alert("Bạn không còn token nào hết. Hãy Donate để tiếp tục");
   letter.classList.add("move");
 }
 let donateButton = document.querySelector("#donate");
@@ -211,7 +212,6 @@ donateBtn.addEventListener("click", () => {
   let tokenPlus2 = localStorage.getItem("token");
   tokenPlus2++;
   localStorage.setItem("token", tokenPlus2);
-  alert("Cám ơn bạn đã donate, Token + 1");
+  alert("Cám ơn bạn đã Donate, Token + 1");
   location.reload();
 });
-
