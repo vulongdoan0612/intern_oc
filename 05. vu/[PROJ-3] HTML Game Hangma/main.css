@@ -354,6 +354,17 @@
   opacity: 1;
 }
 .closeWin {
+    color:black;
+    border:0;
+    outline: none;
+    border-radius: 2px;
+  opacity: 1;
+}
+.nextGame{
+    color:black;
+    border:0;
+    outline: none;
+    border-radius: 2px;
   opacity: 1;
 }
 .letter-box:hover {
