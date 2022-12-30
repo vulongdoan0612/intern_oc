@@ -127,19 +127,28 @@ cloudImageArray.push(
   cloud14
 );
 
+// modify
+let modalToken = document.getElementById("modal-token");
+let testDisplay = document.getElementById("test");
+let test2Display = document.getElementById("test2");
+let btnPlay = document.getElementById("btn-play");
+let btnPlayAgain = document.getElementById("play-again");
+let tokenDisplay = document.getElementById("token-display");
+if (localStorage.getItem("token") || localStorage.getItem("token") == 0) {
+  localStorage.setItem("token", 2);
+}
+
+setInterval(() => {
+  tokenDisplay.textContent = localStorage.getItem("token");
+}, 100);
 // storage
-let token = 5;
-sessionStorage.setItem("token", token);
-let tokenSession = document.getElementById("token");
-tokenSession.textContent = sessionStorage.getItem("token");
-let tokenEndSession = document.getElementById("token-end");
 
 let modal = document.getElementById("modal");
 
 let gameEndedModal = document.getElementById("modal-game-ended");
 
 let endScore = document.getElementById("score");
-let highscore = document.getElementById("highscore");
+let highScore = document.getElementById("highscore");
 
 window.addEventListener("resize", function () {
   canvas.width = window.innerWidth;
@@ -159,8 +168,10 @@ document.addEventListener("keypress", function (e) {
     sequenceUsage();
   }
 });
+// modify
 
 canvas.addEventListener("click", function () {
+  console.log("click");
   if (firstClick === false) {
     firstClick = true;
   }
@@ -178,15 +189,15 @@ canvas.addEventListener("click", function () {
   console.log(casting, "CHANGE");
 });
 
-modal.addEventListener("click", function () {
-  infoModal = false;
-  token = token - 1;
-  sessionStorage.setItem("token", token);
-});
-
-modal.addEventListener("keypress", function () {
+// modify
+btnPlay.addEventListener("click", function () {
+  localStorage.setItem("token", localStorage.getItem("token") - 1);
   infoModal = false;
 });
+// delete
+// modal.addEventListener("keypress", function () {
+//   infoModal = false;
+// });
 
 function Cloud(x, y, xVelocity, image) {
   this.x = x;
@@ -437,44 +448,56 @@ function sequenceUsage() {
 }
 
 function gameTimer() {
+  let token = localStorage.getItem("token");
   var sec = 00;
   timer = true;
   let interval = setInterval(function () {
+    // modify
     if (sec == 00) {
-      sec = 59;
+      sec = 10;
     }
     sec--;
     time = sec;
     if (sec === 0) {
       timer = false;
+
       // open game over modal
+      // modify
       endScore.textContent = score.toString();
       if (score > sessionStorage.getItem("highScore")) {
         sessionStorage.setItem("highScore", score);
       }
-      highscore.textContent = sessionStorage.getItem("highScore");
+
+      highScore.textContent = sessionStorage.getItem("highScore");
+      test2Display.style.visibility = "visible";
+      test2Display.style.display = "block";
       gameEndedModal.style.visibility = "visible";
+      gameEndedModal.style.display = "block";
+
       gameEnded = true;
       sequence = [];
       sequenceUsage();
-      setTimeout(() => {
-        gameEndedModal.addEventListener("click", function () {
-          token = token - 1;
-          sessionStorage.setItem("token", token);
-          tokenEndSession.textContent = sessionStorage.getItem("token");
-          if (sessionStorage.getItem("token") <= 0) {
-            document.getElementById("modal-token").style.display = "block";
-            return;
-          }
 
+      btnPlayAgain.addEventListener("click", function () {
+        gameEndedModal.style.visibility = "hidden";
+        gameEndedModal.style.display = "none";
+        test2Display.style.visibility = "hidden";
+        test2Display.style.display = "none";
+        if (localStorage.getItem("token") > 0) {
+          token--;
+          localStorage.setItem("token", token);
+        } else {
+          modalToken.style.display = "block";
+          modalToken.style.visibility = "visible";
+          test2Display.style.visibility = "visible";
+          test2Display.style.display = "block";
           gameEndedModal.style.visibility = "hidden";
-          clearInterval(interval);
-        });
-        gameEndedModal.addEventListener("keypress", function () {
-          gameEndedModal.style.visibility = "hidden";
-          clearInterval(interval);
-        });
-      }, 3000);
+          gameEndedModal.style.display = "none";
+          return;
+        }
+        clearInterval(interval);
+      });
+
       return;
     }
   }, 1000);
@@ -492,8 +515,12 @@ function init() {
 
   if (infoModal) {
     modal.style.visibility = "visible";
+    testDisplay.style.visibility = "visible";
+    testDisplay.style.display = "block";
   } else {
     modal.style.visibility = "hidden";
+    testDisplay.style.visibility = "hidden";
+    testDisplay.style.display = "none";
   }
 
   // visuals
