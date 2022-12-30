@@ -167,18 +167,17 @@ h2 {
 /* modal */
 
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 .modal-content {
-  width: 320px;
   padding: 20px;
   margin: 0 auto;
   display: table;
@@ -194,8 +193,15 @@ h2 {
   -ms-transform: translateY(-50%);
   -o-transform: translateY(-50%);
   transform: translateY(-50%);
-
   color: #4cffd7;
+}
+
+.content-wrapper {
+}
+
+.content-wrapper span {
+  display: block;
+  text-align: center;
 }
 
 .btnWrapper {

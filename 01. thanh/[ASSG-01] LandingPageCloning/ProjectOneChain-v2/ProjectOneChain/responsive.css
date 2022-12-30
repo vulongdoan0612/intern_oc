@@ -1,0 +1,281 @@
+/* Responsive */
+.nav-menu-mobile {
+    display: none;
+}
+
+
+.icon-close {
+    display: none;
+}
+
+
+@media (max-width:1023px) {
+    .img-cursor{
+        display: none;
+        max-height: 100%;
+        height: 50%;
+    }
+    .carousel-caption h1 {
+        position: absolute;
+        top: -150px;
+        right: 20px;
+        font-weight: bold;
+    }
+
+    .carousel-caption h4 {
+        position: absolute;
+        top: -50px;
+        right: -80px;
+
+    }
+
+    .topnav {
+        display: none;
+    }
+
+    .menu-mobile {
+        background-color: black;
+    }
+
+    .nav-menu-mobile {
+        display: block;
+        background-color: black;
+        height: 80px;
+    }
+
+    #logo-mobile {
+        width: 60%;
+        position: relative;
+        top: 15px;
+        left: 20px;
+    }
+
+    .menu-open {
+        position: absolute;
+        z-index: 1;
+        right: 45px;
+        top: 60px;
+        border: none;
+    }
+
+    .menu-open .btn i {
+        color: #fff;
+        font-size: 25px;
+    }
+
+
+    .nav-bar-menu a {
+        font-size: 25px;
+    }
+
+
+
+    .nav-mobile-list {
+        margin-top: 24px;
+    }
+
+
+    .overlay-mobile {
+        position: absolute;
+        /* display: none; */
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        z-index: 1;
+        text-align: center;
+        transform: translateX(0%);
+        transition: all 5s ease-in 3s;
+    }
+
+
+
+    .overlay-mobile .topnav {
+        flex-direction: column;
+        max-width: 100%;
+        height: 100%;
+        z-index: 1;
+
+    }
+
+    .overlay-mobile .topnav .logo {
+        width: 100%;
+    }
+
+    #logo {
+        width: 15%;
+        margin-left: 40px;
+    }
+
+    .overlay-mobile .topnav a {
+        z-index: 1;
+        flex-direction: column;
+        text-align: center;
+        color: black;
+        font-size: 15px;
+        float: none;
+        padding: 14px;
+    }
+
+    .overlay-mobile .topnav .menu-close .btn {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+    }
+
+    #icon-close {
+        font-size: 30px;
+    }
+
+}
+
+
+/* Tablet */
+@media screen and (min-width: 740px) and (max-width:1023px) {
+    #logo-mobile {
+        width: 30%;
+        position: relative;
+        top: 15px;
+        left: 35px;
+    }
+
+}
+
+@media screen and (max-width: 740px) {
+    .overlay-mobile .topnav a {
+        z-index: 1;
+        flex-direction: column;
+        text-align: center;
+        color: black;
+        font-size: 16px;
+        float: none;
+        padding: 15px;
+    }
+
+    #logo-mobile {
+        width: 50%;
+        position: relative;
+        top: 20px;
+        left: 35px;
+    }
+
+
+    .carousel-caption h1 {
+        position: absolute;
+        top: -60px;
+        right: -30px;
+        font-weight: bold;
+        font-size: medium;
+    }
+
+    .carousel-caption h4 {
+        position: absolute;
+        top: -10px;
+        right: -50px;
+        font-size: 10px;
+    }
+
+    .about-creative {
+        flex-direction: column;
+    }
+
+    .about-photo1,
+    .about-photo2,
+    .about-photo {
+        max-width: 100%;
+    }
+
+    .about-creative .col-6 {
+        max-width: 100%;
+    }
+
+    .break-numbers .col-2 {
+        max-width: 50%;
+        flex: 50%;
+        text-align: center;
+    }
+
+    .break-numbers h2 {
+        font-size: 25px;
+    }
+
+    .break-numbers .hide {
+        display: none;
+    }
+
+    .all-service {
+        flex-direction: column;
+
+    }
+
+    .all-service .col-4 {
+        max-width: 100%;
+    }
+
+    .creations .col-3 p {
+        display: none;
+    }
+
+    .creations .col-3 {
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        flex: 100%;
+        max-width: 50%;
+        text-align: center;
+    }
+
+
+    .creations h1 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .creations h5 {
+        font-size: 9px;
+        text-align: center;
+    }
+
+    .portfolio-img {
+        max-width: 50%;
+    }
+
+    .contact-form button {
+        width: 20%;
+        height: 50px;
+    }
+
+    .footer .row {
+        flex-direction: column;
+    }
+
+    .footer .row .col-3 {
+        max-width: 100%;
+        text-align: center;
+    }
+
+
+}
+
+@media screen and (max-width: 375px) {
+    .carousel-caption h1 {
+        display: none;
+    }
+
+    .carousel-caption h4 {
+        display: none;
+    }
+
+    .overlay-mobile .topnav a {
+        z-index: 1;
+        flex-direction: column;
+        text-align: center;
+        color: black;
+        font-size: 16px;
+        float: none;
+        padding: 16px;
+    }
+}

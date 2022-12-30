@@ -279,7 +279,7 @@ const startPause = () => {
     clearInterval(timerId);
     timerId = null;
     startEl.innerHTML = "Play";
-    document.removeEventListener("keyup", control);
+    //document.removeEventListener("keyup", control);
   }
   // resume
   else if (started) {

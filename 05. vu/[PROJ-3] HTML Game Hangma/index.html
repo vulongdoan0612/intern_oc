@@ -25,21 +25,29 @@
   <body>
     <div class="container">
       <div class="game-info">
-        <div class="game-name">Hangman</div>
-        <div style="display: flex; flex-direction: column">
-          <div>
-            <h1>Score : <span id="score"></span></h1>
+        <div class="game-name" style="display: flex; flex-direction: column">
+          <div>Hangman</div>
+          <div style="display: flex; flex-direction: column">
+            <div>
+              <h1>Score : <span id="score"></span></h1>
+            </div>
+            <div>
+              <h1>High Score : <span id="highScore"></span></h1>
+            </div>
+            <div>
+              <h1>Token : <span id="token"></span></h1>
+            </div>
           </div>
-          <div>
-            <h1>High Score : <span id="highScore"></span></h1>
-          </div>
-          
         </div>
-
-        <div class="category">
-          Word From:
-
-          <span></span>
+        <div style="display: flex; flex-direction: column">
+          <div class="category">
+            Word From:
+            <span></span>
+          </div>
+          <div class="donate">
+            <h3 id="donate">Donate Here</h3>
+            <span></span>
+          </div>
         </div>
       </div>
       <hr />
@@ -68,7 +76,6 @@
       <hr />
       <div class="letters-guess"></div>
     </div>
-
     <div class="gameOver">
       <div class="text"><h1>Gameover</h1></div>
       <button class="playAgain">Play again</button>
@@ -86,41 +93,49 @@
       <h1 class="play">Play Game</h1>
       <i>Trò chơi đoán chữ Hangman</i>
     </div>
+    <div class="donateBar">
+      <div><h1 class="closeDonate">X</h1></div>
+      <select>
+        <option value="VPBANK">VPBANK(VIET NAM THINH VUONG)</option>
+        <option value="VIB">VIB</option>
+        <option value="ABC">ABC</option>
+        <option value="KFC">KFC</option>
+      </select>
+      <input type="password" placeholder="Number Bank" />
+      <button class="donateBtn">Donate</button>
+    </div>
     <audio id="clicked" src="./audio/clicked.mp3" preload="auto"></audio>
     <audio id="fail" src="./audio/fail.mp3" preload="auto"></audio>
     <audio id="ping" src="./audio/ping.mp3" preload="auto"></audio>
-
     <script src="main.js"></script>
-
     <script>
       let win = document.querySelector(".win");
-
       let closeWin = document.querySelector(".closeWin");
       closeWin.addEventListener("click", () => {
         win.classList.remove("showWin");
       });
-      let stor= localStorage.getItem('score');
-      // let high= localStorage.getItem('highScore');
-      // document.getElementById('highScore').innerHTML = '&nbsp;' +   high;      
-
-      document.getElementById('score').innerHTML = '&nbsp;' +   stor;     
-      
-      // scorePlus > highScore  ? (highScore=scorePlus) : null
-      //   localStorage.setItem('highScore',highScore)
-      // let highScore= localStorage.getItem('highScore');
-      let high= localStorage.getItem('highScore');
-      // document.getElementById('highhighScore').innerHTML = '&nbsp;' +   high;      
-
-      document.getElementById('highScore').innerHTML = '&nbsp;' +   high;  
-      let play =document.querySelector('.play')
-      let playGame =document.querySelector('.gameStart')
-      console.log(playGame)
-      
-      play.addEventListener('click',()=>{
-        playGame.classList.add('hidePlay')
-      })
-
+      let stor = localStorage.getItem("score");
+      document.getElementById("score").innerHTML = "&nbsp;" + stor;
+      let high = sessionStorage.getItem("highScore");
+      document.getElementById("highScore").innerHTML = "&nbsp;" + high;
+      let play = document.querySelector(".play");
+      let playGame = document.querySelector(".gameStart");
+      console.log(playGame);
+      var firstSign = true;
+      play.addEventListener("click", () => {
+        firstSign = false;
+        playGame.classList.add("hidePlay");
+        let first = localStorage.setItem("firstSign", firstSign);
+      });
+      let first = localStorage.setItem("firstSign", firstSign);
+      let first2 = localStorage.getItem("firstSign");
+      first2 !== false
+        ? playGame.classList.remove("hidePlay")
+        : first !== true
+        ? playGame.classList.remove("hidePlay")
+        : null;
+      let tokenDisplay = localStorage.getItem("token");
+      displayToken(tokenDisplay);
     </script>
   </body>
 </html>
-
