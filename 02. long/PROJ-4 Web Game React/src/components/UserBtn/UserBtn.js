@@ -43,7 +43,9 @@ export default function UserLogin() {
                 </div>
                 <div>
                     <div>{email ? email[1] : "Log In"}</div>
-                    <div className='balance'>Balance: <div>{balance}</div> </div>
+                    <div className='balance'>Balance: 
+//                         <div>{balance}</div> 
+                    </div>
                 </div>
             </div>
 
