@@ -5,137 +5,119 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="main.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-      crossorigin="anonymous"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
 
   <body>
-    <div class="container">
-      <div class="game-info">
-        <div class="game-name" style="display: flex; flex-direction: column">
-          <div>Hangman</div>
-          <div style="display: flex; flex-direction: column">
-            <div>
-              <h1>Score : <span id="score"></span></h1>
-            </div>
-            <div>
-              <h1>High Score : <span id="highScore"></span></h1>
-            </div>
-            <div>
-              <h1>Token : <span id="token"></span></h1>
-            </div>
-          </div>
+    <div class="wrapper" style="padding-top: 20px">
+      <h1>Hangman</h1>
+      <!-- <h2>Vanilla JavaScript Hangman Game</h2>
+      <p>
+        Use the alphabet below to guess the word, or click hint to get a clue.
+      </p> -->
+    </div>
+    <div class="wrapper">
+      <div style="display: flex; justify-content: space-evenly">
+        <canvas id="stickman"
+          >This Text will show if the Browser does NOT support HTML5 Canvas
+          tag</canvas
+        >
+        <div>
+          <h3>Score: <span id="score"></span></h3>
+          <h3>High Score: <span id="highScore"></span></h3>
+          <h3>Token: <span id="token"></span></h3>
         </div>
-        <div style="display: flex; flex-direction: column">
-          <div class="category">
-            Word From:
-            <span></span>
-          </div>
-          <div class="donate">
-            <h3 id="donate">Donate Here</h3>
-            <span></span>
-          </div>
-        </div>
+        <div id="buttons" style="width: 20.5vw"></div>
       </div>
-      <hr />
-      <div class="row">
-        <div class="hangman-draw">
-          <div class="the-draw">
-            <div class="the-stand"></div>
-            <div class="the-hang"></div>
-            <div class="the-rope"></div>
-            <div class="the-man">
-              <div class="head">
-                <div class="eyes">
-                  <div class="eye-left"></div>
-                  <div class="eye-right"></div>
-                </div>
-                <div class="lips"></div>
-              </div>
-              <div class="body"></div>
-              <div class="hands"></div>
-              <div class="legs"></div>
-            </div>
-          </div>
-        </div>
-        <div class="letters"></div>
+      <p id="catagoryName"></p>
+      <div id="hold"></div>
+      <p id="mylives"></p>
+      <!-- <p id="clue">Clue -</p> -->
+
+      <div class="container">
+        <button id="hint">Hint</button>
+        <!-- <button id="reset">Play again</button> -->
       </div>
-      <hr />
-      <div class="letters-guess"></div>
     </div>
-    <div class="gameOver">
-      <div class="text"><h1>Gameover</h1></div>
-      <button class="playAgain">Play again</button>
-      <button class="stop" id="stop">Stop</button>
+    <div class="donate" id="donate">
+      <h1>Please donate to play !</h1>
     </div>
-    <div class="stopScreen">
-      <h1>Stop See you later</h1>
+    <div class="donateBank" id="donateBank">
+      <h2>Just one more step to play again.</h2>
+      <div
+        style="display: flex; flex-direction: column; width: 25vw; margin: auto"
+      >
+        <p style="font-size: smaller; margin-top: 10px">Please choose a bank</p>
+        <select id="bank" class="bankSelect">
+          <option value="Vietcombank">Vietcombank</option>
+          <option value="BIDV">BIDV</option>
+          <option value="Vietinbank">Vietinbank</option>
+          <option
+            value="MB Bank
+  "
+            selected
+          >
+            MB Bank
+          </option>
+          <option value="ACB" selected>ACB</option>
+          <option value="Sacombank" selected>Sacombank</option>
+        </select>
+
+        <p style="font-size: smaller; margin-top: 15px">Please type your PIN</p>
+
+        <form name="myForm">
+          <input
+            name="fname"
+            type="password"
+            class="passBank"
+            style="margin-bottom: 20px"
+          />
+        </form>
+        <button class="submitBank" id="submitBank">Submit</button>
+      </div>
     </div>
-    <div class="win">
-      <h1>Win ne</h1>
-      <button class="closeWin">X</button>
-      <button class="nextGame">next game</button>
+
+    <div class="gameOver" id="gameOver">
+      <h1>Game Over</h1>
+      <h4>Your Score: <span id="showScore"></span></h4>
+      <button id="reset">Play again</button>
     </div>
-    <div class="gameStart">
-      <h1 class="play">Play Game</h1>
-      <i>Trò chơi đoán chữ Hangman</i>
+    <div class="youWin" id="youWin">
+      <h1>You win</h1>
+      <button id="resetWin">Play again</button>
     </div>
-    <div class="donateBar">
-      <div><h1 class="closeDonate">X</h1></div>
-      <select>
-        <option value="VPBANK">VPBANK(VIET NAM THINH VUONG)</option>
-        <option value="VIB">VIB</option>
-        <option value="ABC">ABC</option>
-        <option value="KFC">KFC</option>
-      </select>
-      <input type="password" placeholder="Number Bank" />
-      <button class="donateBtn">Donate</button>
+    <div
+      class="hintModal"
+      id="hintModal"
+      style="display: flex; flex-direction: row; justify-content: space-evenly"
+    >
+      <div style="text-align: right; margin-right: 20px"></div>
+      <div
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+        "
+      >
+        <h2>Your hint: &nbsp;</h2>
+        <p id="clue"></p>
+      </div>
+      <span
+        style="
+          text-align: right;
+          font-size: 30px;
+          font-weight: 600;
+          cursor: pointer;
+        "
+        id="closeHintModal"
+        >X</span
+      >
     </div>
-    <audio id="clicked" src="./audio/clicked.mp3" preload="auto"></audio>
-    <audio id="fail" src="./audio/fail.mp3" preload="auto"></audio>
-    <audio id="ping" src="./audio/ping.mp3" preload="auto"></audio>
     <script src="main.js"></script>
     <script>
-      let win = document.querySelector(".win");
-      let closeWin = document.querySelector(".closeWin");
-      closeWin.addEventListener("click", () => {
-        win.classList.remove("showWin");
-      });
-      let stor = localStorage.getItem("score");
-      document.getElementById("score").innerHTML = "&nbsp;" + stor;
-      let high = sessionStorage.getItem("highScore");
-      document.getElementById("highScore").innerHTML = "&nbsp;" + high;
-      let play = document.querySelector(".play");
-      let playGame = document.querySelector(".gameStart");
-      console.log(playGame);
-      var firstSign = true;
-      play.addEventListener("click", () => {
-        firstSign = false;
-        playGame.classList.add("hidePlay");
-        let first = localStorage.setItem("firstSign", firstSign);
-      });
-      let first = localStorage.setItem("firstSign", firstSign);
-      let first2 = localStorage.getItem("firstSign");
-      first2 !== false
-        ? playGame.classList.remove("hidePlay")
-        : first !== true
-        ? playGame.classList.remove("hidePlay")
-        : null;
-      let tokenDisplay = localStorage.getItem("token");
-      displayToken(tokenDisplay);
+      // let tokenDisplay = localStorage.getItem("token") || 0;
+      // console.log(tokenDisplay)
+      // displayToken(tokenDisplay);
     </script>
   </body>
 </html>
