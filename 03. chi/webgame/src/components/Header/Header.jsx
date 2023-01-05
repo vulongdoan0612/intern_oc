@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import classNames from 'classnames/bind';
 
 import styles from './Header.module.scss';
 import Modal from '../Modal/Modal';
+import { useStateContext } from '../../contexts/ContextProvider';
 
 const cx = classNames.bind(styles);
 const Header = () => {
-  const [currentUser, setCurrentUser] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const { showModal, handleShowModal, currentUser } = useStateContext();
 
-  const handleShowModalLogin = () => {
-    setShowModal(!showModal);
-  };
+  // const [currentUser, setCurrentUser] = useState(null);
+
+  console.log(currentUser.user);
 
   return (
     <div className={cx('header')}>
@@ -21,7 +21,7 @@ const Header = () => {
           {currentUser ? (
             <div className={cx('user')}>
               <div className={cx('userInformation')}>
-                <span className={cx('userEmail')}>Email : vanchiphan70@gmail.com</span>
+                <span className={cx('userEmail')}>{currentUser.user.email}</span>
                 <span className={cx('userCredit')}> Credit : 100</span>
               </div>
               <div className={cx('userImage')}>
@@ -33,7 +33,7 @@ const Header = () => {
             </div>
           ) : (
             <div className={cx('noUser')}>
-              <button className={cx('btnLogin')} onClick={handleShowModalLogin}>
+              <button className={cx('btnLogin')} onClick={handleShowModal}>
                 Login
               </button>
             </div>
@@ -43,7 +43,7 @@ const Header = () => {
 
       {showModal && (
         <div className={cx('modalWrapper')}>
-          <div className={cx('modalBackdrop')} onClick={handleShowModalLogin}></div>
+          <div className={cx('modalBackdrop')} onClick={handleShowModal}></div>
           <Modal />
         </div>
       )}

@@ -4,20 +4,23 @@ import { auth } from '../../config/firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 import styles from './Modal.module.scss';
+import { useStateContext } from '../../contexts/ContextProvider';
 
 const cx = classNames.bind(styles);
 
 const Modal = () => {
+  const { handleShowModal, setCurrentUser } = useStateContext();
+
   const [isShowSignUp, setIsShowSignUp] = useState(false);
   const [signInEmail, setSignInEmail] = useState('');
   const [signInPassword, setSignInPassword] = useState('');
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPassword, setSignUpPassword] = useState('');
-
   const handleSignIn = () => {
     signInWithEmailAndPassword(auth, signInEmail, signInPassword).then((res) => {
-      console.log(res);
+      setCurrentUser(res);
     });
+    handleShowModal();
   };
 
   const handleSignUp = () => {
@@ -37,11 +40,6 @@ const Modal = () => {
   const handleShowForm = () => {
     setIsShowSignUp(!isShowSignUp);
   };
-
-  console.log({
-    email: signUpEmail,
-    password: signUpPassword,
-  });
 
   return (
     <div className={cx('modal')}>
