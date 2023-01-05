@@ -1,0 +1,21 @@
+*{
+    
+        margin: 0;
+        font-family: 'Fredoka One', cursive;
+      
+}
+.login,.register{
+    width: 500px;
+}
+
+        .score,.high-score,.token-left{
+            margin-bottom: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            color:rgb(236, 181, 63);
+            text-shadow: -1px -1px 0 rgb(29, 17, 17), 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+        }
+    
+iframe{
+    border: 10px solid rgb(31, 38, 51);
+}
