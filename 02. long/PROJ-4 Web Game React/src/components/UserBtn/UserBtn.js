@@ -29,9 +29,9 @@ export default function UserLogin() {
     }, []);
 
       
-    const thisUser = listUser.find(userI => userI.email === user.email);
-    const balance=thisUser.balance
-    console.log(balance)
+//     const thisUser = listUser.find(userI => userI.email === user.email);
+//     const balance=thisUser.balance
+//     console.log(balance)
 
 
     
