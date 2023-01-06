@@ -1,9 +1,10 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { ref, set } from "firebase/database";
+import { child, get, onValue, ref, set } from "firebase/database";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { auth, database } from "../firebase-config";
+import { toast } from "react-toastify";
 export const Login = () => {
   let navigate = useNavigate();
   const [emailLogin, setEmail] = useState("");
@@ -11,29 +12,30 @@ export const Login = () => {
   const login = async () => {
     signInWithEmailAndPassword(auth, emailLogin, passwordLogin)
       .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        set(ref(database, "users/" + user.uid), {
-          id: user.uid,
-          credit: 100,
-          token: 2,
-          highscore: 0,
+        let user = userCredential.user;
+        get(child(ref(database), `/users/${user.uid}`))
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              localStorage.setItem("users", JSON.stringify(snapshot.val()));
+            } else {
+              console.log("No data available");
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
+        toast.success("Login success ", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
         });
-        const dataUser = {
-          id: user.uid,
-          email: emailLogin,
-          credit: 100,
-          token: 100,
-          highscore: 0,
-        };
-
-        localStorage.setItem("users", JSON.stringify(dataUser));
         navigate("/");
       })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-      });
+      .catch((error) => {});
   };
   return (
     <div className="container login">
@@ -71,7 +73,7 @@ export const Login = () => {
         <div className="mb-3 ">
           Create account <Link to="/register">Register</Link>
         </div>
-        <div class="d-grid gap-2">
+        <div className="d-grid gap-2">
           <button onClick={login} type="button" className="btn btn-primary">
             Login
           </button>

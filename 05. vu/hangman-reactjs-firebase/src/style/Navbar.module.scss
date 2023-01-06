@@ -1,4 +1,15 @@
 .wrapper{
+    align-items: center;
+    display: flex;
     background-color: bisque;
-    border:1px solid black
+    border:1px solid black;
+    justify-content:space-around;
+}
+.logo img{
+    width:50px;
+    // flex:1;
+}
+.user{
+    text-align: right;
+    // flex:11;
 }
