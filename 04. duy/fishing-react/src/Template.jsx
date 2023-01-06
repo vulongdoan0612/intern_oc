@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import { Footer } from "./component/Footer";
 import { Header } from "./component/Header";
-import { ToastContainer, toast } from "react-toastify";
 export const Template = () => {
   const [email, setEmail] = useState("");
 
@@ -17,7 +16,6 @@ export const Template = () => {
       <Header email={email}></Header>
       <Outlet />
       <Footer />
-      <ToastContainer />
     </div>
   );
 };

@@ -5,6 +5,8 @@ import { auth } from "../firebase-config";
 export const InfoUser = (props) => {
   const [email, setEmail] = useState("");
   useEffect(() => {
+    const userId = auth.currentUser.uid;
+    console.log(userId);
     onAuthStateChanged(auth, (user) => {
       if (user) {
         const uid = user.uid;
@@ -15,7 +17,7 @@ export const InfoUser = (props) => {
       }
     });
   });
-
+  console.log("email", email);
   return (
     <div className=" info-user d-flex">
       <div className="user">

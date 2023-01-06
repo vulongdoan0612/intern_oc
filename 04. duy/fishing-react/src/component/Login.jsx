@@ -8,46 +8,26 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 export const Login = () => {
   const dispatch = useDispatch();
-  const notify = () => toast("Login success");
+
   let navigate = useNavigate();
   const [emailLogin, setEmail] = useState("");
   const [passwordLogin, setPassword] = useState("");
   const login = async () => {
-    let userCredential = await signInWithEmailAndPassword(
-      auth,
-      emailLogin,
-      passwordLogin
-    );
-    let user = userCredential.user;
-    get(child(ref(database), `users/${user.uid}`))
-      .then((snapshot) => {
-        if (snapshot.exists()) {
-          console.log(snapshot.val());
-        } else {
-          console.log("No data available");
-          set(ref(database, "users/" + user.uid), {
-            email: user.email,
-            token: 2,
-            highscore: 0,
-            credit: 100,
-          });
-        }
+    signInWithEmailAndPassword(auth, emailLogin, passwordLogin)
+      .then((userCredential) => {
+        let user = userCredential.user;
+        toast.success("Login success ", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        navigate("/");
       })
-      .catch((error) => {
-        console.error(error);
-      });
-
-    const dataUser = {
-      id: user.uid,
-      email: emailLogin,
-      credit: 100,
-      token: 2,
-      highscore: 0,
-    };
-    notify();
-    localStorage.setItem("users", JSON.stringify(dataUser));
-
-    navigate("/");
+      .catch((error) => {});
   };
   return (
     <div className="container login">

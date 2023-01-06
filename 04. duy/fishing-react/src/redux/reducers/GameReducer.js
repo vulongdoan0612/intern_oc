@@ -4,8 +4,10 @@ const initialState = {
 
 const GameReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    case "":
-      return { ...state, ...payload };
+    case "game_action":
+      state.dataUser = payload;
+      console.log("state", state.dataUser);
+      return state;
 
     default:
       return state;

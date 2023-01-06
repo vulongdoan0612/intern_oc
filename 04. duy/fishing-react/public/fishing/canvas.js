@@ -202,6 +202,8 @@ btnPlay.addEventListener("click", function () {
   if (localStorage.getItem("token") && localStorage.getItem("token") > 0) {
     localStorage.setItem("token", localStorage.getItem("token") - 1);
     infoModal = false;
+  } else {
+    alert("Token left = 0, please buy more");
   }
 });
 // delete
