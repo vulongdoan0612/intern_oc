@@ -46,12 +46,12 @@ export default function ScoreBoard() {
     const changeHighScore = () => {
       // function submit để đẩy highScoreRedux lên firebase với cú pháp như sau =>
       const highScoreChange = localStorage.getItem("highScore");
-      // const tokenLocal = localStorage.getItem("token");
+      const tokenLocal = localStorage.getItem("token");
       if (highScoreChange !== highScoreLocal) {
         console.log(highScore, "highScore 1");
         console.log(highScore, "highScore 2");
         setHighScore(highScoreChange);
-        submit();
+        submit(tokenLocal);
         dispatch(gameHighScore(highScore));
         console.log(scoresRedux);
         alert("change");
