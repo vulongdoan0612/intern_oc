@@ -13,6 +13,14 @@ const Register = () => {
       <h2>or Create Account</h2>
       <div>
         <input
+          type="text"
+          placeholder="Enter your name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        ></input>
+      </div>
+      <div>
+        <input
           type="email"
           placeholder="Enter your email"
           value={email}
@@ -30,7 +38,7 @@ const Register = () => {
       </div>
 
       <div>
-        <button className="authBtn" onClick={() => registerWithEmailAndPassword(navigate, email,password)}>Sign Up</button>
+        <button className="authBtn" onClick={() => registerWithEmailAndPassword(navigate, email,password, name)}>Sign Up</button>
       </div>
     </AuthStyled>
   );

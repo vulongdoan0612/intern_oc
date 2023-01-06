@@ -7,6 +7,7 @@ export const HeaderStyled = styled.div`
     justify-content: space-between;
     align-items: center;
     padding: 10px 0;
+    margin-bottom: 40px;
 
     .logo {
         font-size: 35px;  

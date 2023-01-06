@@ -27,12 +27,13 @@ export default function UserLogin() {
         }
         getListUser();
     }, []);
-
+    console.log("listUser:", listUser)
       
     const thisUser = listUser.find(userI => userI.email === user.email);
-    const balance=thisUser.balance
-    console.log(balance)
+    console.log("thisUser:", thisUser)
 
+    // const balances = thisUser.balance
+    // console.log(balances)
 
     
     return (
@@ -43,7 +44,7 @@ export default function UserLogin() {
                 </div>
                 <div>
                     <div>{email ? email[1] : "Log In"}</div>
-                    <div className='balance'>Balance: <div>{balance}</div> </div>
+                    <div className='balance'>Credit: {} <div> </div> </div>
                 </div>
             </div>
 
