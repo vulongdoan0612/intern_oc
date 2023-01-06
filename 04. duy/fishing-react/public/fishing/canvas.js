@@ -134,10 +134,18 @@ let test2Display = document.getElementById("test2");
 let btnPlay = document.getElementById("btn-play");
 let btnPlayAgain = document.getElementById("play-again");
 let tokenDisplay = document.getElementById("token-display");
-if (localStorage.getItem("token") || localStorage.getItem("token") == 0) {
-  localStorage.setItem("token", 2);
+let user = localStorage.getItem("users");
+let token = JSON.parse(user)?.token;
+console.log("localStorage", localStorage.getItem("token"), token);
+if (!localStorage.getItem("token") || localStorage.getItem("token")) {
+  if (token) {
+    localStorage.setItem("token", token);
+    console.log("token");
+  } else {
+    console.log("token1");
+    localStorage.setItem("token", 0);
+  }
 }
-
 setInterval(() => {
   tokenDisplay.textContent = localStorage.getItem("token");
 }, 100);
@@ -191,8 +199,10 @@ canvas.addEventListener("click", function () {
 
 // modify
 btnPlay.addEventListener("click", function () {
-  localStorage.setItem("token", localStorage.getItem("token") - 1);
-  infoModal = false;
+  if (localStorage.getItem("token") && localStorage.getItem("token") > 0) {
+    localStorage.setItem("token", localStorage.getItem("token") - 1);
+    infoModal = false;
+  }
 });
 // delete
 // modal.addEventListener("keypress", function () {

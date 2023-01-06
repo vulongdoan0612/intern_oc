@@ -1,39 +1,53 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { ref, set } from "firebase/database";
+import { child, get, ref, set } from "firebase/database";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { auth, database } from "../firebase-config";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
 export const Login = () => {
+  const dispatch = useDispatch();
+  const notify = () => toast("Login success");
   let navigate = useNavigate();
   const [emailLogin, setEmail] = useState("");
   const [passwordLogin, setPassword] = useState("");
   const login = async () => {
-    signInWithEmailAndPassword(auth, emailLogin, passwordLogin)
-      .then((userCredential) => {
-        // Signed in
-        const user = userCredential.user;
-        set(ref(database, "users/" + user.uid), {
-          id: user.uid,
-          credit: 100,
-          token: 2,
-          highscore: 0,
-        });
-        const dataUser = {
-          id: user.uid,
-          email: emailLogin,
-          credit: 100,
-          token: 100,
-          highscore: 0,
-        };
-
-        localStorage.setItem("users", JSON.stringify(dataUser));
-        navigate("/");
+    let userCredential = await signInWithEmailAndPassword(
+      auth,
+      emailLogin,
+      passwordLogin
+    );
+    let user = userCredential.user;
+    get(child(ref(database), `users/${user.uid}`))
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log(snapshot.val());
+        } else {
+          console.log("No data available");
+          set(ref(database, "users/" + user.uid), {
+            email: user.email,
+            token: 2,
+            highscore: 0,
+            credit: 100,
+          });
+        }
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+        console.error(error);
       });
+
+    const dataUser = {
+      id: user.uid,
+      email: emailLogin,
+      credit: 100,
+      token: 2,
+      highscore: 0,
+    };
+    notify();
+    localStorage.setItem("users", JSON.stringify(dataUser));
+
+    navigate("/");
   };
   return (
     <div className="container login">
@@ -71,7 +85,7 @@ export const Login = () => {
         <div className="mb-3 ">
           Create account <Link to="/register">Register</Link>
         </div>
-        <div class="d-grid gap-2">
+        <div className="d-grid gap-2">
           <button onClick={login} type="button" className="btn btn-primary">
             Login
           </button>

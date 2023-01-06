@@ -6,7 +6,6 @@ import { auth } from "../firebase-config";
 
 export const Header = (props) => {
   const statusUser = localStorage.getItem("users");
-  const [status, setStatus] = useState(false);
 
   // setEmail(users.email);
   const signout = () => {
@@ -29,10 +28,14 @@ export const Header = (props) => {
         {statusUser ? (
           <InfoUser signout={signout} />
         ) : (
-          <Link to="login" className="btn btn-success">
-            {" "}
-            Login
-          </Link>
+          <div>
+            <Link to="login" className="btn btn-outline-success me-2">
+              Login
+            </Link>
+            <Link to="register" className="btn btn-outline-info">
+              Register
+            </Link>
+          </div>
         )}
       </div>
     </nav>

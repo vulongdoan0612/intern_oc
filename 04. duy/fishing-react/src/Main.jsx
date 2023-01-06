@@ -1,8 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { GamePlay } from "./component/GamePlay";
 import { LeaderBoard } from "./component/LeaderBoard";
-
+import { getDatabase, ref, onValue } from "firebase/database";
+import { database } from "./firebase-config";
 export const Main = () => {
+  const [rank, setRank] = useState([]);
+  useEffect(() => {
+    onValue(ref(database, "users"), (snapshot) => {
+      const data = snapshot.val();
+      Object.values(data).map((a) => {
+        setRank((oldRank) => [...oldRank, a]);
+      });
+    });
+  }, []);
+  console.log(rank);
   return (
     <div className="container-fluid">
       <div className="content">
@@ -18,10 +29,10 @@ export const Main = () => {
           </div>
           <div className="ranking-user col-md-4">
             <div className="token-left">Token left: 0</div>
-            <LeaderBoard />
+            <LeaderBoard data={rank} />
           </div>
         </div>
-      </div>{" "}
+      </div>
     </div>
   );
 };
