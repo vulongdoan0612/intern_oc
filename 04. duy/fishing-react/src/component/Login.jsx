@@ -1,14 +1,11 @@
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { child, get, ref, set } from "firebase/database";
+import { child, get, onValue, ref, set } from "firebase/database";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { auth, database } from "../firebase-config";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
 export const Login = () => {
-  const dispatch = useDispatch();
-
   let navigate = useNavigate();
   const [emailLogin, setEmail] = useState("");
   const [passwordLogin, setPassword] = useState("");
@@ -16,6 +13,17 @@ export const Login = () => {
     signInWithEmailAndPassword(auth, emailLogin, passwordLogin)
       .then((userCredential) => {
         let user = userCredential.user;
+        get(child(ref(database), `/users/${user.uid}`))
+          .then((snapshot) => {
+            if (snapshot.exists()) {
+              localStorage.setItem("users", JSON.stringify(snapshot.val()));
+            } else {
+              console.log("No data available");
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+          });
         toast.success("Login success ", {
           position: "top-right",
           autoClose: 5000,
