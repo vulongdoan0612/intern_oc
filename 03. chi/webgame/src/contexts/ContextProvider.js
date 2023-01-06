@@ -5,6 +5,8 @@ const StateContext = createContext();
 export const ContextProvider = ({ children }) => {
   const [showModal, setShowModal] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
+  const [credit, setCredit] = useState(100);
+  const [dataCurrentUser, setDataCurrentUser] = useState(null);
 
   const handleShowModal = () => {
     setShowModal(!showModal);
@@ -16,6 +18,10 @@ export const ContextProvider = ({ children }) => {
         handleShowModal,
         currentUser,
         setCurrentUser,
+        credit,
+        setCredit,
+        dataCurrentUser,
+        setDataCurrentUser,
       }}
     >
       {children}

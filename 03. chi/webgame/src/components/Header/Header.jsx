@@ -9,10 +9,6 @@ const cx = classNames.bind(styles);
 const Header = () => {
   const { showModal, handleShowModal, currentUser } = useStateContext();
 
-  // const [currentUser, setCurrentUser] = useState(null);
-
-  console.log(currentUser.user);
-
   return (
     <div className={cx('header')}>
       <div className={cx('wrapper')}>
@@ -21,7 +17,7 @@ const Header = () => {
           {currentUser ? (
             <div className={cx('user')}>
               <div className={cx('userInformation')}>
-                <span className={cx('userEmail')}>{currentUser.user.email}</span>
+                <span className={cx('userEmail')}>{currentUser?.user.email}</span>
                 <span className={cx('userCredit')}> Credit : 100</span>
               </div>
               <div className={cx('userImage')}>
