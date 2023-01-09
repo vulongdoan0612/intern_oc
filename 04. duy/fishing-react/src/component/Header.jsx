@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase-config";
 import { toast } from "react-toastify";
-
+import logo from "../assets/image/logo3.jpg";
 export const Header = (props) => {
   // const statusUser = localStorage.getItem("users");
   const [status, setStatus] = useState(false);
@@ -12,7 +12,6 @@ export const Header = (props) => {
     if (user) {
       const uid = user.uid;
       setStatus(true);
-      console.log(uid);
     } else {
       // User is signed out
       // ...
@@ -22,8 +21,9 @@ export const Header = (props) => {
   const signout = () => {
     signOut(auth)
       .then(() => {
-        // Sign-out successful.
-        toast.info("Logout ");
+        toast.info("Logout");
+        // modify
+        localStorage.removeItem("token");
         setStatus(false);
       })
       .catch((error) => {
@@ -31,19 +31,19 @@ export const Header = (props) => {
       });
   };
   return (
-    <nav className="navbar navbar-light bg-light">
-      <div className="container-fluid">
+    <nav className="navbar navbar-light ">
+      <div className="container">
         <Link to="/" className="navbar-brand">
-          Trang chủ
+          <img src={logo} alt="" />
         </Link>
         {status ? (
           <InfoUser signout={signout} />
         ) : (
           <div>
-            <Link to="login" className="btn btn-outline-success me-2">
+            <Link to="login" className="btn button-89 me-2">
               Login
             </Link>
-            <Link to="register" className="btn btn-outline-info">
+            <Link to="register" className="btn button-89 ">
               Register
             </Link>
           </div>

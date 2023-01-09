@@ -1,5 +1,8 @@
 .info-user{
     position: relative;
+    background: #F4CE73;
+    padding: 7px 10px;
+    border-radius: 50px;
     &:hover .sign-out{
       visibility: visible;
       transition: .5s;
@@ -8,7 +11,7 @@
     }
     .user{
         .email{
-            color:red;
+            color:rgb(253, 253, 253);
         }
     }
     .avatar{

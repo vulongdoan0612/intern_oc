@@ -1,91 +1,26 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { child, get, getDatabase, ref, set } from "firebase/database";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import { database, auth } from "../firebase-config";
-import { toast } from "react-toastify";
+import { registerFirebase } from "../service/auth";
+import { toastNoti } from "../service/toastNoti";
+import { addDataUser } from "../service/users";
 export const Register = () => {
-  const db = getDatabase();
   let navigate = useNavigate();
   const [emailRe, setEmail] = useState("");
   const [passwordRe, setPassword] = useState("");
   const register = async () => {
-    createUserWithEmailAndPassword(auth, emailRe, passwordRe)
-      .then((userCredential) => {
-        let user = userCredential.user;
-        toast.success("Register success ", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-        set(ref(database, "users/" + user.uid), {
-          email: user.email,
-          token: 2,
-          highscore: 0,
-          credit: 100,
-        });
-        const dataUser = {
-          id: user.uid,
-          email: emailRe,
-          credit: 100,
-          token: 2,
-          highscore: 0,
-        };
-        localStorage.setItem("users", JSON.stringify(dataUser));
-        navigate("/");
-      })
-      .catch((error) => {
-        console.log(error);
-        toast.error("Email already exists ", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-        });
-      });
-
-    // get(child(ref(database), `users/${user.uid}`))
-    //   .then((snapshot) => {
-    //     if (snapshot.exists()) {
-    //       console.log(snapshot.val());
-    //     } else {
-    //       console.log("No data available");
-    //       set(ref(database, "users/" + user.uid), {
-    //         email: user.email,
-    //         token: 2,
-    //         highscore: 0,
-    //         credit: 100,
-    //       });
-    //       toast.success("Register success", {
-    //         position: "top-right",
-    //         autoClose: 5000,
-    //         hideProgressBar: false,
-    //         closeOnClick: true,
-    //         pauseOnHover: true,
-    //         draggable: true,
-    //         progress: undefined,
-    //       });
-    //       navigate("/");
-    //     }
-    //   })
-    //   .catch((error) => {});
-
-    // const dataUser = {
-    //   id: user.uid,
-    //   email: emailRe,
-    //   credit: 100,
-    //   token: 2,
-    //   highscore: 0,
-    // };
-    // localStorage.setItem("users", JSON.stringify(dataUser));
+    const userRegister = await registerFirebase(emailRe, passwordRe);
+    if (userRegister) {
+      let docRef = await addDataUser(
+        userRegister.uid,
+        userRegister.email,
+        100,
+        2,
+        0
+      );
+      toastNoti("Register success");
+      navigate("/");
+    }
   };
   return (
     <div className="container register">

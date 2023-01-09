@@ -1,28 +1,28 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { auth } from "../firebase-config";
+import { getOneUserByUid } from "../service/users";
 
 export const InfoUser = (props) => {
   const [email, setEmail] = useState("");
+  const [credit, setCredit] = useState(0);
   useEffect(() => {
-    const userId = auth.currentUser.uid;
-    console.log(userId);
-    onAuthStateChanged(auth, (user) => {
+    onAuthStateChanged(auth, async (user) => {
       if (user) {
-        const uid = user.uid;
         setEmail(user.email);
+        let usercredit = await getOneUserByUid(user.uid);
+        setCredit(usercredit.credit);
       } else {
         // User is signed out
         // ...
       }
     });
   });
-  console.log("email", email);
   return (
     <div className=" info-user d-flex">
       <div className="user">
         <div className="email">{email}</div>
-        <div className="credit">Credit: 100</div>
+        <div className="credit">Credit: {credit}</div>
       </div>
       <p onClick={props.signout} className="sign-out">
         Sign out

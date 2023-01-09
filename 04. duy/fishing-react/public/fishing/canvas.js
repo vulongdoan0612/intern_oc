@@ -127,36 +127,36 @@ cloudImageArray.push(
   cloud14
 );
 
-// modify
 let modalToken = document.getElementById("modal-token");
 let testDisplay = document.getElementById("test");
 let test2Display = document.getElementById("test2");
 let btnPlay = document.getElementById("btn-play");
 let btnPlayAgain = document.getElementById("play-again");
 let tokenDisplay = document.getElementById("token-display");
-let user = localStorage.getItem("users");
-let token = JSON.parse(user)?.token;
-console.log("localStorage", localStorage.getItem("token"), token);
-if (!localStorage.getItem("token") || localStorage.getItem("token")) {
-  if (token) {
-    localStorage.setItem("token", token);
-    console.log("token");
-  } else {
-    console.log("token1");
-    localStorage.setItem("token", 0);
-  }
-}
-setInterval(() => {
-  tokenDisplay.textContent = localStorage.getItem("token");
-}, 100);
-// storage
-
 let modal = document.getElementById("modal");
-
 let gameEndedModal = document.getElementById("modal-game-ended");
-
 let endScore = document.getElementById("score");
 let highScore = document.getElementById("highscore");
+setInterval(() => {
+  tokenDisplay.innerText = localStorage.getItem("token");
+}, 100);
+// modify
+let playGame = document.querySelectorAll(".play-game");
+playGame.forEach((el) => {
+  el.addEventListener("click", () => {
+    if (Number(localStorage.getItem("token")) == 0) {
+      // gameEndedModal.style.display = "block";
+      // gameEndedModal.style.visibility = "visible";
+      modalToken.style.display = "block";
+      modalToken.style.visibility = "visible";
+    } else {
+      localStorage.setItem("token", Number(localStorage.getItem("token")) - 1);
+    }
+
+    // button play
+  });
+});
+// storage
 
 window.addEventListener("resize", function () {
   canvas.width = window.innerWidth;
@@ -199,12 +199,7 @@ canvas.addEventListener("click", function () {
 
 // modify
 btnPlay.addEventListener("click", function () {
-  if (localStorage.getItem("token") && localStorage.getItem("token") > 0) {
-    localStorage.setItem("token", localStorage.getItem("token") - 1);
-    infoModal = false;
-  } else {
-    alert("Token left = 0, please buy more");
-  }
+  infoModal = false;
 });
 // delete
 // modal.addEventListener("keypress", function () {
@@ -460,7 +455,6 @@ function sequenceUsage() {
 }
 
 function gameTimer() {
-  let token = localStorage.getItem("token");
   var sec = 00;
   timer = true;
   let interval = setInterval(function () {
@@ -492,22 +486,17 @@ function gameTimer() {
       sequenceUsage();
 
       btnPlayAgain.addEventListener("click", function () {
-        gameEndedModal.style.visibility = "hidden";
-        gameEndedModal.style.display = "none";
         test2Display.style.visibility = "hidden";
         test2Display.style.display = "none";
-        if (localStorage.getItem("token") > 0) {
-          token--;
-          localStorage.setItem("token", token);
-        } else {
-          modalToken.style.display = "block";
-          modalToken.style.visibility = "visible";
-          test2Display.style.visibility = "visible";
-          test2Display.style.display = "block";
-          gameEndedModal.style.visibility = "hidden";
-          gameEndedModal.style.display = "none";
-          return;
-        }
+        gameEndedModal.style.visibility = "hidden";
+        gameEndedModal.style.display = "none";
+
+        // test2Display.style.visibility = "visible";
+        // test2Display.style.display = "block";
+        // gameEndedModal.style.visibility = "hidden";
+        // gameEndedModal.style.display = "none";
+        // return;
+
         clearInterval(interval);
       });
 
