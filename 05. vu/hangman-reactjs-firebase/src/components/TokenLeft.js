@@ -1,70 +1,70 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "../style/TokenLeft.module.scss";
-import { useDispatch, useSelector } from "react-redux";
 import { gameToken } from "../reducer/gamePlayReducer";
-import {
-  collection,
-  getDocs,
-  limit,
-  orderBy,
-  query,
-  where,
-} from "firebase/firestore";
+import { useDispatch, useSelector } from "react-redux";
+import GetToken from "../services/getToken";
+import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
 const cx = classNames.bind(styles);
 export default function TokenLeft() {
   const dispatch = useDispatch();
   const tokenLeft = localStorage.getItem("token");
-  // dispatch(gameToken(tokenLeft));
-  const tokenRedux = useSelector((state) => state.gamePlayReducer.token);
   const [token, setToken] = useState(tokenLeft);
-  dispatch(gameToken(token));
+  const [tokenUser, setTokenUser] = useState([]);
+  const tokenRedux = useSelector((state) => state.gamePlayReducer.token);
 
-  useEffect(() => {
-    const changeToken = () => {
-      alert("change token");
-
-      const tokenChange = localStorage.getItem("token");
-      setToken(tokenChange);
-      dispatch(gameToken(token));
-    };
-
-    window.addEventListener("storage", changeToken);
-    return () => {
-      window.removeEventListener("storage", changeToken);
-    };
-  }, [token, dispatch, tokenLeft]);
-  console.log(auth.currentUser.email);
-  const getData = async () => {
+  const GetToken = async () => {
     const q = query(
       collection(db, "leaderBoard"),
       where("email", "==", `${auth.currentUser.email}`),
-      orderBy("tokenLocal","desc"),
-      limit(1)
+      orderBy("timestamp", "desc")
     );
+    console.log(q);
     const queryData = await getDocs(q);
     const data = [];
     queryData.forEach((doc) => {
       data.push(doc.data());
-      console.log(doc.data());
-      // console.log(doc);
-      // console.log(doc.id, " => ", doc.data());
     });
-    // console.log(data);
-    // dispatch(gameToken(data));
+    setTokenUser(data);
+    console.log(data);
   };
   useEffect(() => {
-    console.log("highScore change");
-    getData();
+    tokenUser.slice(0, 1).forEach((token) => {
+      localStorage.setItem("token", token.tokenLocal);
+      console.log("token of this user is :", token.tokenLocal);
+    });
+  }, [tokenUser]);
+  // console.log(tokenUser);
+  useEffect(() => {
+    GetToken();
+    console.log("getToken");
+    // window.location.reload();
+  }, [tokenLeft]);
+  useEffect(() => {
+    const changeToken = () => {
+      const tokenChange = localStorage.getItem("token");
+      if (tokenChange !== tokenLeft) {
+        setToken(tokenChange);
+        dispatch(gameToken(tokenChange));
+      }
+    };
+    window.addEventListener("storage", changeToken);
+    // return () => {
+    //   window.removeEventListener("storage", changeToken);
+    // };
     // eslint-disable-next-line
-  }, []);
-  // console.log(tokenRedux);
+  }, [tokenLeft]);
+  const handleReload = () => {
+    window.location.reload();
+  };
+
   return (
     <div>
       <div className={cx("wrapper")}>
         Token Left : <span>{token}</span>
+        <button onClick={handleReload}>press to reload leaderboard</button>
       </div>
     </div>
   );

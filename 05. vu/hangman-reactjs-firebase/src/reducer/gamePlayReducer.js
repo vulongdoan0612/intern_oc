@@ -5,7 +5,7 @@ export const gamePlayReducer = createSlice({
     token: 3,
     score: 0,
     highScore: 0,
-    scores:[]
+    scores: [],
   },
   reducers: {
     gameScore: (state, action) => {
@@ -17,10 +17,11 @@ export const gamePlayReducer = createSlice({
     gameToken: (state, action) => {
       state.token = action.payload;
     },
-    gameScores:(state,action)=>{
-      state.scores=[...state.scores,action.payload]
-    }
+    gameScores: (state, action) => {
+      state.scores = action.payload;
+    },
   },
 });
-export const { gameScore, gameHighScore, gameToken,gameScores } = gamePlayReducer.actions;
+export const { gameScore, gameHighScore, gameToken, gameScores } =
+  gamePlayReducer.actions;
 export default gamePlayReducer.reducer;

@@ -1,28 +1,35 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "../style/ScoreBoard.module.scss";
-import { gameHighScore, gameScore, gameUser } from "../reducer/gamePlayReducer";
-import { useDispatch, useSelector } from "react-redux";
-import { addDoc, collection, serverTimestamp } from "firebase/firestore";
-import { auth, db } from "../firebase";
-import { signOut } from "firebase/auth";
+import { auth } from "../firebase";
 import { Dropdown } from "react-bootstrap";
+import submit from "../services/submit";
+import signOutD from "../services/signOut";
+import { useDispatch, useSelector } from "react-redux";
+import { gameHighScore, gameScore } from "../reducer/gamePlayReducer";
 
 const cx = classNames.bind(styles);
 export default function ScoreBoard() {
-  console.log("auth", auth);
+  console.log("Time render ScoreBoard");
   const dispatch = useDispatch();
-  const scoreLocal = localStorage.getItem("score");
+  const tokenRedux = useSelector((state) => state.gamePlayReducer.token);
+  let scoreLocal = localStorage.getItem("score");
+  let token = localStorage.getItem("token");
+  let highScoreLocal = localStorage.getItem("highScore");
+
+  const highScoreRedux = useSelector(
+    (state) => state.gamePlayReducer.highScore
+  );
+  // const scoreRedux = useSelector((state) => state.gamePlayReducer.score);
+  const [highScore, setHighScore] = useState(highScoreLocal);
+
+  // console.log("useState highScore:", highScore);
   const [score, setScore] = useState(scoreLocal);
-  dispatch(gameScore(score));
-  const scoresRedux = useSelector((state) => state.gamePlayReducer.scores);
-  const token = useSelector((state) => state.gamePlayReducer.token);
+
   useEffect(() => {
     const changeScore = () => {
+      const scoreChange = localStorage.getItem("score");
       if (scoreLocal) {
-        console.log("chage Local");
-        const scoreChange = localStorage.getItem("score");
-        console.log("scoreChange", scoreChange);
         setScore(scoreChange);
       }
       dispatch(gameScore(score));
@@ -33,72 +40,40 @@ export default function ScoreBoard() {
     };
   }, [dispatch, score, scoreLocal]);
 
-  let highScoreLocal = localStorage.getItem("highScore");
-  const [highScore, setHighScore] = useState(highScoreLocal);
-  dispatch(gameHighScore(highScore));
-
-  const highScoreRedux = useSelector(
-    (state) => state.gamePlayReducer.highScore
-  );
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-
   useEffect(() => {
     const changeHighScore = () => {
-      // function submit để đẩy highScoreRedux lên firebase với cú pháp như sau =>
       const highScoreChange = localStorage.getItem("highScore");
       const tokenLocal = localStorage.getItem("token");
+      console.log("highScoreChange", highScoreChange);
       if (highScoreChange !== highScoreLocal) {
-        console.log(highScore, "highScore 1");
-        console.log(highScore, "highScore 2");
-        setHighScore(highScoreChange);
-        submit(tokenLocal);
-        dispatch(gameHighScore(highScore));
-        console.log(scoresRedux);
-        alert("change");
+        submit(highScoreChange, tokenLocal);
+        alert("scoreBoard");
       }
+      dispatch(gameHighScore(highScoreChange));
+      setHighScore(highScoreChange);
     };
-
     window.addEventListener("storage", changeHighScore);
     return () => {
       window.removeEventListener("storage", changeHighScore);
     };
     // eslint-disable-next-line
-  }, [highScoreLocal, highScoreRedux]);
+  }, [highScoreLocal, highScoreRedux, tokenRedux]);
 
-  // dispatch(gameUser(auth.currentUser.email));
-  const submit = async (tokenLocal) => {
-    await addDoc(collection(db, "leaderBoard"), {
-      highScoreLocal,
-      tokenLocal,
-      timestamp: serverTimestamp(),
-      user: auth.currentUser.displayName,
-      email: auth.currentUser.email,
-      userImg: auth.currentUser.photoURL,
-    });
-  };
-  // submit();
-  // console.log(auth.currentUser.displayName);
-  // useEffect(() => {
-  //   console.log("somethingChange");
-  // }, [highScore]);
   const signOutUser = () => {
+    window.location.reload(false);
+
+    signOutD();
     localStorage.setItem("token", 0);
-    signOut(auth)
-      .then(() => {
-        //Sign-out successful.
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    localStorage.setItem("highScore", 0);
   };
   return (
     <div>
       <div className={cx("wrapper")}>
         <h2>
-          Score: <span>{score}</span>
+          Score: <span>{score || 0}</span>
         </h2>
         <h2>
-          HighScore: <span>{highScore}</span>
+          HighScore: <span>{highScore || 0}</span>
         </h2>
 
         {auth.currentUser ? (
@@ -120,11 +95,6 @@ export default function ScoreBoard() {
             </Dropdown>
           </div>
         ) : null}
-        {/* <img src={auth.currentUser.photoURL} alt=""></img>
-
-        <h2>{auth.currentUser.displayName}</h2> */}
-        {/* {auth.curren}
-        <button onClick={signOutUser}>Sign out</button> */}
       </div>
     </div>
   );

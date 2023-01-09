@@ -1,7 +1,9 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import React from "react";
+import React, { useEffect } from "react";
 import { auth } from "../firebase";
-
+import classNames from "classnames/bind";
+import styles from "../style/ScoreBoard.module.scss";
+const cx = classNames.bind(styles);
 export default function Login() {
   const onClick = () => {
     const provider = new GoogleAuthProvider();
@@ -13,6 +15,8 @@ export default function Login() {
         // // The signed-in user info.
         // const user = result.user;
         // ...
+        
+        window.location.reload(2);
       })
       .catch((error) => {
         // Handle Errors here.
@@ -27,7 +31,11 @@ export default function Login() {
       });
   };
   return (
-    <div>
+    <div className={cx("login")}>
+      <img
+        src="https://st2.depositphotos.com/1441191/7465/v/450/depositphotos_74658049-stock-illustration-see-you-wallpaper-background.jpg"
+        alt=""
+      ></img>
       <button className="btn" onClick={onClick}>
         Login With Google
       </button>
