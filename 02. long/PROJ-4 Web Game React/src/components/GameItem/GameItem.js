@@ -4,6 +4,8 @@ import { GameItemStyled } from "./GameItemStyle"
 import {Link} from 'react-router-dom';
 import { useParams } from "react-router-dom"
 import { GAME_LIST } from "../../mock/data";
+import Leaderboard from '../Leaderboard/Leaderboard'
+
 
 
 const GameItem = (props) => {
@@ -21,21 +23,24 @@ const GameItem = (props) => {
     return (
         <div className="container">
             <GameItemStyled>
-                {game ? (
-                    <>
-                        
-                        <div className="gameItem">
-                            <div className="name">{ game.name }</div>
-                            <div className="playground">
-                                <iframe src={ game.path }></iframe>
-                            </div>
-                        </div> 
-                    </>
-                ) : (
-                    <>
-                        <h1>No game found</h1>
-                    </>
-                )}
+                <div className="game-container">
+                    {game ? (
+                        <>
+                            
+                            <div className="gameItem">
+                                <div className="name">{ game.name }</div>
+                                <div className="playground">
+                                    <iframe src={ game.path }></iframe>
+                                </div>
+                            </div> 
+                        </>
+                    ) : (
+                        <>
+                            <h1>No game found</h1>
+                        </>
+                    )}
+                </div>
+                <Leaderboard />
             </GameItemStyled>
         </div>
     )

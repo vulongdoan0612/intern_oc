@@ -13,7 +13,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { auth } from "./firebase";
 import { useEffect } from "react";
-import {upU} from './components/UpToFirebase/UpToFirebase'
+
 
   
 function App() {

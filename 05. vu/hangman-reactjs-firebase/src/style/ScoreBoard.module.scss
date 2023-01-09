@@ -1,6 +1,25 @@
 .wrapper{
+    align-items: center;
     display:flex;
-    flex-direction: column;
+    // flex-direction: column;
     background-color: aqua;
     border:1px solid black;
+    justify-content: space-around;
+}
+.user img{
+    border-radius: 50%;
+    // height:60%;
+    width:50px;
+
+}
+.user{
+    align-items: center;
+}
+.login img{
+   width:100%;
+
+}
+.login button{
+    color:white;
+    background-color: #333;
 }

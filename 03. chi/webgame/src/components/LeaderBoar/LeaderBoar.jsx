@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
+import { db } from '../../config/firebaseConfig';
+import { getDocs, collection } from 'firebase/firestore';
 
 import styles from './LeaderBoar.module.scss';
 import LeaderBoarItem from './LeaderBoarItem/LeaderBoarItem';
@@ -12,6 +14,20 @@ const LeaderBoar = () => {
       setTickets(localStorage.getItem('tickets'));
     });
   }, []);
+
+  useEffect(() => {
+    handleGetLeaderBoard();
+  });
+
+  const handleGetLeaderBoard = async () => {
+    const querySnapshot = await getDocs(collection(db, 'users'));
+    const dataLeaderBoar = querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      console.log(data);
+    });
+
+    console.log(dataLeaderBoar);
+  };
 
   return (
     <div className={cx('leaderBoardWrapper')}>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import classNames from 'classnames/bind';
-import { auth } from '../../config/firebaseConfig';
+import { auth, db } from '../../config/firebaseConfig';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
+import { addDoc, getDocs, collection } from 'firebase/firestore';
 
 import styles from './Modal.module.scss';
 import { useStateContext } from '../../contexts/ContextProvider';
@@ -9,27 +10,64 @@ import { useStateContext } from '../../contexts/ContextProvider';
 const cx = classNames.bind(styles);
 
 const Modal = () => {
-  const { handleShowModal, setCurrentUser } = useStateContext();
+  const { handleShowModal, setCurrentUser, setDataCurrentUser } = useStateContext();
 
+  const [errorSignUp, setErrorSignUp] = useState(false);
   const [isShowSignUp, setIsShowSignUp] = useState(false);
   const [signInEmail, setSignInEmail] = useState('');
   const [signInPassword, setSignInPassword] = useState('');
   const [signUpEmail, setSignUpEmail] = useState('');
   const [signUpPassword, setSignUpPassword] = useState('');
+
   const handleSignIn = () => {
-    signInWithEmailAndPassword(auth, signInEmail, signInPassword).then((res) => {
-      setCurrentUser(res);
-    });
-    handleShowModal();
+    signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+      .then((res) => {
+        setCurrentUser(res);
+        handleGetDbUser(res.user);
+        handleShowModal();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleSignUp = () => {
-    createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword).then((res) => {
-      console.log(res);
-    });
+    createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+      .then((res) => {
+        handleCreateDbUser(res.user);
+        handleClearState();
+        handleShowForm();
+      })
+      .catch((err) => {
+        console.log(err);
+        setErrorSignUp(true);
+      });
+  };
 
-    handleClearState();
-    handleShowForm();
+  const handleCreateDbUser = async (data) => {
+    try {
+      const docRef = await addDoc(collection(db, 'users'), {
+        email: data?.email,
+        uid: data?.uid,
+        credit: 100,
+        score: 0,
+        hightScore: 0,
+        Tickets: 3,
+      });
+      console.log('Document written with ID: ', docRef.id);
+    } catch (e) {
+      console.error('Error adding document: ', e);
+    }
+  };
+
+  const handleGetDbUser = async (currentData) => {
+    const querySnapshot = await getDocs(collection(db, 'users'));
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      if (data.uid === currentData.uid) {
+        setDataCurrentUser(data);
+      }
+    });
   };
 
   const handleClearState = () => {
@@ -53,6 +91,7 @@ const Modal = () => {
                 placeholder="Email"
                 onChange={(e) => {
                   setSignUpEmail(e.target.value);
+                  setErrorSignUp(false);
                 }}
                 type="text"
               />
@@ -67,9 +106,7 @@ const Modal = () => {
                 type="password"
               />
             </div>
-            {/* <div className={cx('inputWrapper')}>
-              <input value={''} onChange={(e) => {}} placeholder="Confirm Password" type="password" />
-            </div> */}
+            {errorSignUp && <span className={cx('error')}>Email already exists</span>}
             <div className={cx('text')}>
               <span> have account ?</span>
               <span className={cx('textBtn')} onClick={handleShowForm}>

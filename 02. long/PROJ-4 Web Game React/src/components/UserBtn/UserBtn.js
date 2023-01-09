@@ -21,17 +21,19 @@ export default function UserLogin() {
     useEffect(() => {
         async function getListUser() {
             const querySnapshot = await getDocs(collection(db, "users"))
-            querySnapshot.forEach((doc) => {
+            querySnapshot.map((doc) => {
                 setListUser((user) => [...user, doc.data()])
             })
         }
         getListUser();
     }, []);
-
+    console.log("listUser:", listUser)
       
-//     const thisUser = listUser.find(userI => userI.email === user.email);
-//     const balance=thisUser.balance
-//     console.log(balance)
+    // const thisUser = listUser.find(userI => userI.email === user.email);
+    // console.log("listUser:", listUser)
+
+    // const balances = thisUser.balance
+    // console.log(balances)
 
 
     
@@ -43,9 +45,7 @@ export default function UserLogin() {
                 </div>
                 <div>
                     <div>{email ? email[1] : "Log In"}</div>
-                    <div className='balance'>Balance: 
-//                         <div>{balance}</div> 
-                    </div>
+                    <div className='balance'>Credit: {} <div> </div> </div>
                 </div>
             </div>
 

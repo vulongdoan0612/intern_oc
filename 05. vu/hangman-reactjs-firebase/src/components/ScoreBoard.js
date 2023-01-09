@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "../style/ScoreBoard.module.scss";
-import { gameHighScore, gameScore } from "../reducer/gamePlayReducer";
+import { gameHighScore, gameScore, gameUser } from "../reducer/gamePlayReducer";
 import { useDispatch, useSelector } from "react-redux";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { auth, db } from "../firebase";
 import { signOut } from "firebase/auth";
+import { Dropdown } from "react-bootstrap";
 
 const cx = classNames.bind(styles);
 export default function ScoreBoard() {
+  console.log("auth", auth);
   const dispatch = useDispatch();
   const scoreLocal = localStorage.getItem("score");
   const [score, setScore] = useState(scoreLocal);
@@ -63,6 +65,7 @@ export default function ScoreBoard() {
     // eslint-disable-next-line
   }, [highScoreLocal, highScoreRedux]);
 
+  // dispatch(gameUser(auth.currentUser.email));
   const submit = async (tokenLocal) => {
     await addDoc(collection(db, "leaderBoard"), {
       highScoreLocal,
@@ -73,6 +76,8 @@ export default function ScoreBoard() {
       userImg: auth.currentUser.photoURL,
     });
   };
+  // submit();
+  // console.log(auth.currentUser.displayName);
   // useEffect(() => {
   //   console.log("somethingChange");
   // }, [highScore]);
@@ -89,22 +94,37 @@ export default function ScoreBoard() {
   return (
     <div>
       <div className={cx("wrapper")}>
-        <h1>
+        <h2>
           Score: <span>{score}</span>
-        </h1>
+        </h2>
         <h2>
           HighScore: <span>{highScore}</span>
         </h2>
+
         {auth.currentUser ? (
           <div>
-            <img src={auth.currentUser.photoURL} alt=""></img>
-            <h2>{auth.currentUser.displayName}</h2>
+            <Dropdown>
+              <Dropdown.Toggle
+                style={{ display: "flex" }}
+                className={cx("user")}
+              >
+                <h2>{auth.currentUser.displayName}</h2>
+                <img src={auth.currentUser.photoURL} alt=""></img>
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item>{auth.currentUser.displayName}</Dropdown.Item>
+                <Dropdown.Item> {auth.currentUser.email}</Dropdown.Item>
+                <Dropdown.Item onClick={signOutUser}>Log out</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           </div>
         ) : null}
         {/* <img src={auth.currentUser.photoURL} alt=""></img>
 
         <h2>{auth.currentUser.displayName}</h2> */}
-        <button onClick={signOutUser}>Sign out</button>
+        {/* {auth.curren}
+        <button onClick={signOutUser}>Sign out</button> */}
       </div>
     </div>
   );

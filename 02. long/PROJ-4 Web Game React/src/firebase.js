@@ -5,6 +5,7 @@ import { notificationError, notificationSuccess } from "./utils/Notification";
 import {getStorage} from 'firebase/storage'
 
 
+
 const firebaseConfig = {
     apiKey: "AIzaSyD5lfpgGMhBOjV2rU3dK8UzfLIc77FqvbQ",
     authDomain: "game-storage-ed3c3.firebaseapp.com",
@@ -20,8 +21,7 @@ export const db = getFirestore(app);
 export const storage = getStorage(app);
 
 
-
-const userScore = JSON.parse(localStorage.getItem('highscore'));
+// const userScore = JSON.parse(localStorage.getItem('highscore'));
 
 
 const googleProvider = new GoogleAuthProvider();
@@ -61,14 +61,15 @@ export const logInWithEmailAndPassword = async (navigate, email, password) => {
     }
 };
 
-export const registerWithEmailAndPassword = async (navigate, email, password) => {
+export const registerWithEmailAndPassword = async (navigate, email, password, name) => {
     try {
-        const res = await createUserWithEmailAndPassword(auth, email, password);
+        const res = await createUserWithEmailAndPassword(auth, email, password, name);
         const user = res.user;
             await addDoc(collection(db, "users"), {
             uid: user.uid,
             authProvider: "local",
             email,
+            name,
             score: 0,
             balance: 100
         });
@@ -85,6 +86,7 @@ export const logout = (navigate) => {
     navigate("/")
     notificationSuccess("Log out successfuly")
 };
+
 
 
 
