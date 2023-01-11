@@ -1,10 +1,11 @@
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
-const submit = async (highScoreLocal, tokenLocal) => {
+const submit = async () => {
   await addDoc(collection(db, "leaderBoard"), {
-    highScoreLocal: highScoreLocal,
-    tokenLocal: tokenLocal,
+    money: 100,
+    highScoreLocal: 0,
+    tokenLocal: 10,
     timestamp: serverTimestamp(),
     user: auth.currentUser.displayName,
     email: auth.currentUser.email,

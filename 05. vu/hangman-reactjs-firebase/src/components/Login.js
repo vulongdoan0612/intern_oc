@@ -1,5 +1,5 @@
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import React, { useEffect } from "react";
+import React from "react";
 import { auth } from "../firebase";
 import classNames from "classnames/bind";
 import styles from "../style/ScoreBoard.module.scss";
@@ -7,6 +7,7 @@ const cx = classNames.bind(styles);
 export default function Login() {
   const onClick = () => {
     const provider = new GoogleAuthProvider();
+
     signInWithPopup(auth, provider)
       .then((results) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
@@ -15,8 +16,13 @@ export default function Login() {
         // // The signed-in user info.
         // const user = result.user;
         // ...
-        
-        window.location.reload(2);
+        // window.location.reload();
+    
+
+        // setTimeout(() => {
+        //   console.log('cc')
+        //   window.location.reload();
+        // }, 2550);
       })
       .catch((error) => {
         // Handle Errors here.

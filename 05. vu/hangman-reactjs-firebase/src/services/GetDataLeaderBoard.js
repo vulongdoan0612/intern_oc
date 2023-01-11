@@ -1,9 +1,6 @@
 import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
-import { useDispatch } from "react-redux";
 import { db } from "../firebase";
-import { gameScores } from "../reducer/gamePlayReducer";
 const GetDataLeaderBoard = async () => {
-  const dispatch = useDispatch();
   const q = query(
     collection(db, "leaderBoard"),
     orderBy("highScoreLocal", "desc"),
@@ -14,6 +11,5 @@ const GetDataLeaderBoard = async () => {
   queryData.forEach((doc) => {
     data.push(doc.data());
   });
-  dispatch(gameScores(data));
 };
 export default GetDataLeaderBoard;

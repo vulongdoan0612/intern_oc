@@ -11,6 +11,7 @@ export default function Hangman() {
         className={cx("hangman-iframe")}
         title="Hang Man Game"
       ></iframe>
+     
     </div>
   );
 }

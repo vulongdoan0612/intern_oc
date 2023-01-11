@@ -1,79 +1,93 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "../style/ScoreBoard.module.scss";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 import { Dropdown } from "react-bootstrap";
 import submit from "../services/submit";
 import signOutD from "../services/signOut";
-import { useDispatch, useSelector } from "react-redux";
-import { gameHighScore, gameScore } from "../reducer/gamePlayReducer";
+import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
+import { useStateContext } from "../ContextProvider";
 
 const cx = classNames.bind(styles);
-export default function ScoreBoard() {
-  console.log("Time render ScoreBoard");
-  const dispatch = useDispatch();
-  const tokenRedux = useSelector((state) => state.gamePlayReducer.token);
-  let scoreLocal = localStorage.getItem("score");
-  let token = localStorage.getItem("token");
-  let highScoreLocal = localStorage.getItem("highScore");
+export default function ScoreBoard(props) {
+  // const scoreLocal = localStorage.getItem("score");
+  // let token = localStorage.getItem("token");
+  const {
+    setUser,
+    highScoreDb,
+    setHighScoreDb,
+    setHighScore,
+    highScore,
+    score,
+    setScore,
+  } = useStateContext();
 
-  const highScoreRedux = useSelector(
-    (state) => state.gamePlayReducer.highScore
-  );
-  // const scoreRedux = useSelector((state) => state.gamePlayReducer.score);
-  const [highScore, setHighScore] = useState(highScoreLocal);
+  // const [highScore, setHighScore] = useState(highScoreLocal);
+  // const [score, setScore] = useState(scoreLocal);
+  // const changeScore = () => {
+  //   const scoreChange = localStorage.getItem("score");
+  //   if (scoreLocal) {
+  //     setScore(scoreChange);
+  //     alert("score");
+  //   }
+  // };
 
-  // console.log("useState highScore:", highScore);
-  const [score, setScore] = useState(scoreLocal);
-
+  // const changeHighScore = () => {
+  //   const highScoreChange = localStorage.getItem("highScore");
+  //   if (highScoreLocal) {
+  //     alert("submit database");
+  //     // submit();
+  //     setHighScore(highScoreChange);
+  //   }
+  // };
   useEffect(() => {
-    const changeScore = () => {
-      const scoreChange = localStorage.getItem("score");
-      if (scoreLocal) {
-        setScore(scoreChange);
-      }
-      dispatch(gameScore(score));
-    };
-    window.addEventListener("storage", changeScore);
-    return () => {
-      window.removeEventListener("storage", changeScore);
-    };
-  }, [dispatch, score, scoreLocal]);
-
-  useEffect(() => {
-    const changeHighScore = () => {
-      const highScoreChange = localStorage.getItem("highScore");
-      const tokenLocal = localStorage.getItem("token");
-      console.log("highScoreChange", highScoreChange);
-      if (highScoreChange !== highScoreLocal) {
-        submit(highScoreChange, tokenLocal);
-        alert("scoreBoard");
-      }
-      dispatch(gameHighScore(highScoreChange));
-      setHighScore(highScoreChange);
-    };
-    window.addEventListener("storage", changeHighScore);
-    return () => {
-      window.removeEventListener("storage", changeHighScore);
-    };
-    // eslint-disable-next-line
-  }, [highScoreLocal, highScoreRedux, tokenRedux]);
-
+    setHighScore(localStorage.getItem("highScore"));
+    window.addEventListener("storage", () => {
+      setHighScore(localStorage.getItem("highScore"));
+      setScore(localStorage.getItem("score"));
+    });
+  }, []);
+  console.log(highScore, score);
   const signOutUser = () => {
-    window.location.reload(false);
-
     signOutD();
-    localStorage.setItem("token", 0);
-    localStorage.setItem("highScore", 0);
   };
+
+  useEffect(() => {
+    const GetHighScore = async () => {
+      const q = query(
+        collection(db, "leaderBoard"),
+        where(
+          "email",
+          "==",
+          `${auth.currentUser ? auth.currentUser.email : null}`
+        ),
+        orderBy("timestamp", "desc")
+      );
+      const queryData = await getDocs(q);
+      const data = [];
+      // const dataUser = [];
+      queryData.forEach((doc) => {
+        data.push({ id: doc.id, ...doc.data() });
+      });
+      setHighScoreDb(data);
+    };
+    GetHighScore();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  useEffect(() => {
+    highScoreDb.slice(0, 1).forEach((highScore) => {
+      setUser(highScore);
+      localStorage.setItem("highScore", highScore.highScoreLocal);
+    });
+  }, []);
   return (
     <div>
       <div className={cx("wrapper")}>
         <h2>
-          Score: <span>{score || 0}</span>
+          Score: <span>{auth.currentUser ? score : 0}</span>
         </h2>
         <h2>
-          HighScore: <span>{highScore || 0}</span>
+          HighScore: <span>{auth.currentUser ? highScore : 0}</span>
         </h2>
 
         {auth.currentUser ? (

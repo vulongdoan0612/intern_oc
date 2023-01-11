@@ -11,6 +11,7 @@ import Login from "../components/Login";
 const cx = classNames.bind(styles);
 export default function Home(props) {
   const [user, loading, error] = useAuthState(auth);
+  // const [highScoreDb, setHighScoreDb] = useState([]);
   if (loading) {
     return <h1>Loading...</h1>;
   }
@@ -21,7 +22,7 @@ export default function Home(props) {
     <div>
       <div className={cx("wrapper")}>
         <div className={cx("leftScreen")}>
-          <ScoreBoard ></ScoreBoard>
+          <ScoreBoard></ScoreBoard>
           {user ? <Hangman></Hangman> : <Login></Login>}
           {/* <Hangman></Hangman> */}
         </div>

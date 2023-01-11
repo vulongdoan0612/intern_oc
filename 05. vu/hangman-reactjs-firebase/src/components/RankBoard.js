@@ -3,14 +3,11 @@ import classNames from "classnames/bind";
 import styles from "../style/RankBoard.module.scss";
 import { collection, getDocs, query } from "firebase/firestore";
 import { db } from "../firebase";
-import { useDispatch, useSelector } from "react-redux";
-import { gameScores } from "../reducer/gamePlayReducer";
 import getUnique from "../services/getUnique";
 const cx = classNames.bind(styles);
 export default function RankBoard() {
+  const [gameScore, setGameScore] = useState([]);
   const [highestScore, setHighestScore] = useState([]);
-  const dispatch = useDispatch();
-  const gameScore = useSelector((state) => state.gamePlayReducer.scores);
   const getTheBestHighScore = async () => {
     const q = query(collection(db, "leaderBoard"));
     const queryData = await getDocs(q);
@@ -29,12 +26,9 @@ export default function RankBoard() {
   }, []);
   useEffect(() => {
     const unique = getUnique(sortFunctionGetLargest, "email");
-    dispatch(gameScores(unique));
+    setGameScore(unique);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [highestScore]);
-  // const handleClick = () => {
-  //   const unique = getUnique(sortFunctionGetLargest, "email");
-  //   dispatch(gameScores(unique));
-  // };
   return (
     <div>
       <div className={cx("leaderBoard")}>
