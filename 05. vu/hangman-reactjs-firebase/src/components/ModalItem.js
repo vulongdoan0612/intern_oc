@@ -1,7 +1,6 @@
 import React from "react";
 
 export default function ModalItem({ item, index }) {
-  // localStorage.setItem("token", item.token);
   return (
     <div>
       {item.map((i, index) => {

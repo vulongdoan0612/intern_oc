@@ -3,7 +3,6 @@ import classNames from "classnames/bind";
 import styles from "../style/RankBoard.module.scss";
 import { collection, getDocs, query } from "firebase/firestore";
 import { db } from "../firebase";
-import getUnique from "../services/getUnique";
 const cx = classNames.bind(styles);
 export default function RankBoard() {
   const [gameScore, setGameScore] = useState([]);
@@ -20,13 +19,11 @@ export default function RankBoard() {
   const sortFunctionGetLargest = [...highestScore].sort(
     (a, b) => b.highScoreLocal - a.highScoreLocal
   );
-  console.log();
   useEffect(() => {
     getTheBestHighScore();
-  }, []);
+  }, [highestScore]);
   useEffect(() => {
-    const unique = getUnique(sortFunctionGetLargest, "email");
-    setGameScore(unique);
+    setGameScore(sortFunctionGetLargest);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [highestScore]);
   return (

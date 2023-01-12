@@ -1,11 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import classNames from "classnames/bind";
 import styles from "../style/ScoreBoard.module.scss";
 import { auth, db } from "../firebase";
 import { Dropdown } from "react-bootstrap";
-import submit from "../services/submit";
 import signOutD from "../services/signOut";
-import { collection, getDocs, orderBy, query, where } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDocs,
+  orderBy,
+  query,
+  updateDoc,
+  where,
+} from "firebase/firestore";
 import { useStateContext } from "../ContextProvider";
 
 const cx = classNames.bind(styles);
@@ -20,38 +27,31 @@ export default function ScoreBoard(props) {
     highScore,
     score,
     setScore,
+    user,
+    setToken,
   } = useStateContext();
-
-  // const [highScore, setHighScore] = useState(highScoreLocal);
-  // const [score, setScore] = useState(scoreLocal);
-  // const changeScore = () => {
-  //   const scoreChange = localStorage.getItem("score");
-  //   if (scoreLocal) {
-  //     setScore(scoreChange);
-  //     alert("score");
-  //   }
-  // };
-
-  // const changeHighScore = () => {
-  //   const highScoreChange = localStorage.getItem("highScore");
-  //   if (highScoreLocal) {
-  //     alert("submit database");
-  //     // submit();
-  //     setHighScore(highScoreChange);
-  //   }
-  // };
   useEffect(() => {
     setHighScore(localStorage.getItem("highScore"));
     window.addEventListener("storage", () => {
+      setToken(localStorage.getItem("token"));
       setHighScore(localStorage.getItem("highScore"));
       setScore(localStorage.getItem("score"));
     });
   }, []);
-  console.log(highScore, score);
   const signOutUser = () => {
     signOutD();
   };
-
+  // console.log("highScore", highScore);
+  const updateHighScore = async () => {
+    const docRef = doc(db, "leaderBoard", highScoreDb[0].id);
+    const daTa = {
+      highScoreLocal: highScore,
+    };
+    await updateDoc(docRef, daTa);
+  };
+  useEffect(() => {
+    updateHighScore();
+  }, [highScore]);
   useEffect(() => {
     const GetHighScore = async () => {
       const q = query(
@@ -76,10 +76,12 @@ export default function ScoreBoard(props) {
   }, []);
   useEffect(() => {
     highScoreDb.slice(0, 1).forEach((highScore) => {
-      setUser(highScore);
       localStorage.setItem("highScore", highScore.highScoreLocal);
     });
-  }, []);
+  }, [user]);
+  highScoreDb.slice(0, 1).forEach((highScore) => {
+    setUser(highScore);
+  });
   return (
     <div>
       <div className={cx("wrapper")}>
@@ -94,10 +96,16 @@ export default function ScoreBoard(props) {
           <div>
             <Dropdown>
               <Dropdown.Toggle
-                style={{ display: "flex" }}
+                style={{
+                  display: "flex",
+                  width: "270px",
+                  justifyContent: "space-evenly",
+                  backgroundColor: "#8d8741",
+                  border: "none",
+                }}
                 className={cx("user")}
               >
-                <h2>{auth.currentUser.displayName}</h2>
+                <h4>{auth.currentUser.displayName}</h4>
                 <img src={auth.currentUser.photoURL} alt=""></img>
               </Dropdown.Toggle>
 

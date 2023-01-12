@@ -47,15 +47,16 @@ export default function TokenLeft() {
   }, [tokenLeft]);
   useEffect(() => {
     changeToken();
-  }, []);
+  });
   const handleReload = () => {
     window.location.reload();
   };
+  console.log(tokenUser);
   return (
     <div>
       <div className={cx("wrapper")}>
-        Token Left : <span>{auth.currentUser ? token : 0}</span>
-        <button onClick={handleReload}>press to reload leaderboard</button>
+        <h4>Token Left :</h4> <h4>{auth.currentUser ? token : 0}</h4>
+        {/* <button onClick={handleReload}>press to reload leaderboard</button> */}
       </div>
     </div>
   );

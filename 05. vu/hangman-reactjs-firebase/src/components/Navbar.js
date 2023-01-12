@@ -5,24 +5,21 @@ import {
   collection,
   doc,
   getDocs,
-  orderBy,
   query,
   updateDoc,
   where,
 } from "firebase/firestore";
+import "../style/Navbar.css";
 import { auth, db } from "../firebase";
 import { useStateContext } from "../ContextProvider";
-// import { auth } from "../firebase";
-
+import coin from "../png/coin.png";
+import "../style/Donate.css";
 const cx = classNames.bind(styles);
 
 export default function Navbar() {
-  const { user } = useStateContext();
-  const [money, setMoney] = useState(0);
+  const { highScoreDb, user, money, setMoney, setToken, token } =
+    useStateContext();
   const [inputMoney, setInputMoney] = useState("");
-  const [dataLeaderBoard, setData] = useState("");
-  // console.log(auth.currentUser.displayName)
-
   const changToken = async () => {
     const q = query(
       collection(db, "leaderBoard"),
@@ -30,42 +27,97 @@ export default function Navbar() {
         "email",
         "==",
         `${auth.currentUser ? auth.currentUser.email : null}`
-      ),
-      orderBy("timestamp", "desc")
+      )
     );
     const findUsers = await getDocs(q);
     const data = [];
     findUsers.forEach((doc) => {
       data.push(doc.data());
     });
-    data.slice(0, 1).forEach((money) => {
-      if (money.money < inputMoney) {
-        alert("no money ");
-      } else {
-        setMoney(money.money - inputMoney);
-        setData(money.money.toString());
-      }
-    });
-    // updateMoney();
+    setMoney(data[0].money - inputMoney);
+    setToken(data[0].tokenLocal);
+    window.location.reload();
   };
+  useEffect(() => {
+    setMoney(user?.money);
+    setToken(user?.tokenLocal);
+  }, [user]);
   const updateMoney = async () => {
-    const docRef = doc(db, "leaderBoard", user.id);
-    const tokenLocalStor = localStorage.getItem("token");
+    const docRef = doc(db, "leaderBoard", highScoreDb[0].id);
     const daTa = {
       money: money,
-      tokenLocal: Number(tokenLocalStor) + Number(inputMoney),
     };
-    await updateDoc(docRef, daTa);
+    try {
+      await updateDoc(docRef, daTa);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const updateToken = async () => {
+    const docRef = doc(db, "leaderBoard", highScoreDb[0].id);
+    const daTa = {
+      tokenLocal: Number(token) + Number(inputMoney),
+    };
+    try {
+      await updateDoc(docRef, daTa);
+      localStorage.setItem("token", Number(token) + Number(inputMoney));
+    } catch (e) {
+      console.log(e);
+    }
   };
   useEffect(() => {
     updateMoney();
   }, [money]);
   useEffect(() => {
+    updateToken();
+  }, [token, money]);
+  useEffect(() => {
     changToken();
   }, []);
+  const [showDonate, setShowDonate] = useState(false);
+  const updateCredit = async () => {
+    const docRef = doc(db, "leaderBoard", highScoreDb[0].id);
+    const daTa = {
+      money: money + 50,
+    };
+    try {
+      await updateDoc(docRef, daTa);
+      localStorage.setItem("token", token + 50);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const donate = () => {
+    setShowDonate((donate) => !showDonate);
+  };
+  const buyCredit = () => {
+    updateCredit();
+    alert("donate 50$ success");
+    window.location.reload();
+  };
+  const [showInput, setShowInput] = useState(false);
+  const displayInput = () => {
+    setShowInput((showInput) => !showInput);
+  };
   return (
     <div>
       <div className={cx("wrapper")}>
+        <div className={cx(`donate${showDonate ? " showDonate" : ""}`)}>
+          <h1>Please select</h1>
+          <div className={cx("buttonPrices")} style={{paddingBottom:'20px'}}>
+            <button onClick={buyCredit} >50$</button>
+            <button>100$</button>
+            <button>200$</button>
+          </div>
+          <button
+            onClick={() => {
+              setShowDonate(false);
+            }}
+            style={{width:'100%'}}
+          >
+            CLOSE
+          </button>
+        </div>
         <div className={cx("logo")}>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Stick_Figure.svg/1200px-Stick_Figure.svg.png"
@@ -74,18 +126,54 @@ export default function Navbar() {
         </div>
         <div className={cx("user")}>
           <div>
-            <h3 style={{ cursor: "pointer" }}>DONATE HERE</h3>
+            <h3 style={{ cursor: "pointer" }} onClick={donate}>
+              DONATE HERE
+            </h3>
           </div>
         </div>
-        <div>
-          <h3>
-            Money : <span>{money}</span>
-          </h3>
-          <input
-            value={inputMoney}
-            onChange={(e) => setInputMoney(e.target.value)}
-          ></input>
-          <button onClick={changToken}>Oke</button>
+        <div className={cx("money")}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <h3>
+              Money : <span>{auth.currentUser ? money : 0}</span>
+            </h3>
+            <img src={coin} alt="" onClick={displayInput}></img>
+          </div>
+          <div className={cx(`typeInput ${showInput ? "showInput" : ""}`)}>
+            <p>Type your number you want to change 1$ / 1 token</p>
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                paddingBottom: "20px",
+              }}
+            >
+              <input
+                value={auth.currentUser ? inputMoney : ""}
+                onChange={(e) => setInputMoney(e.target.value)}
+                style={{
+                  border: "none",
+                  borderRadius: "20px",
+                  backGroundColor: "green",
+                  paddingLeft: "10px",
+                }}
+              ></input>
+              <button onClick={changToken}>Oke</button>
+            </div>
+            <button
+              onClick={() => {
+                setShowInput(false);
+              }}
+              style={{ width: "100%" }}
+            >
+              Close
+            </button>
+          </div>
         </div>
       </div>
     </div>

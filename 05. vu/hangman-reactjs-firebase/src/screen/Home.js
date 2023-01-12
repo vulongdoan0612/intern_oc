@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Hangman from "../components/Hangman";
 import RankBoard from "../components/RankBoard";
 import ScoreBoard from "../components/ScoreBoard";
@@ -6,25 +6,43 @@ import TokenLeft from "../components/TokenLeft";
 import classNames from "classnames/bind";
 import styles from "../style/Home.module.scss";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../firebase";
+import { auth, db } from "../firebase";
 import Login from "../components/Login";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { useStateContext } from "../ContextProvider";
 const cx = classNames.bind(styles);
 export default function Home(props) {
   const [user, loading, error] = useAuthState(auth);
-  // const [highScoreDb, setHighScoreDb] = useState([]);
+  const { setUsers } = useStateContext();
+
+  const GetAllUser = async () => {
+    const data = [];
+    const q = query(
+      collection(db, "leaderBoard"),
+      where("email", "==", `${auth.currentUser.email}`)
+    );
+    const queryData = await getDocs(q);
+    queryData.forEach((doc) => {
+      data.push(doc.data());
+    });
+    setUsers(data);
+  };
+  useEffect(() => {
+    GetAllUser();
+  }, [user]);
   if (loading) {
     return <h1>Loading...</h1>;
   }
   if (error) {
     return <h1>Error ...</h1>;
   }
+
   return (
     <div>
       <div className={cx("wrapper")}>
         <div className={cx("leftScreen")}>
           <ScoreBoard></ScoreBoard>
           {user ? <Hangman></Hangman> : <Login></Login>}
-          {/* <Hangman></Hangman> */}
         </div>
         <div className={cx("rightScreen")}>
           <TokenLeft></TokenLeft>
