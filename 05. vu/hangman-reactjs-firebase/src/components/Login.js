@@ -34,6 +34,8 @@ export default function Login() {
           userImg: auth.currentUser.photoURL,
         });
       }
+      window.location.reload()
+
     } catch (err) {
       console.error(err);
     }

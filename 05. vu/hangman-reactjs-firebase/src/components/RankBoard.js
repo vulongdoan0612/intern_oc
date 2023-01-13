@@ -54,7 +54,7 @@ export default function RankBoard() {
                 }}
               >
                 <p>
-                  <span>{item.user}</span>
+                  <span style={{ fontWeight: "bold" }}>{item.user}</span>
                 </p>
                 <img
                   src={item.userImg}
