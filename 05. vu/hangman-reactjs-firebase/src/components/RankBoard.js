@@ -40,17 +40,17 @@ export default function RankBoard() {
                 paddingBottom: "15px",
               }}
             >
-              <div style={{ display: "flex", justifyContent: "space-around" }}>
-                <p>Top :{(index += 1)}</p>
-                <p>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <h5 style={{ color: "#fbecc1" }}>Top :{(index += 1)}</h5>
+                <h5 style={{ color: "#fbecc1" }}>
                   Scrore :<span>{item.highScoreLocal}</span>
-                </p>
+                </h5>
               </div>
               <div
                 style={{
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "space-around",
+                  justifyContent: "space-between",
                 }}
               >
                 <p>
@@ -62,6 +62,7 @@ export default function RankBoard() {
                   style={{
                     borderRadius: "50%",
                     width: "50px",
+                    border: "1px solid black",
                   }}
                 ></img>
               </div>

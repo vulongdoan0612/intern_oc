@@ -17,8 +17,7 @@ import { useStateContext } from "../ContextProvider";
 
 const cx = classNames.bind(styles);
 export default function ScoreBoard(props) {
-  // const scoreLocal = localStorage.getItem("score");
-  // let token = localStorage.getItem("token");
+
   const {
     setUser,
     highScoreDb,
@@ -41,7 +40,6 @@ export default function ScoreBoard(props) {
   const signOutUser = () => {
     signOutD();
   };
-  // console.log("highScore", highScore);
   const updateHighScore = async () => {
     const docRef = doc(db, "leaderBoard", highScoreDb[0].id);
     const daTa = {
@@ -65,7 +63,6 @@ export default function ScoreBoard(props) {
       );
       const queryData = await getDocs(q);
       const data = [];
-      // const dataUser = [];
       queryData.forEach((doc) => {
         data.push({ id: doc.id, ...doc.data() });
       });

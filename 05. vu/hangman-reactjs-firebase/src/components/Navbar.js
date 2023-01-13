@@ -87,12 +87,46 @@ export default function Navbar() {
       console.log(e);
     }
   };
+  const updateCredit100 = async () => {
+    const docRef = doc(db, "leaderBoard", highScoreDb[0].id);
+    const daTa = {
+      money: money + 100,
+    };
+    try {
+      await updateDoc(docRef, daTa);
+      localStorage.setItem("token", token + 50);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+  const updateCredit200 = async () => {
+    const docRef = doc(db, "leaderBoard", highScoreDb[0].id);
+    const daTa = {
+      money: money + 200,
+    };
+    try {
+      await updateDoc(docRef, daTa);
+      localStorage.setItem("token", token + 50);
+    } catch (e) {
+      console.log(e);
+    }
+  };
   const donate = () => {
     setShowDonate((donate) => !showDonate);
   };
   const buyCredit = () => {
     updateCredit();
     alert("donate 50$ success");
+    window.location.reload();
+  };
+  const buyCredit100 = () => {
+    updateCredit100();
+    alert("donate 100$ success");
+    window.location.reload();
+  };
+  const buyCredit200 = () => {
+    updateCredit200();
+    alert("donate 200$ success");
     window.location.reload();
   };
   const [showInput, setShowInput] = useState(false);
@@ -104,16 +138,16 @@ export default function Navbar() {
       <div className={cx("wrapper")}>
         <div className={cx(`donate${showDonate ? " showDonate" : ""}`)}>
           <h1>Please select</h1>
-          <div className={cx("buttonPrices")} style={{paddingBottom:'20px'}}>
-            <button onClick={buyCredit} >50$</button>
-            <button>100$</button>
-            <button>200$</button>
+          <div className={cx("buttonPrices")} style={{ paddingBottom: "20px" }}>
+            <button onClick={buyCredit}>50$</button>
+            <button onClick={buyCredit100}>100$</button>
+            <button onClick={buyCredit200}>200$</button>
           </div>
           <button
             onClick={() => {
               setShowDonate(false);
             }}
-            style={{width:'100%'}}
+            style={{ width: "100%" }}
           >
             CLOSE
           </button>
@@ -126,12 +160,16 @@ export default function Navbar() {
         </div>
         <div className={cx("user")}>
           <div>
-            <h3 style={{ cursor: "pointer" }} onClick={donate}>
-              DONATE HERE
-            </h3>
+            {auth.currentUser ? (
+              <h3 style={{ cursor: "pointer" }} onClick={donate}>
+                DONATE HERE
+              </h3>
+            ) : (
+              <></>
+            )}
           </div>
         </div>
-        <div className={cx("money")}>
+        <div className={cx("money")} style={{ width: "280px" }}>
           <div
             style={{
               display: "flex",
@@ -140,7 +178,7 @@ export default function Navbar() {
             }}
           >
             <h3>
-              Money : <span>{auth.currentUser ? money : 0}</span>
+              Money : <span>{auth.currentUser ? money : 0}$</span>
             </h3>
             <img src={coin} alt="" onClick={displayInput}></img>
           </div>

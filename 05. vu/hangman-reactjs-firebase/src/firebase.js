@@ -7,12 +7,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBC5f2eJb3w8onZ_Wxq1UGW4ataFE032fU",
-  authDomain: "hangman-bf819.firebaseapp.com",
-  projectId: "hangman-bf819",
-  storageBucket: "hangman-bf819.appspot.com",
-  messagingSenderId: "600672886672",
-  appId: "1:600672886672:web:c40cd3c307cf36c0dddd15",
+  apiKey: "AIzaSyCpOZ1Gq5lAmcEiEz5tbroWT9GHA_yJnTo",
+  authDomain: "game-1eae5.firebaseapp.com",
+  projectId: "game-1eae5",
+  storageBucket: "game-1eae5.appspot.com",
+  messagingSenderId: "381145342119",
+  appId: "1:381145342119:web:7f2167fd63146447967b82"
 };
 
 // Initialize Firebase
