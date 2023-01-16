@@ -8,6 +8,7 @@ import {
 } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
+//getData
 export const getAllUsers = async () => {
   const q = query(collection(db, "leaderBoard"));
   const queryData = await getDocs(q);
@@ -17,6 +18,7 @@ export const getAllUsers = async () => {
   });
   return data;
 };
+
 export const getToken = async () => {
   const q = query(
     collection(db, "leaderBoard"),
@@ -30,6 +32,7 @@ export const getToken = async () => {
   return data;
 };
 
+//updateData
 export const updateCreditBuy = async (user, moneyCurrent) => {
   const docRef = doc(db, "leaderBoard", user?.id);
   const daTa = {
