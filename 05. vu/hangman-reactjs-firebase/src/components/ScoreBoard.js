@@ -22,6 +22,8 @@ export default function ScoreBoard(props) {
     setMoney,
   } = useStateContext();
 
+  setScore(localStorage.getItem("score"));
+  
   useEffect(() => {
     window.addEventListener("storage", () => {
       setHighScore(localStorage.getItem("highScore"));
@@ -29,7 +31,7 @@ export default function ScoreBoard(props) {
       setToken(parseInt(localStorage.getItem("token")));
     });
   }, []);
-  
+
   const handleSetDataStorage = (user) => {
     localStorage.setItem("highScore", user?.highScoreLocal || 0);
   };
@@ -76,7 +78,6 @@ export default function ScoreBoard(props) {
       updateHighScore(user, highScore);
     }
   }, [highScore]);
-  // console.log(token, money);
 
   return (
     <div style={{ paddingBottom: "20px" }}>
@@ -87,7 +88,7 @@ export default function ScoreBoard(props) {
             fontWeight: "bold",
           }}
         >
-          Score: <span>{score || 0}</span>
+          Score: <span>{user ? score : 0}</span>
         </h2>
         <h2
           style={{

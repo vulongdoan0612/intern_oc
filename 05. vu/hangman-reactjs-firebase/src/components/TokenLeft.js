@@ -16,7 +16,6 @@ export default function TokenLeft() {
   const handleGetToken = async () => {
     const data = await getToken();
     setUser(data[0]);
-    // console.log(data);
   };
 
   useEffect(() => {
