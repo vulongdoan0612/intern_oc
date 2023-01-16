@@ -11,11 +11,16 @@ import {
   serverTimestamp,
   where,
 } from "firebase/firestore";
+<<<<<<< HEAD
 import { useStateContext } from "../ContextProvider";
 import { getToken } from "../services/user";
 const cx = classNames.bind(styles);
 export default function Login() {
   const { setUser } = useStateContext();
+=======
+const cx = classNames.bind(styles);
+export default function Login() {
+>>>>>>> 63539c33123e4fa6d12e889f9478a4887432fd16
   const provider = new GoogleAuthProvider();
   const signInWithGoogle = async () => {
     try {
@@ -37,9 +42,14 @@ export default function Login() {
           userImg: auth.currentUser.photoURL,
         });
       }
+<<<<<<< HEAD
       const data = await getToken();
       setUser(data[0]);
       // localStorage.setItem("token", user?.ttokenLo);
+=======
+      window.location.reload()
+
+>>>>>>> 63539c33123e4fa6d12e889f9478a4887432fd16
     } catch (err) {
       console.error(err);
     }

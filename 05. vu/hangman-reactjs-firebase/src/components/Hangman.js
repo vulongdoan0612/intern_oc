@@ -7,6 +7,7 @@ const cx = classNames.bind(styles);
 export default function Hangman() {
   const { user } = useStateContext();
   return (
+<<<<<<< HEAD
     <div
       className={cx("wrapper")}
       style={{
@@ -25,6 +26,15 @@ export default function Hangman() {
           alt=""
         ></img>
       )}
+=======
+    <div className={cx("wrapper")}>
+      <iframe
+        src="Hangman/index.html"
+        className={cx("hangman-iframe")}
+        title="Hang Man Game"
+      ></iframe>
+     
+>>>>>>> 63539c33123e4fa6d12e889f9478a4887432fd16
     </div>
   );
 }
