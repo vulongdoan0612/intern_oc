@@ -1,51 +1,92 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import styles from "../style/RankBoard.module.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { collection, getDocs, query, orderBy, limit } from "firebase/firestore";
-import { db } from "../firebase";
-import { gameScores } from "../reducer/gamePlayReducer";
-import ModalItem from "./ModalItem";
+import { useStateContext } from "../ContextProvider";
+import { getAllUsers } from "../services/user";
+
 const cx = classNames.bind(styles);
+
 export default function RankBoard() {
-  const dispatch = useDispatch();
-  const scoresRedux = useSelector((state) => state.gamePlayReducer.scores);
-  
-  const getData = async () => {
-    const q = query(
-      collection(db, "leaderBoard"),
-      orderBy("highScoreLocal", "desc"),
-      limit(10)
-    );
-    const queryData = await getDocs(q);
-    const data = [];
-    queryData.forEach((doc) => {
-      data.push(doc.data());
-    });
-    dispatch(gameScores(data));
+  const { user } = useStateContext();
+  const [allUser, setAllUser] = useState([]);
+  const allUsers = async () => {
+    const data = await getAllUsers();
+    const result = data.sort((a, b) => b.highScoreLocal - a.highScoreLocal);
+    setAllUser(result);
   };
-  console.log(scoresRedux);
+
   useEffect(() => {
-    console.log("highScore change");
-    getData();
-    // eslint-disable-next-line
-  }, []);
+    allUsers();
+  }, [user?.highScoreLocal]);
+
   return (
     <div>
       <div className={cx("leaderBoard")}>
-        {scoresRedux?.map((item, index) => {
-          // eslint-disable-next-line no-lone-blocks
-          {
-            return (
-              <ModalItem item={item} index={index} key={index}></ModalItem>
-            );
-          }
+        {allUser.map((item, index) => {
+          return (
+            <div
+              key={index}
+              style={{
+                paddingTop: "15px",
+                borderBottom: "1px solid black",
+                paddingBottom: "15px",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  pointerEvents: "none",
+                }}
+              >
+                <h5
+                  style={{
+                    color: "#fbecc1",
+                    textShadow: "rgb(0 0 0 / 80%) -1px 3px 13px",
+                  }}
+                >
+                  Top :{(index += 1)}
+                </h5>
+                <h5
+                  style={{
+                    color: "#fbecc1",
+                    textShadow: "rgb(0 0 0 / 80%) -1px 3px 13px",
+                  }}
+                >
+                  Scrore :<span>{item.highScoreLocal}</span>
+                </h5>
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                }}
+              >
+                <p>
+                  <span
+                    style={{
+                      fontWeight: "bold",
+                      textShadow: "rgb(0 0 0 / 80%) -1px 3px 13px",
+                    }}
+                  >
+                    {item.user}
+                  </span>
+                </p>
+                <img
+                  src={item.userImg}
+                  alt=""
+                  style={{
+                    borderRadius: "50%",
+                    width: "50px",
+                    border: "1px solid black",
+                    boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+                  }}
+                ></img>
+              </div>
+            </div>
+          );
         })}
-        {/* <h2>Leaderboard</h2>
-        <div className={cx("list-leaderBoard")}>
-          <h4>Rank 1 : Vũ</h4>
-          <h4>Rank 2 : Trung</h4>
-        </div> */}
       </div>
     </div>
   );

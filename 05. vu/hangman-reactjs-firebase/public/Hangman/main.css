@@ -6,7 +6,7 @@ body {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
     Helvetica, Arial, "Lucida Grande", sans-serif;
   color: #fff;
-  height: 100vh;
+  height: 600px;
   text-align: center;
   font-size: 18px;
 }
@@ -60,6 +60,8 @@ p {
 }
 
 #alphabet li {
+  text-shadow: rgb(0 0 0 / 80%) -1px 3px 13px;
+  box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
   text-transform: uppercase;
   float: left;
   margin: 0 10px 10px 0;
@@ -178,7 +180,7 @@ button:hover {
   transition: all 0.3s ease;
 }
 .showGameOver {
-  transform: translateY(-135vh);
+  transform: translateY(-99vh);
   opacity: 1;
 }
 .hintModal {
@@ -197,7 +199,7 @@ button:hover {
   transition: all 0.3s ease;
 }
 .showHintModal {
-  transform: translateY(-193vh);
+  transform: translateY(-153vh);
   opacity: 1;
 }
 .youWin {
@@ -216,7 +218,7 @@ button:hover {
   transition: all 0.3s ease;
 }
 .showYouWin {
-  transform: translateY(-168vh);
+  transform: translateY(-130vh);
   opacity: 1;
 }
 .donate {
@@ -253,7 +255,7 @@ button:hover {
   width: 80vw;
   margin: auto;
   padding: 30px;
-  transform: translateY(-180vh);
+  transform: translateY(-300vh);
   transition: all 0.3s ease;
 
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
@@ -265,21 +267,21 @@ button:hover {
   transform: translateY(-15vh);
   opacity: 1;
 }
-.bankSelect{
-  border:1px solid black;
+.bankSelect {
+  border: 1px solid black;
   border-radius: 10px;
   outline: none;
-  padding:10px;
+  padding: 10px;
 }
-.passBank{
-  border:1px solid black;
+.passBank {
+  border: 1px solid black;
   border-radius: 10px;
   outline: none;
-  padding:10px;
+  padding: 10px;
 }
-.submitBank{
-  margin:auto;
+.submitBank {
+  margin: auto;
 }
-.finished{
+.finished {
   pointer-events: none;
 }

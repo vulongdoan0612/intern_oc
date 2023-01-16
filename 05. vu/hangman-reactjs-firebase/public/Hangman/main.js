@@ -38,9 +38,7 @@ window.onload = function () {
   var counter; // Count correct geusses
   var space; // Number of spaces in word '-'
   let score = 0;
-  let highScore = 0;
 
-  let token = 3;
 
   let theStatus = false;
   // Get elements
@@ -54,18 +52,18 @@ window.onload = function () {
   var showScore = document.getElementById("showScore");
   var closeHintModal = document.getElementById("closeHintModal");
   var donateBank = document.getElementById("donateBank");
-  var showCatagory = document.getElementById("scatagory");
   var getHint = document.getElementById("hint");
   var showClue = document.getElementById("clue");
+  let tokenStorage = localStorage.getItem("token");
   const displayScore = function (score) {
     document.querySelector("#score").innerHTML = score;
   };
   const displayHighscore = function (highest) {
     document.querySelector("#highScore").innerHTML = highest;
   };
-  const displayToken = function (token) {
-    document.querySelector("#token").innerHTML = token;
-  };
+  // const displayToken = function (token) {
+  //   document.querySelector("#token").innerHTML = token;
+  // };
   // create alphabet ul
   var buttons = function () {
     let myButtons = document.getElementById("buttons");
@@ -123,7 +121,7 @@ window.onload = function () {
       let tokenMinus = localStorage.getItem("token");
       tokenMinus--;
       localStorage.setItem("token", tokenMinus);
-      displayToken(tokenMinus);
+      // displayToken(tokenMinus);
       myButtons.classList.add("finished");
       gameOver.classList.add("showGameOver");
       showScore.innerHTML = score;
@@ -145,7 +143,7 @@ window.onload = function () {
       let tokenPlus = localStorage.getItem("token");
       tokenPlus++;
       localStorage.setItem("token", tokenPlus);
-      displayToken(tokenPlus);
+      // displayToken(tokenPlus);
       score += 1;
       localStorage.setItem("score", score);
       displayScore(localStorage.getItem("score") || 0);
@@ -162,12 +160,16 @@ window.onload = function () {
 
   let tokenDisplay = localStorage.getItem("token") || 3;
   localStorage.setItem("token", tokenDisplay);
-  displayToken(tokenDisplay);
+  // displayToken(tokenStorage);
   let local = localStorage.getItem("highScore") || 0;
   localStorage.setItem("highScore", local);
   displayHighscore(localStorage.getItem("highScore") || 0);
   localStorage.setItem("score", score);
   displayScore(localStorage.getItem("score") || 0);
+  window.addEventListener("storage", () => {
+    tokenStorage=window.localStorage.getItem("token");
+
+  });
 
   var donateClick = () => {
     donate.addEventListener("click", () => {
@@ -179,32 +181,32 @@ window.onload = function () {
       setTimeout(setTime, 500);
     });
   };
-  var submitBank = () => {
-    submitDonate.addEventListener("click", () => {
-      validateForm();
-      resetGame();
-      let tokenDisplayAfterDonate = localStorage.getItem("token");
-      localStorage.setItem("token", tokenDisplayAfterDonate);
-      displayToken(tokenDisplayAfterDonate);
-    });
-  };
-  submitBank();
-  var validateForm = () => {
-    let x = document.forms["myForm"]["fname"].value;
-    if (x == "") {
-      console.log("Pin must be filled out");
-      return false;
-    } else if (x.length <= 2) {
-      console.log("Pin must be more than 2 numbers");
-    } else if (x.length > 2) {
-      console.log("succesfull donation");
-      let tokenDisplay = localStorage.getItem("token") || 3;
-      tokenDisplay++;
-      localStorage.setItem("token", tokenDisplay);
-      donateBank.classList.remove("showDonateBank");
-    }
-    tokenLeft();
-  };
+  // var submitBank = () => {
+  //   submitDonate.addEventListener("click", () => {
+  //     validateForm();
+  //     resetGame();
+  //     let tokenDisplayAfterDonate = localStorage.getItem("token");
+  //     localStorage.setItem("token", tokenDisplayAfterDonate);
+  //     displayToken(tokenDisplayAfterDonate);
+  //   });
+  // };
+  // submitBank();
+  // var validateForm = () => {
+  //   let x = document.forms["myForm"]["fname"].value;
+  //   if (x == "") {
+  //     console.log("Pin must be filled out");
+  //     return false;
+  //   } else if (x.length <= 2) {
+  //     console.log("Pin must be more than 2 numbers");
+  //   } else if (x.length > 2) {
+  //     console.log("succesfull donation");
+  //     let tokenDisplay = localStorage.getItem("token") || 3;
+  //     tokenDisplay++;
+  //     localStorage.setItem("token", tokenDisplay);
+  //     donateBank.classList.remove("showDonateBank");
+  //   }
+  //   tokenLeft();
+  // };
   var tokenLeft = () => {
     let myButtons = document.getElementById("buttons");
     let myStickman = document.getElementById("stickman");
@@ -215,6 +217,7 @@ window.onload = function () {
 
     if (tokenLocal < 1) {
       donateClick();
+
       donate.classList.add("showDonate");
       myButtons.classList.add("removeButtons");
       myStickman.classList.add("removeButtons");

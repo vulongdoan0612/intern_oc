@@ -1,0 +1,19 @@
+.donate {
+  position: absolute;
+  background-color: #8d8741;
+  padding: 20px;
+  z-index: 1000;
+  border-radius: 20px;
+  transform: translateY(-100vh);
+  transition: all 0.3s ease;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.showDonate {
+  transform: translateY(10vh);
+}
+.buttonPrices {
+
+  display: flex;
+  justify-content: space-around;
+}

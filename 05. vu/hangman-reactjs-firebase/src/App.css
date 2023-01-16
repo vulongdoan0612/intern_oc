@@ -4,6 +4,8 @@
   box-sizing: border-box;
 }
 * {
+  font-family: "Antic Slab" !important;
+
   margin: 0;
   padding: 0;
   font: inherit;
@@ -17,4 +19,15 @@ video {
 }
 body {
   min-height: 100vh;
+}
+button {
+  border-radius: 10px !important;
+  border: none;
+  outline: none;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #fff;
+  background-color: #bc986a;
 }

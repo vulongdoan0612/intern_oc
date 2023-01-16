@@ -1,9 +1,10 @@
 .wrapper{
     align-items: center;
     display: flex;
-    background-color: bisque;
-    border:1px solid black;
+    // background-color: #659DBD;
     justify-content:space-around;
+    color: white;
+    padding-top:20px;
 }
 .logo img{
     width:50px;
@@ -12,4 +13,13 @@
 .user{
     text-align: right;
     // flex:11;
+}
+.money img{
+    width:50px;
+    height:50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.money img:hover{
+    scale: 1.2;
 }

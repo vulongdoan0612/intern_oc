@@ -1,70 +1,67 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import classNames from "classnames/bind";
 import styles from "../style/TokenLeft.module.scss";
-import { useDispatch, useSelector } from "react-redux";
-import { gameToken } from "../reducer/gamePlayReducer";
-import {
-  collection,
-  getDocs,
-  limit,
-  orderBy,
-  query,
-  where,
-} from "firebase/firestore";
-import { auth, db } from "../firebase";
+import "../style/cssFolder/TokenLeft.css";
+import { auth } from "../firebase";
+import { useStateContext } from "../ContextProvider";
+import { changeTokenAfterGame, getToken } from "../services/user";
 
 const cx = classNames.bind(styles);
+
 export default function TokenLeft() {
-  const dispatch = useDispatch();
-  const tokenLeft = localStorage.getItem("token");
-  // dispatch(gameToken(tokenLeft));
-  const tokenRedux = useSelector((state) => state.gamePlayReducer.token);
-  const [token, setToken] = useState(tokenLeft);
-  dispatch(gameToken(token));
+  const { user, token, setUser, setToken } = useStateContext();
 
-  useEffect(() => {
-    const changeToken = () => {
-      alert("change token");
+  const tokenLeft = parseInt(localStorage.getItem("token"));
 
-      const tokenChange = localStorage.getItem("token");
-      setToken(tokenChange);
-      dispatch(gameToken(token));
-    };
-
-    window.addEventListener("storage", changeToken);
-    return () => {
-      window.removeEventListener("storage", changeToken);
-    };
-  }, [token, dispatch, tokenLeft]);
-  console.log(auth.currentUser.email);
-  const getData = async () => {
-    const q = query(
-      collection(db, "leaderBoard"),
-      where("email", "==", `${auth.currentUser.email}`),
-      orderBy("tokenLocal","desc"),
-      limit(1)
-    );
-    const queryData = await getDocs(q);
-    const data = [];
-    queryData.forEach((doc) => {
-      data.push(doc.data());
-      console.log(doc.data());
-      // console.log(doc);
-      // console.log(doc.id, " => ", doc.data());
-    });
+  const handleGetToken = async () => {
+    const data = await getToken();
+    setUser(data[0]);
     // console.log(data);
-    // dispatch(gameToken(data));
   };
   useEffect(() => {
-    console.log("highScore change");
-    getData();
-    // eslint-disable-next-line
-  }, []);
-  // console.log(tokenRedux);
+    setToken(user?.tokenLocal);
+  }, [user]);
+  useEffect(() => {
+    if (user) {
+      handleGetToken();
+    }
+    localStorage.setItem("token", user?.tokenLocal);
+  }, [user?.tokenLocal, auth?.currentUser]);
+
+  useEffect(() => {
+    const getDocs = async () => {
+      try {
+        if (user) {
+          changeTokenAfterGame(user, tokenLeft);
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    getDocs();
+  }, [tokenLeft]);
+
   return (
     <div>
       <div className={cx("wrapper")}>
-        Token Left : <span>{token}</span>
+        <h4
+          style={{
+            textShadow: "rgb(0 0 0 / 80%) -1px 3px 13px",
+            pointerEvents: "none",
+            fontWeight: "bold",
+          }}
+        >
+          Token Left
+        </h4>
+        <h4
+          style={{
+            textShadow: "rgb(0 0 0 / 80%) -1px 3px 13px",
+            pointerEvents: "none",
+            fontWeight: "bold",
+          }}
+        >
+          {token}
+        </h4>
       </div>
     </div>
   );
