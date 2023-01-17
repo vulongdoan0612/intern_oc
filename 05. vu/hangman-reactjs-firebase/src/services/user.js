@@ -19,6 +19,7 @@ export const getAllUsers = async () => {
   return data;
 };
 
+//getToken is get data of User !!
 export const getToken = async () => {
   const q = query(
     collection(db, "leaderBoard"),
