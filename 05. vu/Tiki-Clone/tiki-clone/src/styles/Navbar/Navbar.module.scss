@@ -1,0 +1,230 @@
+.mainHeader {
+  position: relative;
+  background: rgb(255, 255, 255);
+  padding: 8px 0px;
+}
+.middle {
+  height: 40px;
+  display: flex;
+}
+.container {
+  width: 1440px;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin-right: auto;
+  margin-left: auto;
+  //   display: flex;
+  position: relative;
+}
+.middleLeft {
+  align-items: center;
+  flex: 1;
+  display: flex;
+}
+.logo {
+  width: 57px;
+  height: 40px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.home {
+  img {
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+    border-radius: 50%;
+  }
+  p {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: rgb(10, 104, 255);
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 8px;
+}
+.astra {
+  img {
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+    border-radius: 50%;
+  }
+  p {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: rgb(128, 128, 137);
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 8px;
+}
+.user {
+  img {
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+    border-radius: 50%;
+  }
+  p {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 150%;
+    color: rgb(128, 128, 137);
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 8px;
+}
+.cart {
+  img {
+    width: 24px;
+    height: 24px;
+    margin-right: 4px;
+    border-radius: 50%;
+  }
+  margin-left: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  cursor: pointer;
+  position: relative;
+  border-radius: 8px;
+}
+.badgeCart::before {
+  content: "";
+  display: block;
+  height: 20px;
+  position: absolute;
+  left: -12px;
+  border: 1px solid rgb(235, 235, 240);
+}
+.middleRight {
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: 48px;
+  display: flex;
+}
+.bottom {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  z-index: 1;
+}
+.bottomLeft {
+  a {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: rgb(128, 128, 137);
+    margin-right: 12px;
+    white-space: nowrap;
+  }
+  display: flex;
+  height: 24px;
+  width: 872px;
+  margin-left: 105px;
+  margin-top: 8px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+.bottomRight {
+  img {
+    width: 20px;
+    height: 20px !important;
+    margin-right: 4px;
+  }
+  h4 {
+    margin: 0px;
+    display: block;
+    color: rgb(128, 128, 137);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    padding-right: 4px;
+  }
+  display: flex;
+  align-items: center;
+}
+.address {
+  text-decoration: underline;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 150%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgb(39, 39, 42);
+}
+.formSearch {
+  display: flex;
+  width: 100%;
+  border: 1px solid rgb(221, 221, 227);
+  align-items: center;
+  border-radius: 8px;
+  img {
+    width: 20px;
+    height: 20px;
+    margin: 0px 0px 0px 18px;
+  }
+  input {
+    border: 0px;
+    padding: 0px 8px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    flex: 1 1 0%;
+    outline: none;
+  }
+  button {
+    cursor: pointer;
+    border: 0px;
+    width: 92px;
+    height: 38px;
+    padding: 4px;
+    border-radius: 0px 8px 8px 0px;
+    background: transparent;
+    color: rgb(10, 104, 255);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  button::before {
+    content: "";
+    display: block;
+    position: absolute;
+    border-left: 1px solid rgb(221, 221, 227);
+    height: 24px;
+    left: 0px;
+    top: 8px;
+  }
+}
+.logo {
+  margin-right: 48px;
+}
