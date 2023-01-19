@@ -2,149 +2,29 @@ import React from "react";
 import styles from "@/styles/Home/Home.module.scss";
 import SideBar from "./SideBar/SideBar";
 import Carousel from "react-bootstrap/Carousel";
+import HomeBrand from "./Widgets/HomeBrand";
+import HomeSecondBrand from "./Widgets/HomeSecondBrand";
+import Products from "./Widgets/Products";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
 
 const Body: React.FC = () => {
+  function a11yProps(index: number) {
+    return {
+      id: `simple-tab-${index}`,
+      "aria-controls": `simple-tabpanel-${index}`,
+    };
+  }
+  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+    setValue(newValue);
+  };
+  const [value, setValue] = React.useState(0);
   return (
     <main>
       <div className={styles.container}>
         <div className={styles.inner}>
-          {/* <div className={styles.sideBar}>
-            <div className={styles.listItem}>
-              <div className={styles.titleList}>Nổi bật</div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item1.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Siêu Sale Sinh Nhật</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item2.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Mã giảm giá</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item3.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Đóng tiền, nạp thẻ</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item4.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Mua trước trả sau</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item5.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Ưu đãi thẻ, ví</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item6.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Bảo hiểm Tiki360</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item7.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Tiki Exchange</div>
-              </div>
-            </div>
-            <div className={styles.listItem}>
-              <div className={styles.titleList}>Nổi bật</div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item1.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Siêu Sale Sinh Nhật</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item2.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Mã giảm giá</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item3.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Đóng tiền, nạp thẻ</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item4.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Mua trước trả sau</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item5.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Ưu đãi thẻ, ví</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item6.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Bảo hiểm Tiki360</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item7.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Tiki Exchange</div>
-              </div>
-            </div>
-            <div className={styles.listItem}>
-              <div className={styles.titleList}>Nổi bật</div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item1.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Siêu Sale Sinh Nhật</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item2.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Mã giảm giá</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item3.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Đóng tiền, nạp thẻ</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item4.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Mua trước trả sau</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item5.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Ưu đãi thẻ, ví</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item6.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Bảo hiểm Tiki360</div>
-              </div>
-              <div className={styles.item}>
-                <div className={styles.pictureItem}>
-                  <img src="/images/Home/Body/SideBar/item7.webp"></img>
-                </div>
-                <div className={styles.contentItem}>Tiki Exchange</div>
-              </div>
-            </div>
-          </div> */}
           <SideBar></SideBar>
           <div className={styles.widgets}>
             <div className={styles.mainGrid}>
@@ -190,6 +70,25 @@ const Body: React.FC = () => {
               <div className={styles.rightBanner}>
                 <img src="/images/Home/Body/Widgets/Carousels/pic6.webp"></img>
               </div>
+            </div>
+            <div className={styles.homeBrand}>
+              <div className={styles.homeBrandTitle}>
+                Thương Hiệu Chính Hãng
+                <img src="/images/Home/Body/Widgets/HomeBrand/homeBrand.png"></img>
+              </div>
+              <div className={styles.homeBrandSlider}>
+                <HomeBrand></HomeBrand>
+              </div>
+            </div>
+            <div className={styles.homeSecondBrand}>
+              <div className={styles.homeBrandTitle}>Thương Hiệu Sale Tết</div>
+              <div className={styles.homeBrandSlider}>
+                <HomeSecondBrand></HomeSecondBrand>
+              </div>
+            </div>
+
+            <div className={styles.widgetProduct}>
+              <Products></Products>
             </div>
           </div>
         </div>
