@@ -2,6 +2,7 @@ import React from "react";
 import styles from "@/styles/DetailProduct/DetailProduct.module.scss";
 import BreadCumb from "./BreadCumb/BreadCumb";
 import Container from "./Container/Container";
+import SliderProduct from "./Container/SliderProduct";
 
 const Body: React.FC = () => {
   return (
@@ -11,6 +12,13 @@ const Body: React.FC = () => {
       </div>
       <div className={styles.containerWrapper}>
         <Container></Container>
+        <div className={styles.sliderPart}>
+          <h2>Sản Phẩm Tương Tự</h2>
+          <SliderProduct></SliderProduct>
+        </div>
+      </div>
+      <div className={styles.containerWrapperMiddle}>
+        
       </div>
     </main>
   );

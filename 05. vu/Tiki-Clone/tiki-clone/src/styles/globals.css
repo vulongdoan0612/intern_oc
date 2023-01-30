@@ -30,9 +30,6 @@ p {
   left: 0px !important;
 }
 
-.slick-slide {
-  /* padding: 0px 8px !important; */
-}
 .carousel {
   width: 100%;
 }
@@ -54,7 +51,7 @@ p {
 .MuiBreadcrumbs-ol {
   height: 40px !important;
 }
-.MuiSvgIcon-root{
-  width:16px;
-  height:16px;
+.MuiSvgIcon-root {
+  width: 16px;
+  height: 16px;
 }
