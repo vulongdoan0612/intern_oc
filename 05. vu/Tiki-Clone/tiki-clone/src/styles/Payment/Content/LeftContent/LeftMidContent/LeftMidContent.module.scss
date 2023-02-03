@@ -1,0 +1,40 @@
+.wrapper {
+  position: relative;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: rgb(255, 255, 255);
+}
+.label img {
+  width: 20px;
+  height: 20px;
+}
+.label {
+  display: inline-flex;
+  flex-wrap: wrap;
+  -webkit-box-align: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 0px 0px 4px 4px;
+  cursor: pointer;
+  color: rgb(196, 196, 207);
+}
+.styledCheckBox {
+  display: flex;
+  align-items: center;
+}
+.addition {
+  margin-left: 30px !important;
+}
+.addition a {
+  margin-left: 4px !important;
+  color: rgb(11, 116, 229);
+  text-decoration: none;
+}
+.wrapper h3 {
+  color: rgb(56, 56, 61);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0px;
+}

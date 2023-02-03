@@ -1,0 +1,36 @@
+.wrapper {
+  width: 100%;
+  position: relative;
+  margin: 12px 0px;
+}
+.iconLeft {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+}
+.inputSearch {
+  padding-left: 40px !important;
+  transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s,
+    -webkit-box-shadow 0.15s ease-in-out 0s;
+  height: 36px;
+  width: 100%;
+  border-radius: 4px;
+  padding: 10px 12px;
+  line-height: 20px;
+  outline: none;
+  flex: 1 1 0%;
+  border: 1px solid rgb(196, 196, 207);
+}
+.searchRight {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(11, 116, 229);
+  padding: 0px 6px 0px 16px;
+  border-left: 2px solid rgb(221, 221, 227);
+  cursor: pointer;
+}

@@ -1,0 +1,33 @@
+.mainTitle {
+  padding: 20px 0px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.mainTitle h4 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0px;
+  color: rgb(0, 0, 0);
+  line-height: 28px;
+  text-transform: uppercase;
+  flex-basis: calc(797px);
+}
+.tikiXu {
+  border: 1px solid rgb(111, 85, 237);
+  background: rgb(255, 255, 255);
+  padding: 7px 12px 6px;
+  color: rgb(111, 85, 237);
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 100px;
+  display: flex;
+  align-items: flex-start;
+  cursor: pointer;
+  position: relative;
+  z-index: 111;
+}
+.tikiXu span {
+  display: inline-block;
+  margin-left: 10px;
+}

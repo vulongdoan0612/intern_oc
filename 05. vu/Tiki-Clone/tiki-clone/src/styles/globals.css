@@ -55,3 +55,25 @@ p {
   width: 16px;
   height: 16px;
 }
+a {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+.MuiTypography-root {
+  margin: 12px 0px !important;
+}
+.css-1ujnqem-MuiTabs-root {
+  cursor: pointer;
+  background: rgb(255, 255, 255);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  position: sticky !important;
+  top: 0px;
+  z-index: 10;
+}
+.szh-menu{
+  left:-62px !important;
+  top:20px !important;
+}

@@ -1,0 +1,166 @@
+.headingTitle {
+  font-size: 19px;
+  line-height: 21px;
+  font-weight: 300;
+  margin: 20px 0px 15px;
+}
+.orders {
+  margin-top: 12px;
+  height: auto;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 110px);
+}
+.orderContainer {
+  background: rgb(255, 255, 255);
+  border-radius: 4px;
+  font-size: 13px;
+  margin-bottom: 20px;
+  padding: 16px;
+}
+.statusDeli {
+  border-bottom: 1px solid rgb(235, 235, 240);
+  padding-bottom: 12px;
+  color: rgb(128, 128, 137);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+.statusDeli span::before {
+  content: "";
+  display: block;
+  background: url(https://frontend.tikicdn.com/_desktop-next/static/img/account/delivery_done.png)
+    center center / 20px 20px no-repeat;
+  width: 20px;
+  height: 20px;
+  float: left;
+  margin: 0px 6px 0px 0px;
+}
+.orderInfo {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  padding: 16px 0px;
+  border-bottom: 1px solid rgb(235, 235, 240);
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.orderInfo {
+  display: flex;
+  flex-direction: row;
+  padding: 16px 0px;
+  border-bottom: 1px solid rgb(235, 235, 240);
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.orderInfoDetail {
+  display: flex;
+}
+.orderInfoDetail img {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+  border: 0.5px solid rgb(238, 238, 238);
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center center;
+  position: relative;
+}
+.orderText {
+  margin: 0px 12px;
+  display: flex;
+  flex-direction: column;
+}
+.orderInfoRight {
+  min-width: 120px;
+  -webkit-box-pack: end;
+  justify-content: flex-end;
+  display: flex;
+}
+.orderInfoRight span {
+  color: rgb(56, 56, 61);
+  font-size: 14px;
+  font-weight: 400;
+}
+.orderFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 12px;
+  width: 100%;
+}
+.totalMoney {
+  font-size: 17px;
+  display: flex;
+  margin-bottom: 12px;
+}
+.buttonGroup {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+}
+.buyAgain,
+.detail {
+  padding: 12px 8px;
+  height: 36px;
+  border-radius: 4px;
+  border: 1px solid rgb(11, 116, 229);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+  color: rgb(11, 116, 229);
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 8px;
+}
+.total {
+  font-weight: 300;
+  color: rgb(128, 128, 137);
+  margin-right: 8px;
+}
+.price {
+  font-weight: 400;
+  color: rgb(56, 56, 61);
+}
+.tab2 {
+  z-index: 10;
+  top: 0px;
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #f5f5fa;
+  position: -webkit-sticky;
+  position: sticky;
+}
+.emptyPage {
+  height: auto;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 110px);
+}
+.empty {
+  display: flex;
+  flex-direction: column;
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  padding: 35px;
+}
+.empty img {
+  width: 200px;
+  height: 200px;
+}
+.empty p {
+  margin-top: 15px;
+  color: rgb(56, 56, 61);
+  font-size: 16px;
+  font-weight: 400;
+}

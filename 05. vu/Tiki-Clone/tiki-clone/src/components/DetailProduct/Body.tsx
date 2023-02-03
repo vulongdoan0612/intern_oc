@@ -3,6 +3,7 @@ import styles from "@/styles/DetailProduct/DetailProduct.module.scss";
 import BreadCumb from "./BreadCumb/BreadCumb";
 import Container from "./Container/Container";
 import SliderProduct from "./Container/SliderProduct";
+import ContainerMiddle from "./ContainerMiddle/ContainerMiddle";
 
 const Body: React.FC = () => {
   return (
@@ -16,10 +17,11 @@ const Body: React.FC = () => {
           <h2>Sản Phẩm Tương Tự</h2>
           <SliderProduct></SliderProduct>
         </div>
+        <div className={styles.containerMiddle}>
+          <ContainerMiddle></ContainerMiddle>
+        </div>
       </div>
-      <div className={styles.containerWrapperMiddle}>
-        
-      </div>
+      <div className={styles.containerWrapperMiddle}></div>
     </main>
   );
 };

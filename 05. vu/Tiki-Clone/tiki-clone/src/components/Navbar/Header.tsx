@@ -2,16 +2,23 @@ import React from "react";
 import Image from "next/image";
 import styles from "@/styles/Navbar/Navbar.module.scss";
 import { Badge } from "@mui/material";
-// import MailIcon from "@mui/icons-material/Mail";
+import Link from "next/link";
+import { ControlledMenu, MenuItem, useMenuState } from "@szhsin/react-menu";
+import "@szhsin/react-menu/dist/index.css";
+import "@szhsin/react-menu/dist/transitions/slide.css"; // import MailIcon from "@mui/icons-material/Mail";
 
 const Header: React.FC = () => {
+  const [menuProps, toggleMenu] = useMenuState({ transition: true });
   return (
     <header className={styles.mainHeader}>
       <div className={styles.container}>
         <div className={styles.middle}>
           <div className={styles.middleLeft}>
             <div className={styles.logo}>
-              <img src="/images/Navbar/logo.png" alt=""></img>
+              <Link href="/">
+                {" "}
+                <img src="/images/Navbar/logo.png" alt=""></img>
+              </Link>
             </div>
             <div className={styles.formSearch}>
               <img
@@ -37,33 +44,34 @@ const Header: React.FC = () => {
               <p>Astra</p>
             </div>
             <div className={styles.user}>
-              <img src="/images/Navbar/user.png" alt=""></img>
-              <p>Tài khoản</p>
+              <img
+                src="https://s3.amazonaws.com/arc-authors/washpost/8ecda6d3-9f58-433c-8b2b-c8cab71b62e5.jpg"
+                alt=""
+                style={{ borderRadius: "50%" }}
+              ></img>
+              <p onPointerEnter={() => toggleMenu(true)}>Nguyễn Vũ</p>
+              <ControlledMenu
+                {...menuProps}
+                // anchorRef={ref}
+                onPointerLeave={() => toggleMenu(false)}
+                onClose={() => toggleMenu(false)}
+              >
+                <Link href="/sales/order/history">
+                  <MenuItem>Quản lý đơn hàng</MenuItem>
+                </Link>
+                <MenuItem>Thông tin tài khoản</MenuItem>
+                <MenuItem>Đăng xuất</MenuItem>
+              </ControlledMenu>
             </div>
             <div className={styles.cart}>
-              <div className={styles.badgeCart}>
-                <Badge badgeContent={4} color="secondary">
-                  <img src="/images/Navbar/cart.png" alt=""></img>
-                </Badge>
-              </div>
+              <Link href="/checkout/cart">
+                <div className={styles.badgeCart}>
+                  <Badge badgeContent={4} color="secondary">
+                    <img src="/images/Navbar/cart.png" alt=""></img>
+                  </Badge>
+                </div>
+              </Link>
             </div>
-          </div>
-        </div>
-        <div className={styles.bottom}>
-          <div className={styles.bottomLeft}>
-            <a>trái cây</a>
-            <a>thịt trứng</a>
-            <a>rau củ quả</a>
-            <a>sữa, ahô mai, bơ</a>
-            <a>hải sản</a>
-            <a>gạo</a>
-            <a>bánh kẹo</a>
-            <a>nước uống</a>
-          </div>
-          <div className={styles.bottomRight}>
-            <img src="/images/Navbar/location.png"></img>
-            <h4>Giao đến: </h4>
-            <div className={styles.address}>Q. 1, P. Bến Nghé, Hồ Chí Minh</div>
           </div>
         </div>
       </div>

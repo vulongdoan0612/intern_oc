@@ -1,0 +1,174 @@
+.methodFlex {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  height: 100%;
+}
+.methodLogo {
+  margin-right: 12px;
+}
+.methodText {
+  margin-right: 12px;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(56, 56, 61);
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.methodCards {
+  display: grid;
+  grid-template-columns: repeat(4, 24px);
+  gap: 1px;
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(128, 128, 137);
+}
+.methodText {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.wrapper {
+  position: relative;
+  padding: 16px;
+  margin-bottom: 16px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+}
+.styledLabel {
+  height: 64px;
+}
+.wrapper h3 {
+  color: rgb(56, 56, 61);
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  margin: 0px;
+}
+.cardAndPromotion {
+  margin: 0px 0px 0px 40px;
+  cursor: auto;
+}
+.cardNewAdd {
+  width: 149px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid rgb(13, 92, 182);
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: 500;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  background: rgb(255, 255, 255);
+  color: rgb(13, 92, 182);
+  padding: 0px 12px;
+  cursor: pointer;
+  outline: 0px;
+  margin-top: 8px;
+}
+.cardNewAdd img {
+  width: 24px;
+  height: 24px !important;
+}
+// .cardNewAdd span {
+//   width: 149px;
+//   height: 40px;
+//   border-radius: 4px;
+//   border: 1px solid rgb(13, 92, 182);
+//   font-size: 15px;
+//   line-height: 1.6;
+//   font-weight: 500;
+//   display: flex;
+//   -webkit-box-align: center;
+//   align-items: center;
+//   -webkit-box-pack: justify;
+//   justify-content: space-between;
+//   background: rgb(255, 255, 255);
+//   color: rgb(13, 92, 182);
+//   padding: 0px 12px;
+//   cursor: pointer;
+//   outline: 0px;
+//   margin-top: 8px;
+// }
+.blockTitle img {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+.blockTitle {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.54;
+  color: rgb(13, 92, 182);
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.bannerList {
+  padding: 16px;
+  background-color: rgb(230, 238, 247);
+  margin-top: 24px;
+  width: 733px;
+}
+.bannerListCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 8px;
+}
+.bannerCard {
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+  height: 87px;
+  box-shadow: rgb(0 0 0 / 15%) 0px 1px 4px 0px;
+  padding: 8px 12px;
+  position: relative;
+  cursor: pointer;
+  filter: grayscale(1);
+  opacity: 0.5;
+}
+.rowFirst {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.rowSecond {
+  display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.rowFirst img {
+  width: 72px;
+  height: 30px !important;
+  object-fit: contain;
+  object-position: right center;
+}
+.rowTitle {
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.41;
+  color: rgb(13, 92, 182);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  max-width: 130px;
+}
+.rowSubTitle {
+  font-size: 11px;
+  line-height: 1.45;
+  color: rgb(120, 120, 120);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  margin-bottom: 5px;
+}
