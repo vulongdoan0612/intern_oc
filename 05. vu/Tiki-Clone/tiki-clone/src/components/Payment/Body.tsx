@@ -6,8 +6,8 @@ import styles from "@/styles/Payment/Body.module.scss";
 export default function Body() {
   return (
     <div className={styles.container}>
-      <LeftContent></LeftContent>
-      <RightContent></RightContent>
+      <LeftContent/>
+      <RightContent/>
     </div>
   );
 }

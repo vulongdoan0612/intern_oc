@@ -15,9 +15,9 @@ export default function cart() {
           href="https://salt.tikicdn.com/media/upload/2018/12/03/0054c1410e38f1b9f3609c244974dd9c.png"
         />
       </Head>
-      <Header></Header>
+      <Header/>
       <div style={{ background: "#f5f5fa" }}>
-        <Body></Body>
+        <Body/>
       </div>
     </div>
   );

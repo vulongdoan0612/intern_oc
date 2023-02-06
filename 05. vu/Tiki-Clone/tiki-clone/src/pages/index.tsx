@@ -1,15 +1,11 @@
 import Head from "next/head";
 import React from "react";
-import Image from "next/image";
-import { Inter } from "@next/font/google";
 import styles from "@/styles/Home/Home.module.scss";
 import Header from "@/components/Navbar/Header";
 import Body from "@/components/Home/Body";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "@/components/Footer/Footer";
-
-const inter = Inter({ subsets: ["latin"] });
 
 const Home: React.FC = () => {
   return (

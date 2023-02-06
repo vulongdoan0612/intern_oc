@@ -7,9 +7,9 @@ import styles from "@/styles/Payment/Content/LeftContent/LeftContent.module.scss
 export default function LeftContent() {
   return (
     <div className={styles.wrapper}>
-      <LeftTopContent></LeftTopContent>
-      <LeftMidContent></LeftMidContent>
-      <LeftBottomContent></LeftBottomContent>
+      <LeftTopContent />
+      <LeftMidContent />
+      <LeftBottomContent />
     </div>
   );
 }

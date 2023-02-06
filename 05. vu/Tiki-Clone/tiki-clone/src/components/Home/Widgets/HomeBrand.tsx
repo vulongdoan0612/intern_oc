@@ -11,66 +11,27 @@ const HomeBrand: React.FC = () => {
     slidesToShow: 6,
     slidesToScroll: 1,
   };
-
+  const data = [
+    { img: "/images/Home/Body/Widgets/HomeBrand/img1.png" },
+    { img: "/images/Home/Body/Widgets/HomeBrand/img2.png" },
+    { img: "/images/Home/Body/Widgets/HomeBrand/img3.png" },
+    { img: "/images/Home/Body/Widgets/HomeBrand/img4.png" },
+    { img: "/images/Home/Body/Widgets/HomeBrand/img5.png" },
+    { img: "/images/Home/Body/Widgets/HomeBrand/img6.png" },
+    { img: "/images/Home/Body/Widgets/HomeBrand/img7.png" },
+  ];
   return (
     <div>
       <Slider {...settings}>
-        <div className={styles.sliderWrapperItem}>
-          <div className={styles.sliderItem}>
-            <img
-              src="/images/Home/Body/Widgets/HomeBrand/img1.png"
-              alt=""
-            ></img>
-          </div>
-        </div>
-        <div className={styles.sliderWrapperItem}>
-          <div className={styles.sliderItem}>
-            <img
-              src="/images/Home/Body/Widgets/HomeBrand/img2.png"
-              alt=""
-            ></img>
-          </div>
-        </div>
-        <div className={styles.sliderWrapperItem}>
-          <div className={styles.sliderItem}>
-            <img
-              src="/images/Home/Body/Widgets/HomeBrand/img3.png"
-              alt=""
-            ></img>
-          </div>
-        </div>
-        <div className={styles.sliderWrapperItem}>
-          <div className={styles.sliderItem}>
-            <img
-              src="/images/Home/Body/Widgets/HomeBrand/img4.png"
-              alt=""
-            ></img>
-          </div>
-        </div>
-        <div className={styles.sliderWrapperItem}>
-          <div className={styles.sliderItem}>
-            <img
-              src="/images/Home/Body/Widgets/HomeBrand/img5.png"
-              alt=""
-            ></img>
-          </div>
-        </div>
-        <div className={styles.sliderWrapperItem}>
-          <div className={styles.sliderItem}>
-            <img
-              src="/images/Home/Body/Widgets/HomeBrand/img6.png"
-              alt=""
-            ></img>
-          </div>
-        </div>
-        <div className={styles.sliderWrapperItem}>
-          <div className={styles.sliderItem}>
-            <img
-              src="/images/Home/Body/Widgets/HomeBrand/img7.png"
-              alt=""
-            ></img>
-          </div>
-        </div>
+        {data.map((data) => {
+          return (
+            <div className={styles.sliderWrapperItem}>
+              <div className={styles.sliderItem}>
+                <img src={data.img} alt=""></img>
+              </div>
+            </div>
+          );
+        })}
       </Slider>
     </div>
   );

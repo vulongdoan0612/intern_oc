@@ -43,7 +43,38 @@ export default function Products() {
     setValue(newValue);
   };
   const [value, setValue] = React.useState(0);
-
+  const data = [
+    {
+      img: "/images/Home/Body/Widgets/TabBar/img1.webp",
+      title: "Dành cho bạn",
+      number: 0,
+    },
+    {
+      img: "/images/Home/Body/Widgets/TabBar/img2.webp",
+      title: "Đi chợ siêu sale",
+      number: 1,
+    },
+    {
+      img: "/images/Home/Body/Widgets/TabBar/img3.webp",
+      title: "Dịch vụ số",
+      number: 2,
+    },
+    {
+      img: "/images/Home/Body/Widgets/TabBar/img4.webp",
+      title: "Deal siêu hot",
+      number: 3,
+    },
+    {
+      img: "/images/Home/Body/Widgets/TabBar/img5.webp",
+      title: "Rẻ vô đối",
+      number: 4,
+    },
+    {
+      img: "/images/Home/Body/Widgets/TabBar/img6.webp",
+      title: "Xu hướng thời trang",
+      number: 5,
+    },
+  ];
   return (
     <div>
       <div className={styles.wrapperProducts}>
@@ -57,72 +88,21 @@ export default function Products() {
               onChange={handleChange}
               aria-label="basic tabs example"
             >
-              <Tab
-                label={
-                  <div className={styles.tabItem}>
-                    <div className={styles.iconTab}>
-                      <img src="/images/Home/Body/Widgets/TabBar/img1.webp"></img>
-                    </div>
-                    <div className={styles.tabText}>Dành cho bạn</div>
-                  </div>
-                }
-                {...a11yProps(0)}
-              ></Tab>
-              <Tab
-                label={
-                  <div className={styles.tabItem}>
-                    <div className={styles.iconTab}>
-                      <img src="/images/Home/Body/Widgets/TabBar/img2.webp"></img>
-                    </div>
-                    <div className={styles.tabText}>Đi chợ siêu sale</div>
-                  </div>
-                }
-                {...a11yProps(1)}
-              />
-              <Tab
-                label={
-                  <div className={styles.tabItem}>
-                    <div className={styles.iconTab}>
-                      <img src="/images/Home/Body/Widgets/TabBar/img3.webp"></img>
-                    </div>
-                    <div className={styles.tabText}>Dịch vụ số</div>
-                  </div>
-                }
-                {...a11yProps(2)}
-              />
-              <Tab
-                label={
-                  <div className={styles.tabItem}>
-                    <div className={styles.iconTab}>
-                      <img src="/images/Home/Body/Widgets/TabBar/img4.webp"></img>
-                    </div>
-                    <div className={styles.tabText}>Deal siêu hot</div>
-                  </div>
-                }
-                {...a11yProps(3)}
-              />
-              <Tab
-                label={
-                  <div className={styles.tabItem}>
-                    <div className={styles.iconTab}>
-                      <img src="/images/Home/Body/Widgets/TabBar/img5.webp"></img>
-                    </div>
-                    <div className={styles.tabText}>Rẻ vô đối</div>
-                  </div>
-                }
-                {...a11yProps(4)}
-              />
-              <Tab
-                label={
-                  <div className={styles.tabItem}>
-                    <div className={styles.iconTab}>
-                      <img src="/images/Home/Body/Widgets/TabBar/img6.webp"></img>
-                    </div>
-                    <div className={styles.tabText}>Xu hướng thời trang</div>
-                  </div>
-                }
-                {...a11yProps(5)}
-              />
+              {data.map((data) => {
+                return (
+                  <Tab
+                    label={
+                      <div className={styles.tabItem}>
+                        <div className={styles.iconTab}>
+                          <img src={data.img}></img>
+                        </div>
+                        <div className={styles.tabText}>{data.title}</div>
+                      </div>
+                    }
+                    {...a11yProps(data.number)}
+                  ></Tab>
+                );
+              })}
             </Tabs>
           </div>
         </div>

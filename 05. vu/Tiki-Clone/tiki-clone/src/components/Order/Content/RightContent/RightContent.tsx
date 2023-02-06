@@ -41,7 +41,26 @@ export default function RightContent() {
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-
+  const data = [
+    {
+      title: ` Dây Kháng Lực Resistance Bands Cleacco Hỗ Trợ Tập Gym
+  , Yoga , Tập Thể Thao Mức Kháng Lực Theo Màu Săc Riêng
+  - Hàng cao cấp - Màu xanh lục ( 50 -125 LBS)`,
+      img: "https://salt.tikicdn.com/cache/200x200/ts/product/fd/8c/3c/c3d4d57a9da4147be6fb4d463dcb1cf4.jpg",
+      price: "193.000 đ",
+      totalPrice: "212.000 đ",
+      brand: "BORO SPORT",
+    },
+    {
+      title: ` Dây Kháng Lực Resistance Bands Cleacco Hỗ Trợ Tập Gym
+    , Yoga , Tập Thể Thao Mức Kháng Lực Theo Màu Săc Riêng
+    - Hàng cao cấp - Màu xanh lục ( 50 -125 LBS)`,
+      img: "https://salt.tikicdn.com/cache/200x200/ts/product/fd/8c/3c/c3d4d57a9da4147be6fb4d463dcb1cf4.jpg",
+      price: "193.000 đ",
+      totalPrice: "212.000 đ",
+      brand: "BORO SPORT",
+    },
+  ];
   return (
     <div className={styles.wrapper}>
       <div className={styles.headingTitle}>Đơn hàng của tôi</div>
@@ -70,146 +89,43 @@ export default function RightContent() {
           <TabPanel value={value} index={0}>
             <RightTopContent />
             <span className={styles.orders}>
-              <span className={styles.orderContainer}>
-                <span className={styles.statusDeli}>
-                  <span>Giao hàng thành công</span>
-                </span>
-                <span className={styles.orderInfo}>
-                  <span className={styles.orderInfoLeft}>
-                    <span className={styles.orderInfoDetail}>
-                      <img src="https://salt.tikicdn.com/cache/200x200/ts/product/fd/8c/3c/c3d4d57a9da4147be6fb4d463dcb1cf4.jpg"></img>
-                      <span className={styles.orderText}>
-                        <span className={styles.orderName}>
-                          Dây Kháng Lực Resistance Bands Cleacco Hỗ Trợ Tập Gym
-                          , Yoga , Tập Thể Thao Mức Kháng Lực Theo Màu Săc Riêng
-                          - Hàng cao cấp - Màu xanh lục ( 50 -125 LBS){" "}
+              {data.map((data) => {
+                return (
+                  <span className={styles.orderContainer}>
+                    <span className={styles.statusDeli}>
+                      <span>Giao hàng thành công</span>
+                    </span>
+                    <span className={styles.orderInfo}>
+                      <span className={styles.orderInfoLeft}>
+                        <span className={styles.orderInfoDetail}>
+                          <img src={data.img}></img>
+                          <span className={styles.orderText}>
+                            <span className={styles.orderName}>
+                              {data.title}
+                            </span>
+                            <span className={styles.orderStore}>
+                              <span>{data.brand}</span>
+                            </span>
+                          </span>
                         </span>
-                        <span className={styles.orderStore}>
-                          <span>BORO SPORT</span>
-                        </span>
+                      </span>
+                      <span className={styles.orderInfoRight}>
+                        <span>{data.price}</span>
+                      </span>
+                    </span>
+                    <span className={styles.orderFooter}>
+                      <span className={styles.totalMoney}>
+                        <span className={styles.total}>Tổng tiền:</span>
+                        <span className={styles.price}>{data.totalPrice}</span>
+                      </span>
+                      <span className={styles.buttonGroup}>
+                        <span className={styles.buyAgain}>Mua lại</span>
+                        <span className={styles.detail}>Xem chi tiết</span>
                       </span>
                     </span>
                   </span>
-                  <span className={styles.orderInfoRight}>
-                    <span>193.000 đ</span>
-                  </span>
-                </span>
-                <span className={styles.orderFooter}>
-                  <span className={styles.totalMoney}>
-                    <span className={styles.total}>Tổng tiền:</span>
-                    <span className={styles.price}>212.000 ₫</span>
-                  </span>
-                  <span className={styles.buttonGroup}>
-                    <span className={styles.buyAgain}>Mua lại</span>
-                    <span className={styles.detail}>Xem chi tiết</span>
-                  </span>
-                </span>
-              </span>
-              <span className={styles.orderContainer}>
-                <span className={styles.statusDeli}>
-                  <span>Giao hàng thành công</span>
-                </span>
-                <span className={styles.orderInfo}>
-                  <span className={styles.orderInfoLeft}>
-                    <span className={styles.orderInfoDetail}>
-                      <img src="https://salt.tikicdn.com/cache/200x200/ts/product/fd/8c/3c/c3d4d57a9da4147be6fb4d463dcb1cf4.jpg"></img>
-                      <span className={styles.orderText}>
-                        <span className={styles.orderName}>
-                          Dây Kháng Lực Resistance Bands Cleacco Hỗ Trợ Tập Gym
-                          , Yoga , Tập Thể Thao Mức Kháng Lực Theo Màu Săc Riêng
-                          - Hàng cao cấp - Màu xanh lục ( 50 -125 LBS){" "}
-                        </span>
-                        <span className={styles.orderStore}>
-                          <span>BORO SPORT</span>
-                        </span>
-                      </span>
-                    </span>
-                  </span>
-                  <span className={styles.orderInfoRight}>
-                    <span>193.000 đ</span>
-                  </span>
-                </span>
-                <span className={styles.orderFooter}>
-                  <span className={styles.totalMoney}>
-                    <span className={styles.total}>Tổng tiền:</span>
-                    <span className={styles.price}>212.000 ₫</span>
-                  </span>
-                  <span className={styles.buttonGroup}>
-                    <span className={styles.buyAgain}>Mua lại</span>
-                    <span className={styles.detail}>Xem chi tiết</span>
-                  </span>
-                </span>
-              </span>{" "}
-              <span className={styles.orderContainer}>
-                <span className={styles.statusDeli}>
-                  <span>Giao hàng thành công</span>
-                </span>
-                <span className={styles.orderInfo}>
-                  <span className={styles.orderInfoLeft}>
-                    <span className={styles.orderInfoDetail}>
-                      <img src="https://salt.tikicdn.com/cache/200x200/ts/product/fd/8c/3c/c3d4d57a9da4147be6fb4d463dcb1cf4.jpg"></img>
-                      <span className={styles.orderText}>
-                        <span className={styles.orderName}>
-                          Dây Kháng Lực Resistance Bands Cleacco Hỗ Trợ Tập Gym
-                          , Yoga , Tập Thể Thao Mức Kháng Lực Theo Màu Săc Riêng
-                          - Hàng cao cấp - Màu xanh lục ( 50 -125 LBS){" "}
-                        </span>
-                        <span className={styles.orderStore}>
-                          <span>BORO SPORT</span>
-                        </span>
-                      </span>
-                    </span>
-                  </span>
-                  <span className={styles.orderInfoRight}>
-                    <span>193.000 đ</span>
-                  </span>
-                </span>
-                <span className={styles.orderFooter}>
-                  <span className={styles.totalMoney}>
-                    <span className={styles.total}>Tổng tiền:</span>
-                    <span className={styles.price}>212.000 ₫</span>
-                  </span>
-                  <span className={styles.buttonGroup}>
-                    <span className={styles.buyAgain}>Mua lại</span>
-                    <span className={styles.detail}>Xem chi tiết</span>
-                  </span>
-                </span>
-              </span>{" "}
-              <span className={styles.orderContainer}>
-                <span className={styles.statusDeli}>
-                  <span>Giao hàng thành công</span>
-                </span>
-                <span className={styles.orderInfo}>
-                  <span className={styles.orderInfoLeft}>
-                    <span className={styles.orderInfoDetail}>
-                      <img src="https://salt.tikicdn.com/cache/200x200/ts/product/fd/8c/3c/c3d4d57a9da4147be6fb4d463dcb1cf4.jpg"></img>
-                      <span className={styles.orderText}>
-                        <span className={styles.orderName}>
-                          Dây Kháng Lực Resistance Bands Cleacco Hỗ Trợ Tập Gym
-                          , Yoga , Tập Thể Thao Mức Kháng Lực Theo Màu Săc Riêng
-                          - Hàng cao cấp - Màu xanh lục ( 50 -125 LBS){" "}
-                        </span>
-                        <span className={styles.orderStore}>
-                          <span>BORO SPORT</span>
-                        </span>
-                      </span>
-                    </span>
-                  </span>
-                  <span className={styles.orderInfoRight}>
-                    <span>193.000 đ</span>
-                  </span>
-                </span>
-                <span className={styles.orderFooter}>
-                  <span className={styles.totalMoney}>
-                    <span className={styles.total}>Tổng tiền:</span>
-                    <span className={styles.price}>212.000 ₫</span>
-                  </span>
-                  <span className={styles.buttonGroup}>
-                    <span className={styles.buyAgain}>Mua lại</span>
-                    <span className={styles.detail}>Xem chi tiết</span>
-                  </span>
-                </span>
-              </span>
+                );
+              })}
             </span>
           </TabPanel>
           <TabPanel value={value} index={1}>
@@ -224,146 +140,43 @@ export default function RightContent() {
           <TabPanel value={value} index={2}>
             <RightTopContent />
             <span className={styles.orders}>
-              <span className={styles.orderContainer}>
-                <span className={styles.statusDeli}>
-                  <span>Giao hàng thành công</span>
-                </span>
-                <span className={styles.orderInfo}>
-                  <span className={styles.orderInfoLeft}>
-                    <span className={styles.orderInfoDetail}>
-                      <img src="https://salt.tikicdn.com/cache/200x200/ts/product/fd/8c/3c/c3d4d57a9da4147be6fb4d463dcb1cf4.jpg"></img>
-                      <span className={styles.orderText}>
-                        <span className={styles.orderName}>
-                          Dây Kháng Lực Resistance Bands Cleacco Hỗ Trợ Tập Gym
-                          , Yoga , Tập Thể Thao Mức Kháng Lực Theo Màu Săc Riêng
-                          - Hàng cao cấp - Màu xanh lục ( 50 -125 LBS){" "}
+              {data.map((data) => {
+                return (
+                  <span className={styles.orderContainer}>
+                    <span className={styles.statusDeli}>
+                      <span>Giao hàng thành công</span>
+                    </span>
+                    <span className={styles.orderInfo}>
+                      <span className={styles.orderInfoLeft}>
+                        <span className={styles.orderInfoDetail}>
+                          <img src={data.img}></img>
+                          <span className={styles.orderText}>
+                            <span className={styles.orderName}>
+                              {data.title}
+                            </span>
+                            <span className={styles.orderStore}>
+                              <span>{data.brand}</span>
+                            </span>
+                          </span>
                         </span>
-                        <span className={styles.orderStore}>
-                          <span>BORO SPORT</span>
-                        </span>
+                      </span>
+                      <span className={styles.orderInfoRight}>
+                        <span>{data.price}</span>
+                      </span>
+                    </span>
+                    <span className={styles.orderFooter}>
+                      <span className={styles.totalMoney}>
+                        <span className={styles.total}>Tổng tiền:</span>
+                        <span className={styles.price}>{data.totalPrice}</span>
+                      </span>
+                      <span className={styles.buttonGroup}>
+                        <span className={styles.buyAgain}>Mua lại</span>
+                        <span className={styles.detail}>Xem chi tiết</span>
                       </span>
                     </span>
                   </span>
-                  <span className={styles.orderInfoRight}>
-                    <span>193.000 đ</span>
-                  </span>
-                </span>
-                <span className={styles.orderFooter}>
-                  <span className={styles.totalMoney}>
-                    <span className={styles.total}>Tổng tiền:</span>
-                    <span className={styles.price}>212.000 ₫</span>
-                  </span>
-                  <span className={styles.buttonGroup}>
-                    <span className={styles.buyAgain}>Mua lại</span>
-                    <span className={styles.detail}>Xem chi tiết</span>
-                  </span>
-                </span>
-              </span>
-              <span className={styles.orderContainer}>
-                <span className={styles.statusDeli}>
-                  <span>Giao hàng thành công</span>
-                </span>
-                <span className={styles.orderInfo}>
-                  <span className={styles.orderInfoLeft}>
-                    <span className={styles.orderInfoDetail}>
-                      <img src="https://salt.tikicdn.com/cache/200x200/ts/product/fd/8c/3c/c3d4d57a9da4147be6fb4d463dcb1cf4.jpg"></img>
-                      <span className={styles.orderText}>
-                        <span className={styles.orderName}>
-                          Dây Kháng Lực Resistance Bands Cleacco Hỗ Trợ Tập Gym
-                          , Yoga , Tập Thể Thao Mức Kháng Lực Theo Màu Săc Riêng
-                          - Hàng cao cấp - Màu xanh lục ( 50 -125 LBS){" "}
-                        </span>
-                        <span className={styles.orderStore}>
-                          <span>BORO SPORT</span>
-                        </span>
-                      </span>
-                    </span>
-                  </span>
-                  <span className={styles.orderInfoRight}>
-                    <span>193.000 đ</span>
-                  </span>
-                </span>
-                <span className={styles.orderFooter}>
-                  <span className={styles.totalMoney}>
-                    <span className={styles.total}>Tổng tiền:</span>
-                    <span className={styles.price}>212.000 ₫</span>
-                  </span>
-                  <span className={styles.buttonGroup}>
-                    <span className={styles.buyAgain}>Mua lại</span>
-                    <span className={styles.detail}>Xem chi tiết</span>
-                  </span>
-                </span>
-              </span>{" "}
-              <span className={styles.orderContainer}>
-                <span className={styles.statusDeli}>
-                  <span>Giao hàng thành công</span>
-                </span>
-                <span className={styles.orderInfo}>
-                  <span className={styles.orderInfoLeft}>
-                    <span className={styles.orderInfoDetail}>
-                      <img src="https://salt.tikicdn.com/cache/200x200/ts/product/fd/8c/3c/c3d4d57a9da4147be6fb4d463dcb1cf4.jpg"></img>
-                      <span className={styles.orderText}>
-                        <span className={styles.orderName}>
-                          Dây Kháng Lực Resistance Bands Cleacco Hỗ Trợ Tập Gym
-                          , Yoga , Tập Thể Thao Mức Kháng Lực Theo Màu Săc Riêng
-                          - Hàng cao cấp - Màu xanh lục ( 50 -125 LBS){" "}
-                        </span>
-                        <span className={styles.orderStore}>
-                          <span>BORO SPORT</span>
-                        </span>
-                      </span>
-                    </span>
-                  </span>
-                  <span className={styles.orderInfoRight}>
-                    <span>193.000 đ</span>
-                  </span>
-                </span>
-                <span className={styles.orderFooter}>
-                  <span className={styles.totalMoney}>
-                    <span className={styles.total}>Tổng tiền:</span>
-                    <span className={styles.price}>212.000 ₫</span>
-                  </span>
-                  <span className={styles.buttonGroup}>
-                    <span className={styles.buyAgain}>Mua lại</span>
-                    <span className={styles.detail}>Xem chi tiết</span>
-                  </span>
-                </span>
-              </span>{" "}
-              <span className={styles.orderContainer}>
-                <span className={styles.statusDeli}>
-                  <span>Giao hàng thành công</span>
-                </span>
-                <span className={styles.orderInfo}>
-                  <span className={styles.orderInfoLeft}>
-                    <span className={styles.orderInfoDetail}>
-                      <img src="https://salt.tikicdn.com/cache/200x200/ts/product/fd/8c/3c/c3d4d57a9da4147be6fb4d463dcb1cf4.jpg"></img>
-                      <span className={styles.orderText}>
-                        <span className={styles.orderName}>
-                          Dây Kháng Lực Resistance Bands Cleacco Hỗ Trợ Tập Gym
-                          , Yoga , Tập Thể Thao Mức Kháng Lực Theo Màu Săc Riêng
-                          - Hàng cao cấp - Màu xanh lục ( 50 -125 LBS){" "}
-                        </span>
-                        <span className={styles.orderStore}>
-                          <span>BORO SPORT</span>
-                        </span>
-                      </span>
-                    </span>
-                  </span>
-                  <span className={styles.orderInfoRight}>
-                    <span>193.000 đ</span>
-                  </span>
-                </span>
-                <span className={styles.orderFooter}>
-                  <span className={styles.totalMoney}>
-                    <span className={styles.total}>Tổng tiền:</span>
-                    <span className={styles.price}>212.000 ₫</span>
-                  </span>
-                  <span className={styles.buttonGroup}>
-                    <span className={styles.buyAgain}>Mua lại</span>
-                    <span className={styles.detail}>Xem chi tiết</span>
-                  </span>
-                </span>
-              </span>
+                );
+              })}
             </span>
           </TabPanel>
           <TabPanel value={value} index={3}>

@@ -21,50 +21,33 @@ const Body: React.FC = () => {
     setValue(newValue);
   };
   const [value, setValue] = React.useState(0);
+  const data = [
+    { img: "/images/Home/Body/Widgets/Carousels/pic1.webp" },
+    { img: "/images/Home/Body/Widgets/Carousels/pic2.webp" },
+    { img: "/images/Home/Body/Widgets/Carousels/pic3.webp" },
+    { img: "/images/Home/Body/Widgets/Carousels/pic4.webp" },
+    { img: "/images/Home/Body/Widgets/Carousels/pic5.webp" },
+  ];
   return (
     <main>
       <div className={styles.container}>
         <div className={styles.inner}>
-          <SideBar></SideBar>
+          <SideBar />
           <div className={styles.widgets}>
             <div className={styles.mainGrid}>
               <div className={styles.leftBanner}>
                 <Carousel>
-                  <Carousel.Item>
-                    <img
-                      className="d-block w-100 h-100"
-                      src="/images/Home/Body/Widgets/Carousels/pic1.webp"
-                      alt="First slide"
-                    />
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img
-                      className="d-block w-100 h-100"
-                      src="/images/Home/Body/Widgets/Carousels/pic2.webp"
-                      alt="Second slide"
-                    />
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img
-                      className="d-block w-100 h-100"
-                      src="/images/Home/Body/Widgets/Carousels/pic3.webp"
-                      alt="Third slide"
-                    />
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img
-                      className="d-block w-100 h-100"
-                      src="/images/Home/Body/Widgets/Carousels/pic4.webp"
-                      alt="Third slide"
-                    />
-                  </Carousel.Item>
-                  <Carousel.Item>
-                    <img
-                      className="d-block w-100 h-100"
-                      src="/images/Home/Body/Widgets/Carousels/pic5.webp"
-                      alt="Third slide"
-                    />
-                  </Carousel.Item>
+                  {data.map((data) => {
+                    return (
+                      <Carousel.Item>
+                        <img
+                          className="d-block w-100 h-100"
+                          src={data.img}
+                          alt="First slide"
+                        />
+                      </Carousel.Item>
+                    );
+                  })}
                 </Carousel>
               </div>
               <div className={styles.rightBanner}>

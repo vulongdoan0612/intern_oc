@@ -164,29 +164,6 @@ const HomeSecondBrand: React.FC = () => {
             </div>
           </div>
         </div>
-        {/* <div className={styles.secondSlide}>
-          <div className={styles.groupSlide}>
-            <div className={styles.groupLeft}></div>
-            <div className={styles.groupRight}>
-              <div className={styles.groupRightTop}></div>
-              <div className={styles.groupRightBottom}></div>
-            </div>
-          </div>
-          <div className={styles.groupSlide}>
-            <div className={styles.groupLeft}></div>
-            <div className={styles.groupRight}>
-              <div className={styles.groupRightTop}></div>
-              <div className={styles.groupRightBottom}></div>
-            </div>
-          </div>
-          <div className={styles.groupSlide}>
-            <div className={styles.groupLeft}></div>
-            <div className={styles.groupRight}>
-              <div className={styles.groupRightTop}></div>
-              <div className={styles.groupRightBottom}></div>
-            </div>
-          </div>
-        </div> */}
       </Slider>
     </div>
   );
