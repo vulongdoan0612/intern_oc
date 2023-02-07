@@ -36,7 +36,7 @@ const SliderProduct: React.FC = () => {
                     <span>{product.star}</span>
                     <StarRateIcon
                       style={{ color: "rgb(253, 216, 54)" }}
-                    ></StarRateIcon>
+                    />
                   </div>
                   <div className={styles.sell}>
                     <div className={styles.sellBorder}></div>

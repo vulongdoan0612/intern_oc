@@ -21,59 +21,10 @@ export default function Body() {
       fontWeight={"300"}
       color={"rgb(128, 128, 137)"}
       href="/"
-      onClick={handleClick}
+      // onClick={handleClick}
     >
       Trang chủ
     </Link>,
-    <Link
-      underline="hover"
-      key="2"
-      fontSize={"14px"}
-      //   color="inherit"
-      fontWeight={"300"}
-      color={"rgb(128, 128, 137)"}
-      href="/material-ui/getting-started/installation/"
-      onClick={handleClick}
-    >
-      Điện gia dụng
-    </Link>,
-    <Link
-      underline="hover"
-      key="2"
-      fontSize={"14px"}
-      //   color="inherit"
-      fontWeight={"300"}
-      color={"rgb(128, 128, 137)"}
-      href="/material-ui/getting-started/installation/"
-      onClick={handleClick}
-    >
-      Đồ dùng nhà bếp
-    </Link>,
-    <Link
-      underline="hover"
-      key="2"
-      //   color="inherit"
-      fontWeight={"300"}
-      color={"rgb(128, 128, 137)"}
-      fontSize={"14px"}
-      href="/material-ui/getting-started/installation/"
-      onClick={handleClick}
-    >
-      Nồi điện các loại
-    </Link>,
-    <Link
-      underline="hover"
-      key="2"
-      fontSize={"14px"}
-      //   color="inherit"
-      fontWeight={"300"}
-      color={"rgb(128, 128, 137)"}
-      href="/material-ui/getting-started/installation/"
-      onClick={handleClick}
-    >
-      Nồi chiên
-    </Link>,
-
     <Typography
       key="3"
       //   color="inherit"
@@ -81,7 +32,7 @@ export default function Body() {
       color={"rgb(128, 128, 137)"}
       fontSize={"14px"}
     >
-      Nồi Chiên Ngập Dầu Lock&Lock EJF716SLV (1.5 Lít) - Hàng chính hãng
+      Đơn hàng của tôi
     </Typography>,
   ];
 
@@ -98,8 +49,8 @@ export default function Body() {
         </Stack>
       </div>
       <div className={styles.container}>
-        <LeftContent></LeftContent>
-        <RightContent></RightContent>
+        <LeftContent/>
+        <RightContent/>
       </div>
     </div>
   );

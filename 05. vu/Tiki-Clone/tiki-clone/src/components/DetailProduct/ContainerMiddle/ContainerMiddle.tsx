@@ -21,8 +21,6 @@ export default function ContainerMiddle() {
     };
     getApi();
   }, [router]);
-  console.log(dataProduct);
-  console.log(dataShow);
   return (
     <div className={styles.wrapper}>
       <div className={styles.left}>
@@ -31,9 +29,6 @@ export default function ContainerMiddle() {
           <div className={styles.contentTable}>
             <table>
               <tbody>
-                {/* {dataProduct.data.specifications.map((product) => {
-                  return <></>;
-                })} */}
                 {dataProduct?.data.specifications[0] ? (
                   <>
                     {dataProduct?.data.specifications[0].attributes.map(
@@ -104,7 +99,6 @@ export default function ContainerMiddle() {
             <ShowMore
               maxHeight={700}
               defaultAnchor={true}
-              // className={styles.showMore}
               classNameButton={styles.buttonShow}
               classNameButtonDiv={styles.buttonShowDiv}
             >
@@ -114,43 +108,6 @@ export default function ContainerMiddle() {
               ></div>
               <div className={styles.gradient}></div>
             </ShowMore>
-            {/* <ShowMore
-              maxHeight={700}
-              defaultAnchor={true}
-              // className={styles.showMore}
-              classNameButton={styles.buttonShow}
-            >
-              <p>
-                <img src="https://salt.tikicdn.com/ts/tmp/c5/f0/1d/b8a5acdab59f28a1855b6d186e48118e.jpg"></img>
-              </p>
-              <p>
-                <img src="https://salt.tikicdn.com/ts/tmp/ec/c4/e4/a369d4029067aecc00b427900d223a24.jpg"></img>
-              </p>
-              <p>
-                <img src="https://salt.tikicdn.com/ts/tmp/cc/ce/8c/5dd5c59484c2bf9032492d03c44d1729.jpg"></img>
-              </p>
-              <ul>
-                <li>
-                  Bình giữ nhiệt có ống hút Lock&Lock Bucket Tumbler with Straw
-                  LHC4268
-                </li>
-                <li>
-                  Bình giữ nhiệt có ống hút Lock&Lock Bucket Tumbler with Straw
-                  LHC4268
-                </li>
-                <li>
-                  Bình giữ nhiệt có ống hút Lock&Lock Bucket Tumbler with Straw
-                  LHC4268
-                </li>
-                <p>
-                  Giá sản phẩm trên Tiki đã bao gồm thuế theo luật hiện hành.
-                  Bên cạnh đó, tuỳ vào loại sản phẩm, hình thức và địa chỉ giao
-                  hàng mà có thể phát sinh thêm chi phí khác như phí vận chuyển,
-                  phụ phí hàng cồng kềnh, thuế nhập khẩu (đối với đơn hàng giao
-                  từ nước ngoài có giá trị trên 1 triệu đồng).....
-                </p>
-              </ul>
-            </ShowMore> */}
           </div>
         </div>
       </div>

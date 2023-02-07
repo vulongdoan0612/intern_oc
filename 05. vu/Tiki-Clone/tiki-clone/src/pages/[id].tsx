@@ -12,9 +12,9 @@ export default function Product() {
   return (
     <>
       <div className={styles.detailPage}>
-        <Header></Header>
-        <Body></Body>
-        <Footer></Footer>
+        <Header />
+        <Body />
+        <Footer />
       </div>
     </>
   );

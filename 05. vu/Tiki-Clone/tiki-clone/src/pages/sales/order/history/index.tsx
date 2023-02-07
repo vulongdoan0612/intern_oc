@@ -1,4 +1,4 @@
-import Header from "@/components/Navbar/Header";
+import HeaderCart from "@/components/Navbar/HeaderCart";
 import Body from "@/components/Order/Body";
 import Head from "next/head";
 import React from "react";
@@ -17,13 +17,13 @@ export default function history() {
           href="https://salt.tikicdn.com/media/upload/2018/12/03/0054c1410e38f1b9f3609c244974dd9c.png"
         />
       </Head>
-      <Header></Header>
+      <HeaderCart />
       <div style={{ backgroundColor: "#f5f5fa" }}>
         <div className={styles.wrapper}>
-          <Body></Body>
+          <Body />
         </div>
       </div>
-      <Footer></Footer>
+      <Footer />
     </div>
   );
 }

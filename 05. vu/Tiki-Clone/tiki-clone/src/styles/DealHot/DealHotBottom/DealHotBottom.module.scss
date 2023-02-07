@@ -1,0 +1,184 @@
+.contentProducts {
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-self: stretch;
+  gap: 15px;
+  background-color: rgb(245, 245, 250);
+  border-top: 1px solid rgb(242, 242, 242);
+}
+.productItem {
+  flex: 1 1 calc(16.6667% - 8px);
+  max-width: 194.16px;
+  color: rgb(36, 36, 36);
+  text-decoration: none;
+  flex-direction: column;
+  justify-content: space-between;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background: rgb(255, 255, 255);
+  overflow: hidden;
+}
+.thumbnail {
+  width: 194.16px;
+  height: 194.16px;
+  text-align: center;
+  position: relative;
+}
+.smallImg Img {
+  display: block;
+  position: absolute;
+  z-index: 2;
+  top: 0px;
+  left: 0px;
+  width: 54px;
+  height: 14px !important;
+}
+.info {
+  padding: 8px 0px;
+  border-bottom: 1px solid rgb(235, 235, 240);
+  margin: 0px 12px;
+}
+.name h3 {
+  height: 35px;
+  overflow: hidden;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: rgb(39, 39, 42);
+  margin: 0px;
+  word-break: break-word;
+}
+.rating {
+  display: flex;
+  align-items: center;
+  min-height: 18px;
+}
+.rating span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: rgb(128, 128, 137);
+}
+.soleBorder {
+  width: 1px;
+  height: 9px;
+  background-color: rgb(199, 199, 199);
+}
+.contentSole {
+  padding-left: 6px;
+}
+.sole {
+  display: flex;
+  align-items: center;
+  color: rgb(128, 128, 137);
+  line-height: 150%;
+  font-size: 12px;
+  padding-left: 4px;
+}
+.underName {
+  display: flex;
+  align-items: center;
+  min-height: 18px;
+}
+.price {
+  color: rgb(255, 66, 78) !important;
+  text-align: left;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  margin-top: 6px;
+  color: rgb(56, 56, 61);
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.underPrice {
+  color: rgb(128, 128, 137);
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 150%;
+  min-height: 20px;
+}
+.underRating {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+  min-height: 17px;
+}
+.underRating .item {
+  padding: 2px 4px;
+  border: 0.5px solid rgb(10, 104, 255);
+  border-radius: 2px;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: rgb(10, 104, 255);
+}
+.badgeDelivery {
+  display: flex;
+  padding: 8px 12px;
+  gap: 4px;
+  span {
+    color: rgb(128, 128, 137);
+    overflow: hidden;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+.progressBar {
+  display: flex;
+  align-self: stretch;
+}
+.bar {
+  position: relative;
+  flex: 1 1 0%;
+  height: 20px;
+  background-color: rgb(255, 170, 175);
+  border-radius: 10px;
+}
+.percent {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 100%;
+  background-color: rgb(255, 66, 78);
+  z-index: 1;
+  border-radius: 10px;
+  min-width: 20px;
+}
+.content {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0px 4px;
+  z-index: 2;
+}
+.content p {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  color: rgb(255, 255, 255);
+  font-size: 11px;
+  text-align: center;
+}

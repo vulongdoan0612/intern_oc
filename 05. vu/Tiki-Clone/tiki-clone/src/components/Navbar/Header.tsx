@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import styles from "@/styles/Navbar/Navbar.module.scss";
 import { Badge } from "@mui/material";
 import Link from "next/link";
@@ -15,10 +14,12 @@ const Header: React.FC = () => {
         <div className={styles.middle}>
           <div className={styles.middleLeft}>
             <div className={styles.logo}>
-              <Link href="/">
-                {" "}
-                <img src="/images/Navbar/logo.png" alt=""></img>
-              </Link>
+              <div style={{ display: "flex" }}>
+                <Link href="/">
+                  {" "}
+                  <img src="/images/Navbar/logo.png" alt=""></img>
+                </Link>
+              </div>
             </div>
             <div className={styles.formSearch}>
               <img
@@ -71,6 +72,27 @@ const Header: React.FC = () => {
                   </Badge>
                 </div>
               </Link>
+            </div>
+          </div>
+        </div>
+        <div className={styles.bottom}>
+          <div className={styles.bottomLeft}>
+            {/* <div className={styles.quickLinks}> */}
+            <a>trái cây</a>
+            <a>thịt, trứng</a>
+            <a>rau củ quả</a>
+            <a>sữa, bơ, ahô mai</a>
+            <a>hải sản</a>
+            <a>gạo, mì ăn liền</a>
+            <a>đồ uống, rượu bia</a>
+            <a>bánh kẹo</a>
+            {/* </div> */}
+          </div>
+          <div className={styles.bottomRight}>
+            <img src="https://salt.tikicdn.com/ts/upload/88/5c/9d/f5ee506836792eb7775e527ef8350a44.png"></img>
+            <h4>Giao đến</h4>
+            <div className={styles.address}>
+              Q. Bình Tân, P. An Lạc, Hồ Chí Minh
             </div>
           </div>
         </div>

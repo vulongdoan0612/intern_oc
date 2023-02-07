@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
-import styles from "@/styles/Home/Home.module.scss";
 import StarRateIcon from "@mui/icons-material/StarRate";
-import { useRouter } from "next/router";
+// import styles from "@/styles/Home/Home.module.scss";
+
+import styles from "@/styles/DealHot/DealHotBottom/DealHotBottom.module.scss";
+import InfiniteScroll from "react-infinite-scroll-component";
 import axios from "axios";
 import Link from "next/link";
-import InfiniteScroll from "react-infinite-scroll-component";
+import { useRouter } from "next/router";
 import Spinner from "@/components/Spinner/Spinner";
-
 interface Product {
   id: number;
   master_id: number;
@@ -57,7 +58,7 @@ interface Datum {
   store_logo: string;
   product: Product;
 }
-export default function Product() {
+export default function DealHotBottom() {
   const router = useRouter();
 
   const [data, setData] = useState<Datum[]>([]);
@@ -65,39 +66,38 @@ export default function Product() {
   const [hasMore, sethasMore] = useState(true);
 
   const [page, setpage] = useState(12);
-  useEffect(() => {
-    const getAPI = async () => {
-      const res = await axios.get(
-        "https://api.tiki.vn/v2/widget/deals/collection?per_page=1&trackity_id=0e640482-cb3d-105a-0fc1-4b5219c5064b"
-      );
-      //VALIDATE DATA done
-      if (Array.isArray(res.data.data)) {
-        setData(res.data.data);
-      } else {
-        console.log("error");
-      }
-    };
-    getAPI();
-  }, []);
 
   const clickedDetail = (id: number) => {
     router.push({
       pathname: `/${id}`,
     });
   };
+  // useEffect(() => {
+  //   const getAPI = async () => {
+  //     const commentsFormServer = await axios.get(
+  //       `https://api.tiki.vn/v2/widget/deals/collection?per_page=12&trackity_id=0e640482-cb3d-105a-0fc1-4b5219c5064b`
+  //     );
+  //     setData(commentsFormServer.data.data);
+  //   };
+  //   getAPI();
+  // }, []);
   const fetchData = async () => {
     const commentsFormServer = await axios.get(
       `https://api.tiki.vn/v2/widget/deals/collection?per_page=${page}&trackity_id=0e640482-cb3d-105a-0fc1-4b5219c5064b`
     );
-    if (commentsFormServer.data.data.length > 40) {
+    console.log(commentsFormServer);
+    if (commentsFormServer.data.data.length > 100000000000000) {
       console.log();
       sethasMore(false);
     }
-    setData(commentsFormServer.data.data);
-    setpage(page + 6);
+    // if (Array.isArray(commentsFormServer.data.data)) {
+    setData([...commentsFormServer.data.data]);
+    // } else {
+    // console.log("error");
+    // } // }, 500);
+    console.log(data);
+    setpage(page + 17);
   };
-  const scrollTop = document.documentElement.scrollTop;
-  console.log(scrollTop);
   return (
     <InfiniteScroll
       dataLength={data.length} //This is important field to render the next data
@@ -127,7 +127,7 @@ export default function Product() {
                     <div className={styles.name}>
                       <h3>{product.name}</h3>
                     </div>
-                    <div className={styles.underName}>
+                    {/* <div className={styles.underName}>
                       <div className={styles.rating}>
                         <span>{product.product?.rating_average}</span>
                         <StarRateIcon
@@ -144,25 +144,44 @@ export default function Product() {
                           Đã bán {product.progress?.qty_ordered}
                         </div>
                       </div>
+                    </div> */}
+                    <div className={styles.price}>
+                      {product.product?.price}
+                      <span style={{ fontSize: "10px", marginLeft: "10px" }}>
+                        -4%
+                      </span>
                     </div>
-                    <div className={styles.price}>{product.product?.price}</div>
-                    <div className={styles.underPrice}>
-                      Tặng tới 45 ASA (10k ₫) <br></br>≈ 2.4% hoàn tiền
+                    <div
+                      className={styles.underPrice}
+                      style={{ textDecoration: "line-through" }}
+                    >
+                      160.000d
                     </div>
-                    <div className={styles.underRating}>
+                    <div className={styles.progressBar}>
+                      <div className={styles.bar}>
+                        <div
+                          className={styles.percent}
+                          style={{ width: "10%" }}
+                        ></div>
+                        <div className={styles.content}>
+                          <p>Vừa mở bán</p>
+                        </div>
+                      </div>
+                    </div>
+                    {/* <div className={styles.underRating}>
                       <div className={styles.item}>
                         <span>Freeship</span>
                       </div>
                       <div className={styles.item}>
                         <span>Freeship</span>
                       </div>
-                    </div>
+                    </div> */}
                   </div>
-                  <div className={styles.badgeDelivery}>
+                  {/* <div className={styles.badgeDelivery}>
                     <span style={{ color: " rgb(128, 128, 137)" }}>
                       Giao thứ 5, ngày 26/01
                     </span>
-                  </div>
+                  </div> */}
                 </>
               </div>
             </Link>

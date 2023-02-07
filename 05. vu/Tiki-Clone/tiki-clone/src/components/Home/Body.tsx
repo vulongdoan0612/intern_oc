@@ -5,10 +5,7 @@ import Carousel from "react-bootstrap/Carousel";
 import HomeBrand from "./Widgets/HomeBrand";
 import HomeSecondBrand from "./Widgets/HomeSecondBrand";
 import Products from "./Widgets/Products";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
+
 
 const Body: React.FC = () => {
   function a11yProps(index: number) {

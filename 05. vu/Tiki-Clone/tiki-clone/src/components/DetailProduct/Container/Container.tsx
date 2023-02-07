@@ -7,6 +7,7 @@ import RemoveIcon from "@mui/icons-material/Remove";
 import axios, { AxiosResponse } from "axios";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import ImageGallery from "react-image-gallery";
 
 export default function Container() {
   const [dataProduct, setDataProduct] = useState<AxiosResponse | null | void>(
@@ -23,6 +24,72 @@ export default function Container() {
     getApi();
   }, [router]);
   console.log(dataProduct);
+  const images = [
+    {
+      original: `${
+        dataProduct?.data.images[0]?.large_url ? (
+          dataProduct?.data.images[0]?.large_url
+        ) : (
+          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
+        )
+      }`,
+      thumbnail: `${
+        dataProduct?.data.images[0] ? (
+          dataProduct?.data.images[0]?.large_url
+        ) : (
+          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
+        )
+      }`,
+    },
+    {
+      original: `${
+        dataProduct?.data.images[1] ? (
+          dataProduct?.data.images[1]?.large_url
+        ) : (
+          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
+        )
+      }`,
+      thumbnail: `${
+        dataProduct?.data.images[1] ? (
+          dataProduct?.data.images[1]?.large_url
+        ) : (
+          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
+        )
+      }`,
+    },
+    {
+      original: `${
+        dataProduct?.data.images[2] ? (
+          dataProduct?.data.images[2]?.large_url
+        ) : (
+          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
+        )
+      }`,
+      thumbnail: `${
+        dataProduct?.data.images[2] ? (
+          dataProduct?.data.images[2]?.large_url
+        ) : (
+          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
+        )
+      }`,
+    },
+    {
+      original: `${
+        dataProduct?.data.images[3] ? (
+          dataProduct?.data.images[3]?.large_url
+        ) : (
+          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
+        )
+      }`,
+      thumbnail: `${
+        dataProduct?.data.images[3] ? (
+          dataProduct?.data.images[3]?.large_url
+        ) : (
+          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
+        )
+      }`,
+    },
+  ];
   return (
     <div className={styles.productContainer}>
       <Head>
@@ -37,14 +104,19 @@ export default function Container() {
       <div className={styles.productContainerLeft}>
         <div className={styles.groupImage}>
           <div className={styles.thumbNail}>
-            {dataProduct?.data.images[0].large_url ? (
-              <>
-                {" "}
-                <img src={dataProduct?.data.images[0].large_url}></img>
-              </>
-            ) : (
-              <></>
-            )}
+            {/* {dataProduct?.data.images[0]?.large_url ? ( */}
+            <>
+              {/* <img src={dataProduct?.data.images[0]?.large_url}></img> */}
+              <ImageGallery
+                items={images}
+                showNav={false}
+                showPlayButton={false}
+                showFullscreenButton={false}
+              />
+            </>
+            {/* ) : ( */}
+            {/* <></> */}
+            {/* )} */}
           </div>
           <div className={styles.thumbNailBottom}>
             <button>
@@ -81,9 +153,9 @@ export default function Container() {
                     value={dataProduct?.data.rating_average}
                     readOnly
                     precision={0.5}
-                      emptyIcon={
-                        <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
-                      }
+                    emptyIcon={
+                      <StarIcon style={{ opacity: 0.55 }} fontSize="inherit" />
+                    }
                   />
                 </div>
                 <span className={styles.numberReview}>
@@ -92,7 +164,7 @@ export default function Container() {
                 <div className={styles.borderReview}></div>
               </div>
               <div className={styles.sold}>
-                {dataProduct?.data.quantity_sold.text}
+                {dataProduct?.data.quantity_sold?.text}
               </div>
             </div>
           </div>
@@ -167,15 +239,11 @@ export default function Container() {
                     <p>Số lượng</p>
                     <div className={styles.groupInput}>
                       <button>
-                        <RemoveIcon
-                          style={{ width: "20px", height: "20px" }}
-                        ></RemoveIcon>
+                        <RemoveIcon style={{ width: "20px", height: "20px" }} />
                       </button>
                       <input value="1"></input>
                       <button>
-                        <AddIcon
-                          style={{ width: "20px", height: "20px" }}
-                        ></AddIcon>
+                        <AddIcon style={{ width: "20px", height: "20px" }} />
                       </button>
                     </div>
                   </div>
@@ -225,7 +293,7 @@ export default function Container() {
                     <div className={styles.title}>
                       <span>4.7 / 5</span>
                       <div className={styles.starIcon}>
-                        <StarIcon></StarIcon>
+                        <StarIcon/>
                       </div>
                     </div>
                     <div className={styles.subTitle}>5.2tr+</div>

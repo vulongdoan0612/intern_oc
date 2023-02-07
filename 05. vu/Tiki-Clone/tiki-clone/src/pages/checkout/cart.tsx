@@ -1,5 +1,5 @@
 import Body from "@/components/Cart/Body";
-import Header from "@/components/Navbar/Header";
+import HeaderCart from "@/components/Navbar/HeaderCart";
 import Head from "next/head";
 import React from "react";
 
@@ -15,9 +15,9 @@ export default function cart() {
           href="https://salt.tikicdn.com/media/upload/2018/12/03/0054c1410e38f1b9f3609c244974dd9c.png"
         />
       </Head>
-      <Header/>
+      <HeaderCart />
       <div style={{ background: "#f5f5fa" }}>
-        <Body/>
+        <Body />
       </div>
     </div>
   );

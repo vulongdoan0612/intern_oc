@@ -4,16 +4,13 @@ import Checkbox from "@mui/material/Checkbox";
 
 export default function LeftMidContent() {
   const [checked, setChecked] = React.useState(false);
-  // const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-  //   setChecked(event.target.checked);
-  // };
+
   return (
     <div className={styles.wrapper}>
       <h3>Thanh toán bằng Tiki Xu</h3>
       <label className={styles.styledCheckBox}>
         <Checkbox
           checked={checked}
-          // onChange={handleChange}
           inputProps={{ "aria-label": "controlled" }}
         />
         <span className={styles.label}>

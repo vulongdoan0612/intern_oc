@@ -1,4 +1,3 @@
-import { productsA } from "@/data/dataProducts";
 import React, { useEffect, useState } from "react";
 import styles from "@/styles/Home/Home.module.scss";
 import StarRateIcon from "@mui/icons-material/StarRate";
@@ -6,6 +5,7 @@ import { Router, useRouter } from "next/router";
 import axios from "axios";
 import Link from "next/link";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Spinner from "@/components/Spinner/Spinner";
 
 interface Product {
   id: number;
@@ -64,55 +64,51 @@ export default function Product() {
 
   const [hasMore, sethasMore] = useState(true);
 
-  const [page, setpage] = useState(2);
-  useEffect(() => {
-    const getAPI = async () => {
-      const res = await axios.get(
-        "https://api.tiki.vn/v2/widget/deals/collection?per_page=1&trackity_id=0e640482-cb3d-105a-0fc1-4b5219c5064b"
-      );
-      //VALIDATE DATA done
-      if (Array.isArray(res.data.data)) {
-        setData(res.data.data);
-      } else {
-        console.log("error");
-      }
-    };
-    getAPI();
-  }, []);
+  const [page, setpage] = useState(12);
+  // useEffect(() => {
+  //   const getAPI = async () => {
+  //     const res = await axios.get(
+  //       "https://api.tiki.vn/v2/widget/deals/collection?per_page=10&trackity_id=0e640482-cb3d-105a-0fc1-4b5219c5064b"
+  //     );
+  //     //VALIDATE DATA done
+  //     if (Array.isArray(res.data.data)) {
+  //       setData(res.data.data);
+  //     } else {
+  //       console.log("error");
+  //     }
+  //   };
+  //   console.log("useEffect", data);
+  //   getAPI();
+  // }, []);
 
   const clickedDetail = (id: number) => {
     router.push({
       pathname: `/${id}`,
     });
   };
-  const fetchComments = async () => {
-    const res = await fetch(
-      `https://api.tiki.vn/v2/widget/deals/collection?per_page=2&trackity_id=0e640482-cb3d-105a-0fc1-4b5219c5064b`
-    );
-    const data = await res.json();
-    return data;
-  };
   const fetchData = async () => {
     const commentsFormServer = await axios.get(
       `https://api.tiki.vn/v2/widget/deals/collection?per_page=${page}&trackity_id=0e640482-cb3d-105a-0fc1-4b5219c5064b`
     );
-    // const commentsFormServer = await fetchComments();
-    // console.log(res.data.data);
-    if (commentsFormServer.data.data.length > 40) {
+    console.log(commentsFormServer);
+    if (commentsFormServer.data.data.length > 100000000000000) {
       console.log();
       sethasMore(false);
     }
-    // setTimeout(() => {
-    setData([data, ...commentsFormServer.data.data]);
-    // }, 500);
-    setpage(page + 1);
+    if (Array.isArray(commentsFormServer.data.data)) {
+      setData([...commentsFormServer.data.data]);
+    } else {
+      console.log("error");
+    } // }, 500);
+    console.log(data);
+    setpage(page + 17);
   };
   return (
     <InfiniteScroll
       dataLength={data.length} //This is important field to render the next data
       next={fetchData}
       hasMore={hasMore}
-      loader={<>Load</>}
+      loader={<Spinner />}
       endMessage={<>End</>}
     >
       <div className={styles.contentProducts}>

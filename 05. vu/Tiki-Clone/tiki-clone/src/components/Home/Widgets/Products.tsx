@@ -1,11 +1,9 @@
 import * as React from "react";
-import PropTypes from "prop-types";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import styles from "@/styles/Home/Home.module.scss";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { productsB, productsA } from "../../../data/dataProducts";
 import Product from "./Product";
 import ProductB from "./ProductB";
 export default function Products() {
@@ -109,10 +107,10 @@ export default function Products() {
         <div className={styles.tabContent}>
           <div className={styles.content}>
             <TabPanel value={value} index={0}>
-              <Product></Product>
+              <Product />
             </TabPanel>
             <TabPanel value={value} index={1}>
-              <ProductB></ProductB>
+              <ProductB />
             </TabPanel>
           </div>
         </div>

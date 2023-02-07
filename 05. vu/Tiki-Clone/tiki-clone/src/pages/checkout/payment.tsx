@@ -1,4 +1,4 @@
-import Header from "@/components/Navbar/Header";
+import HeaderCart from "@/components/Navbar/HeaderCart";
 import Body from "@/components/Payment/Body";
 import Head from "next/head";
 import React from "react";
@@ -15,9 +15,9 @@ export default function payment() {
           href="https://salt.tikicdn.com/media/upload/2018/12/03/0054c1410e38f1b9f3609c244974dd9c.png"
         />
       </Head>
-      <Header></Header>
+      <HeaderCart />
       <div style={{ background: "rgb(245, 245, 250)" }}>
-        <Body></Body>
+        <Body />
       </div>
     </div>
   );

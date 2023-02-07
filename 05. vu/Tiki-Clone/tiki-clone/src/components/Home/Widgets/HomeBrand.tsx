@@ -3,6 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import styles from "@/styles/Home/Home.module.scss";
+import Link from "next/link";
 const HomeBrand: React.FC = () => {
   var settings = {
     dots: false,
@@ -27,7 +28,9 @@ const HomeBrand: React.FC = () => {
           return (
             <div className={styles.sliderWrapperItem}>
               <div className={styles.sliderItem}>
-                <img src={data.img} alt=""></img>
+                <Link href="/dealhot">
+                  <img src={data.img} alt=""></img>
+                </Link>
               </div>
             </div>
           );

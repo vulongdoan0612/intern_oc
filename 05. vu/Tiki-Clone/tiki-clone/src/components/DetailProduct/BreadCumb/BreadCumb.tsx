@@ -1,16 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "@/styles/DetailProduct/DetailProduct.module.scss";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import axios, { AxiosResponse } from "axios";
+import { useRouter } from "next/router";
 function handleClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
   event.preventDefault();
   console.info("You clicked a breadcrumb.");
 }
 
 export default function CustomSeparator() {
+  const [dataProduct, setDataProduct] = useState<AxiosResponse | null | void>(
+    null
+  );
+  const router = useRouter();
+  useEffect(() => {
+    const getApi = async () => {
+      if (!router.isReady) return;
+      const { id } = router.query;
+      const data2 = await axios.get(`https://tiki.vn/api/v2/products/${id}`);
+      setDataProduct(data2);
+    };
+    getApi();
+  }, [router]);
+  console.log(dataProduct?.data.breadcrumbs);
+  // dataProduct?.data.breadcumbs.forEach((data: any) => {
+  //   <Link
+  //     underline="hover"
+  //     key="1"
+  //     fontSize={"14px"}
+  //     //   color="inherit"
+  //     fontWeight={"300"}
+  //     color={"rgb(128, 128, 137)"}
+  //     href="/"
+  //     onClick={handleClick}
+  //   >
+  //     {data.name}
+  //   </Link>;
+  // });
   const breadcrumbs = [
     <Link
       underline="hover"
@@ -22,7 +52,11 @@ export default function CustomSeparator() {
       href="/"
       onClick={handleClick}
     >
-      Trang chủ
+      {dataProduct?.data.breadcrumbs[0] ? (
+        dataProduct?.data.breadcrumbs[0].name
+      ) : (
+        <></>
+      )}
     </Link>,
     <Link
       underline="hover"
@@ -34,7 +68,11 @@ export default function CustomSeparator() {
       href="/material-ui/getting-started/installation/"
       onClick={handleClick}
     >
-      Điện gia dụng
+      {dataProduct?.data.breadcrumbs[1] ? (
+        dataProduct?.data.breadcrumbs[1].name
+      ) : (
+        <></>
+      )}
     </Link>,
     <Link
       underline="hover"
@@ -46,7 +84,11 @@ export default function CustomSeparator() {
       href="/material-ui/getting-started/installation/"
       onClick={handleClick}
     >
-      Đồ dùng nhà bếp
+      {dataProduct?.data.breadcrumbs[2] ? (
+        dataProduct?.data.breadcrumbs[2].name
+      ) : (
+        <></>
+      )}
     </Link>,
     <Link
       underline="hover"
@@ -58,7 +100,11 @@ export default function CustomSeparator() {
       href="/material-ui/getting-started/installation/"
       onClick={handleClick}
     >
-      Nồi điện các loại
+      {dataProduct?.data.breadcrumbs[3] ? (
+        dataProduct?.data.breadcrumbs[3].name
+      ) : (
+        <></>
+      )}{" "}
     </Link>,
     <Link
       underline="hover"
@@ -70,7 +116,11 @@ export default function CustomSeparator() {
       href="/material-ui/getting-started/installation/"
       onClick={handleClick}
     >
-      Nồi chiên
+      {dataProduct?.data.breadcrumbs[4] ? (
+        dataProduct?.data.breadcrumbs[4].name
+      ) : (
+        <></>
+      )}{" "}
     </Link>,
 
     <Typography
@@ -80,7 +130,11 @@ export default function CustomSeparator() {
       color={"rgb(128, 128, 137)"}
       fontSize={"14px"}
     >
-      Nồi Chiên Ngập Dầu Lock&Lock EJF716SLV (1.5 Lít) - Hàng chính hãng
+      {dataProduct?.data.breadcrumbs[length - 1] ? (
+        dataProduct?.data.breadcrumbs[length - 1].name
+      ) : (
+        <></>
+      )}
     </Typography>,
   ];
 
