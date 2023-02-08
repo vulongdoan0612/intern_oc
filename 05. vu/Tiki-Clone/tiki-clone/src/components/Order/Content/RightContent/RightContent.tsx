@@ -5,11 +5,8 @@ import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import RightTopContent from "./RightTopContent/RightTopContent";
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
-}
+import { TabPanelProps } from "@/interface";
+
 function TabPanel(props: TabPanelProps) {
   const { children, value, index, ...other } = props;
 
@@ -98,7 +95,7 @@ export default function RightContent() {
                     <span className={styles.orderInfo}>
                       <span className={styles.orderInfoLeft}>
                         <span className={styles.orderInfoDetail}>
-                          <img src={data.img}></img>
+                          <img src={data.img} />
                           <span className={styles.orderText}>
                             <span className={styles.orderName}>
                               {data.title}
@@ -132,7 +129,7 @@ export default function RightContent() {
             <RightTopContent />
             <span className={styles.emptyPage}>
               <span className={styles.empty}>
-                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/account/empty-order.png"></img>
+                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/account/empty-order.png" />
                 <p>Chưa có đơn hàng</p>
               </span>
             </span>
@@ -149,7 +146,7 @@ export default function RightContent() {
                     <span className={styles.orderInfo}>
                       <span className={styles.orderInfoLeft}>
                         <span className={styles.orderInfoDetail}>
-                          <img src={data.img}></img>
+                          <img src={data.img} />
                           <span className={styles.orderText}>
                             <span className={styles.orderName}>
                               {data.title}
@@ -183,7 +180,7 @@ export default function RightContent() {
             <RightTopContent />
             <span className={styles.emptyPage}>
               <span className={styles.empty}>
-                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/account/empty-order.png"></img>
+                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/account/empty-order.png" />
                 <p>Chưa có đơn hàng</p>
               </span>
             </span>
@@ -192,7 +189,7 @@ export default function RightContent() {
             <RightTopContent />
             <span className={styles.emptyPage}>
               <span className={styles.empty}>
-                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/account/empty-order.png"></img>
+                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/account/empty-order.png" />
                 <p>Chưa có đơn hàng</p>
               </span>
             </span>
@@ -201,7 +198,7 @@ export default function RightContent() {
             <RightTopContent />
             <span className={styles.emptyPage}>
               <span className={styles.empty}>
-                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/account/empty-order.png"></img>
+                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/account/empty-order.png" />
                 <p>Chưa có đơn hàng</p>
               </span>
             </span>
@@ -210,7 +207,7 @@ export default function RightContent() {
             <RightTopContent />
             <span className={styles.emptyPage}>
               <span className={styles.empty}>
-                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/account/empty-order.png"></img>
+                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/account/empty-order.png" />
                 <p>Chưa có đơn hàng</p>
               </span>
             </span>

@@ -4,7 +4,7 @@ import { Badge } from "@mui/material";
 import Link from "next/link";
 import { ControlledMenu, MenuItem, useMenuState } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
-import "@szhsin/react-menu/dist/transitions/slide.css"; // import MailIcon from "@mui/icons-material/Mail";
+import "@szhsin/react-menu/dist/transitions/slide.css";
 
 const Header: React.FC = () => {
   const [menuProps, toggleMenu] = useMenuState({ transition: true });
@@ -19,7 +19,7 @@ const Header: React.FC = () => {
                 <img
                   src="https://salt.tikicdn.com/ts/upload/ae/f5/15/2228f38cf84d1b8451bb49e2c4537081.png"
                   alt=""
-                ></img>
+                />
               </Link>
             </div>
             <div className={styles.formSearch}>
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
               <img
                 src="https://salt.tikicdn.com/ts/upload/67/de/1e/90e54b0a7a59948dd910ba50954c702e.png"
                 alt=""
-              ></img>
+              />
               <div className={styles.infoUser}>
                 <p>Tài khoản</p>
                 <p
@@ -47,7 +47,7 @@ const Header: React.FC = () => {
                   <img
                     src="https://salt.tikicdn.com/ts/upload/d7/d4/a8/34939af2da1ceeeae9f95b7485784233.png"
                     style={{ width: "16px", height: "16px" }}
-                  ></img>
+                  />
                 </p>
               </div>
             </div>
@@ -57,11 +57,11 @@ const Header: React.FC = () => {
                   className={styles.badgeCart}
                   style={{ display: "flex", alignItems: "flex-end" }}
                 >
-                  <Badge badgeContent={4} color="secondary">
+                  <Badge badgeContent={4} color="warning">
                     <img
                       src="https://salt.tikicdn.com/ts/upload/40/44/6c/b80ad73e5e84aeb71c08e5d8d438eaa1.png"
                       alt=""
-                    ></img>
+                    />
                   </Badge>
                   <span style={{ color: "white", marginLeft: "10px" }}>
                     Giỏ hàng
@@ -77,7 +77,7 @@ const Header: React.FC = () => {
             className={styles.bottomLeft}
           >
             <Link href="https://tiki.vn/astra-rewards/home">
-              <img src="https://salt.tikicdn.com/ts/brickv2og/70/07/62/9a90de2324bda05df7ff137972de1c70.png"></img>
+              <img src="https://salt.tikicdn.com/ts/brickv2og/70/07/62/9a90de2324bda05df7ff137972de1c70.png" />
             </Link>
             <div className={styles.quickLinks}>
               <p>trái cây</p>
@@ -91,7 +91,7 @@ const Header: React.FC = () => {
             </div>
           </div>
           <div className={styles.bottomRight}>
-            <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icon-seller.svg"></img>
+            <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icon-seller.svg" />
             <span>Bán hàng cùng Tiki</span>
           </div>
         </div>
@@ -99,7 +99,6 @@ const Header: React.FC = () => {
       <ControlledMenu
         className={styles.control}
         {...menuProps}
-        // anchorRef={ref}
         onPointerLeave={() => toggleMenu(false)}
         onClose={() => toggleMenu(false)}
       >

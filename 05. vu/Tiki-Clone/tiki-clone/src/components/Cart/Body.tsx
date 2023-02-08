@@ -7,10 +7,10 @@ import RightContent from "./Content/RightContent/RightContent";
 export default function Body() {
   return (
     <div className={styles.wrapper}>
-      <Title></Title>
+      <Title/>
       <div className={styles.container}>
-        <LeftContent></LeftContent>
-        <RightContent></RightContent>
+        <LeftContent/>
+        <RightContent/>
       </div>
     </div>
   );

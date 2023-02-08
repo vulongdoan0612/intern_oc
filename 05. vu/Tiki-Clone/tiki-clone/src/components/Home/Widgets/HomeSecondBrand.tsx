@@ -20,7 +20,7 @@ const HomeSecondBrand: React.FC = () => {
               <img
                 src="/images/Home/Body/Widgets/HomeSecondBrand/img1.png"
                 alt=""
-              ></img>
+              />
             </div>
             <div className={styles.groupRight}>
               <div className={styles.groupRightTop}>
@@ -28,14 +28,14 @@ const HomeSecondBrand: React.FC = () => {
                 <img
                   src="/images/Home/Body/Widgets/HomeSecondBrand/img2.png"
                   alt=""
-                ></img>
+                />
               </div>
               <div className={styles.groupRightBottom}>
                 {" "}
                 <img
                   src="/images/Home/Body/Widgets/HomeSecondBrand/img3.png"
                   alt=""
-                ></img>
+                />
               </div>
             </div>
           </div>
@@ -44,7 +44,7 @@ const HomeSecondBrand: React.FC = () => {
               <img
                 src="/images/Home/Body/Widgets/HomeSecondBrand/img4.png"
                 alt=""
-              ></img>
+              />
             </div>
             <div className={styles.groupRight}>
               <div className={styles.groupRightTop}>
@@ -52,14 +52,14 @@ const HomeSecondBrand: React.FC = () => {
                 <img
                   src="/images/Home/Body/Widgets/HomeSecondBrand/img5.png"
                   alt=""
-                ></img>
+                />
               </div>
               <div className={styles.groupRightBottom}>
                 {" "}
                 <img
                   src="/images/Home/Body/Widgets/HomeSecondBrand/img6.png"
                   alt=""
-                ></img>
+                />
               </div>
             </div>
           </div>
@@ -69,7 +69,7 @@ const HomeSecondBrand: React.FC = () => {
               <img
                 src="/images/Home/Body/Widgets/HomeSecondBrand/img7.png"
                 alt=""
-              ></img>
+              />
             </div>
             <div className={styles.groupRight}>
               <div className={styles.groupRightTop}>
@@ -77,14 +77,14 @@ const HomeSecondBrand: React.FC = () => {
                 <img
                   src="/images/Home/Body/Widgets/HomeSecondBrand/img8.png"
                   alt=""
-                ></img>
+                />
               </div>
               <div className={styles.groupRightBottom}>
                 {" "}
                 <img
                   src="/images/Home/Body/Widgets/HomeSecondBrand/img9.png"
                   alt=""
-                ></img>
+                />
               </div>
             </div>
           </div>
@@ -95,7 +95,7 @@ const HomeSecondBrand: React.FC = () => {
               <img
                 src="/images/Home/Body/Widgets/HomeSecondBrand/img10.png"
                 alt=""
-              ></img>
+              />
             </div>
             <div className={styles.groupRight}>
               <div className={styles.groupRightTop}>
@@ -103,14 +103,14 @@ const HomeSecondBrand: React.FC = () => {
                 <img
                   src="/images/Home/Body/Widgets/HomeSecondBrand/img11.png"
                   alt=""
-                ></img>
+                />
               </div>
               <div className={styles.groupRightBottom}>
                 {" "}
                 <img
                   src="/images/Home/Body/Widgets/HomeSecondBrand/img12.png"
                   alt=""
-                ></img>
+                />
               </div>
             </div>
           </div>
@@ -119,7 +119,7 @@ const HomeSecondBrand: React.FC = () => {
               <img
                 src="/images/Home/Body/Widgets/HomeSecondBrand/img13.png"
                 alt=""
-              ></img>
+              />
             </div>
             <div className={styles.groupRight}>
               <div className={styles.groupRightTop}>
@@ -127,14 +127,14 @@ const HomeSecondBrand: React.FC = () => {
                 <img
                   src="/images/Home/Body/Widgets/HomeSecondBrand/img14.png"
                   alt=""
-                ></img>
+                />
               </div>
               <div className={styles.groupRightBottom}>
                 {" "}
                 <img
                   src="/images/Home/Body/Widgets/HomeSecondBrand/img15.png"
                   alt=""
-                ></img>
+                />
               </div>
             </div>
           </div>
@@ -144,7 +144,7 @@ const HomeSecondBrand: React.FC = () => {
               <img
                 src="/images/Home/Body/Widgets/HomeSecondBrand/img16.png"
                 alt=""
-              ></img>
+              />
             </div>
             <div className={styles.groupRight}>
               <div className={styles.groupRightTop}>
@@ -152,14 +152,14 @@ const HomeSecondBrand: React.FC = () => {
                 <img
                   src="/images/Home/Body/Widgets/HomeSecondBrand/img17.png"
                   alt=""
-                ></img>
+                />
               </div>
               <div className={styles.groupRightBottom}>
                 {" "}
                 <img
                   src="/images/Home/Body/Widgets/HomeSecondBrand/img18.png"
                   alt=""
-                ></img>
+                />
               </div>
             </div>
           </div>

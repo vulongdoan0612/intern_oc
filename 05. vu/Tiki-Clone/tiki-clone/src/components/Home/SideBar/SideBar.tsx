@@ -25,7 +25,7 @@ const SideBar: React.FC = () => {
           return (
             <div className={styles.item}>
               <div className={styles.pictureItem}>
-                <img src={data.img}></img>
+                <img src={data.img} />
               </div>
               <div className={styles.contentItem}>{data.title}</div>
             </div>
@@ -38,7 +38,7 @@ const SideBar: React.FC = () => {
           return (
             <div className={styles.item}>
               <div className={styles.pictureItem}>
-                <img src={data.img}></img>
+                <img src={data.img} />
               </div>
               <div className={styles.contentItem}>{data.title}</div>
             </div>
@@ -51,7 +51,7 @@ const SideBar: React.FC = () => {
           return (
             <div className={styles.item}>
               <div className={styles.pictureItem}>
-                <img src={data.img}></img>
+                <img src={data.img} />
               </div>
               <div className={styles.contentItem}>{data.title}</div>
             </div>

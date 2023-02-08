@@ -6,12 +6,8 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Product from "./Product";
 import ProductB from "./ProductB";
+import { TabPanelProps } from "@/interface";
 export default function Products() {
-  interface TabPanelProps {
-    children?: React.ReactNode;
-    index: number;
-    value: number;
-  }
   function TabPanel(props: TabPanelProps) {
     const { children, value, index, ...other } = props;
 
@@ -92,7 +88,7 @@ export default function Products() {
                     label={
                       <div className={styles.tabItem}>
                         <div className={styles.iconTab}>
-                          <img src={data.img}></img>
+                          <img src={data.img} />
                         </div>
                         <div className={styles.tabText}>{data.title}</div>
                       </div>

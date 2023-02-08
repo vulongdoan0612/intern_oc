@@ -15,7 +15,7 @@ export default function LeftMidContent() {
         />
         <span className={styles.label}>
           Bạn không có đủ Tiki Xu{" "}
-          <img src="https://salt.tikicdn.com/ts/upload/e7/5a/ed/b69b599394e0c51f828fd80f317ae945.png"></img>
+          <img src="https://salt.tikicdn.com/ts/upload/e7/5a/ed/b69b599394e0c51f828fd80f317ae945.png"/>
         </span>
       </label>
       <p className={styles.addition}>

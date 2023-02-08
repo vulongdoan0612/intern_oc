@@ -8,13 +8,13 @@ export default function DealHotTop() {
         <img
           className={styles.dealImg}
           src="https://salt.tikicdn.com/ts/brickv2og/e4/0f/f3/ed1b12221c289369e26ce3bee2b93421.png"
-        ></img>
+        />
       </div>
 
       <div className={styles.flashDeal}>
-        <img src="https://frontend.tikicdn.com/_desktop-next/static/img/giasoc-white.svg"></img>
-        <img src="https://frontend.tikicdn.com/_desktop-next/static/img/dealFlashIcon.svg"></img>
-        <img src="https://frontend.tikicdn.com/_desktop-next/static/img/homnay-white.svg"></img>
+        <img src="https://frontend.tikicdn.com/_desktop-next/static/img/giasoc-white.svg" />
+        <img src="https://frontend.tikicdn.com/_desktop-next/static/img/dealFlashIcon.svg" />
+        <img src="https://frontend.tikicdn.com/_desktop-next/static/img/homnay-white.svg" />
       </div>
       <div className={styles.flashDealBottom}>
         <div className={styles.flashDealBottomLeft}>

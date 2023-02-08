@@ -27,69 +27,55 @@ export default function Container() {
   const images = [
     {
       original: `${
-        dataProduct?.data.images[0]?.large_url ? (
-          dataProduct?.data.images[0]?.large_url
-        ) : (
-          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
-        )
+        dataProduct?.data.images[0]?.large_url
+          ? dataProduct?.data.images[0]?.large_url
+          : "https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png"
       }`,
       thumbnail: `${
-        dataProduct?.data.images[0] ? (
-          dataProduct?.data.images[0]?.large_url
-        ) : (
-          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
-        )
+        dataProduct?.data.images[0]
+          ? dataProduct?.data.images[0]?.large_url
+          : "https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png"
       }`,
     },
     {
       original: `${
-        dataProduct?.data.images[1] ? (
-          dataProduct?.data.images[1]?.large_url
-        ) : (
-          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
-        )
+        dataProduct?.data.images[1]?.large_url
+          ? dataProduct?.data.images[1]?.large_url
+          : "https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png"
       }`,
       thumbnail: `${
-        dataProduct?.data.images[1] ? (
-          dataProduct?.data.images[1]?.large_url
-        ) : (
-          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
-        )
+        dataProduct?.data.images[1]?.large_url
+          ? dataProduct?.data.images[1]?.large_url
+          : "https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png"
       }`,
     },
     {
       original: `${
-        dataProduct?.data.images[2] ? (
-          dataProduct?.data.images[2]?.large_url
-        ) : (
-          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
-        )
+        dataProduct?.data.images[2]
+          ? dataProduct?.data.images[2]?.large_url
+          : "https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png"
       }`,
       thumbnail: `${
-        dataProduct?.data.images[2] ? (
-          dataProduct?.data.images[2]?.large_url
-        ) : (
-          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
-        )
+        dataProduct?.data.images[2]
+          ? dataProduct?.data.images[2]?.large_url
+          : "https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png"
       }`,
     },
     {
       original: `${
-        dataProduct?.data.images[3] ? (
-          dataProduct?.data.images[3]?.large_url
-        ) : (
-          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
-        )
+        dataProduct?.data.images[3]
+          ? dataProduct?.data.images[3]?.large_url
+          : "https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png"
       }`,
       thumbnail: `${
-        dataProduct?.data.images[3] ? (
-          dataProduct?.data.images[3]?.large_url
-        ) : (
-          <img src="https://giaxe.2banh.vn/dataupload/products/images/1669694016-11ef6aab5b0d57beacfaccf52c526f4c.jpg"></img>
-        )
+        dataProduct?.data.images[3]
+          ? dataProduct?.data.images[3]?.large_url
+          : "https://upload.wikimedia.org/wikipedia/commons/8/89/HD_transparent_picture.png"
       }`,
     },
   ];
+  const numberFormatter = Intl.NumberFormat("en-US");
+
   return (
     <div className={styles.productContainer}>
       <Head>
@@ -104,23 +90,22 @@ export default function Container() {
       <div className={styles.productContainerLeft}>
         <div className={styles.groupImage}>
           <div className={styles.thumbNail}>
-            {/* {dataProduct?.data.images[0]?.large_url ? ( */}
-            <>
-              {/* <img src={dataProduct?.data.images[0]?.large_url}></img> */}
-              <ImageGallery
-                items={images}
-                showNav={false}
-                showPlayButton={false}
-                showFullscreenButton={false}
-              />
-            </>
-            {/* ) : ( */}
-            {/* <></> */}
-            {/* )} */}
+            {dataProduct?.data.images[0]?.large_url ? (
+              <>
+                <ImageGallery
+                  items={images}
+                  showNav={false}
+                  showPlayButton={false}
+                  showFullscreenButton={false}
+                />
+              </>
+            ) : (
+              <></>
+            )}
           </div>
           <div className={styles.thumbNailBottom}>
             <button>
-              <img src="/images/DetailProduct/GroupImage/shareIcon.png"></img>
+              <img src="/images/DetailProduct/GroupImage/shareIcon.png" />
               <span>Chia sẻ nhận +17.990 Xu</span>
             </button>
           </div>
@@ -174,10 +159,10 @@ export default function Container() {
             <div className={styles.priceIcon}>
               <div className={styles.productPrice}>
                 <div className={styles.currentPrice}>
-                  {dataProduct?.data.price}đ
+                  {numberFormatter.format(dataProduct?.data.price)}đ
                 </div>
                 <div className={styles.minusPrice}>
-                  {dataProduct?.data.original_price}đ
+                  {numberFormatter.format(dataProduct?.data.original_price)}đ
                 </div>
                 <div className={styles.discountRate}>
                   -{dataProduct?.data.discount_rate}%
@@ -185,14 +170,14 @@ export default function Container() {
               </div>
               <div className={styles.giftProduct}>
                 <div className={styles.cashGift}>
-                  <img src="/images/DetailProduct/GroupImage/iconCash.png"></img>
+                  <img src="/images/DetailProduct/GroupImage/iconCash.png" />
                   <span>Thưởng 13,86 ASA (≈ 3.063đ)</span>
                   <span className={styles.help}></span>
                 </div>
                 <img
                   src="/images/DetailProduct/GroupImage/iconGift.gif"
                   className={styles.iconGift}
-                ></img>
+                />
               </div>
             </div>
             <div className={styles.vouchers}>
@@ -201,7 +186,7 @@ export default function Container() {
                 <div className={styles.tag}>Giảm 10K</div>
                 <div className={styles.tag}>Giảm 20K</div>
                 <div className={styles.tag}>Giảm 50K</div>
-                <img src="/images/DetailProduct/GroupImage/next.png"></img>
+                <img src="/images/DetailProduct/GroupImage/next.png" />
               </div>
             </div>
             <div className={styles.deliveryZone}>
@@ -214,7 +199,7 @@ export default function Container() {
                 <div className={styles.shippingInfo}>
                   <div className={styles.shippingHeader}>
                     <div className={styles.shippingIcon}>
-                      <img src="/images/DetailProduct/GroupImage/fast.png"></img>
+                      <img src="/images/DetailProduct/GroupImage/fast.png" />
                     </div>
                     <div className={styles.divider}></div>
                     <div className={styles.shippingDeadline}>
@@ -229,7 +214,7 @@ export default function Container() {
                     </span>
                   </div>
                   <div className={styles.shippingInfoBottom}>
-                    <img src="/images/DetailProduct/GroupImage/iconCash.png"></img>
+                    <img src="/images/DetailProduct/GroupImage/iconCash.png" />
                     <span>Freeship 100% với 1.000,93 ASA</span>
                     <span></span>
                   </div>
@@ -239,11 +224,15 @@ export default function Container() {
                     <p>Số lượng</p>
                     <div className={styles.groupInput}>
                       <button>
-                        <RemoveIcon style={{ width: "20px", height: "20px" }} />
+                        <RemoveIcon
+                          style={{ width: "20px", height: "20px" }}
+                        ></RemoveIcon>
                       </button>
                       <input value="1"></input>
                       <button>
-                        <AddIcon style={{ width: "20px", height: "20px" }} />
+                        <AddIcon
+                          style={{ width: "20px", height: "20px" }}
+                        ></AddIcon>
                       </button>
                     </div>
                   </div>
@@ -261,8 +250,8 @@ export default function Container() {
                         xmlns="http://www.w3.org/2000/svg"
                       >
                         <path
-                          fill-rule="evenodd"
-                          clip-rule="evenodd"
+                          fillRule="evenodd"
+                          clipRule="evenodd"
                           d="M0 8.25C0 3.95165 4.15905 0.75 9 0.75C13.8409 0.75 18 3.95165 18 8.25C18 10.0141 17.2499 11.5969 16.0855 12.8642L16.4951 16.414C16.5254 16.6772 16.4147 16.9369 16.2037 17.0972C15.9927 17.2575 15.7128 17.2946 15.4674 17.1947L11.2797 15.4913C10.5273 15.6864 9.78118 15.75 9 15.75C4.15905 15.75 0 12.5483 0 8.25ZM9 2.25C4.69095 2.25 1.5 5.04835 1.5 8.25C1.5 11.4517 4.69095 14.25 9 14.25C9.77869 14.25 10.451 14.1792 11.1095 13.9816C11.2734 13.9325 11.4491 13.9408 11.6076 14.0053L14.8598 15.3282L14.5549 12.686C14.5287 12.4585 14.6078 12.2316 14.7697 12.0697C15.8609 10.9785 16.5 9.66018 16.5 8.25C16.5 5.04835 13.3091 2.25 9 2.25Z"
                           fill="#0d5cb6"
                         ></path>
@@ -279,12 +268,12 @@ export default function Container() {
               <div className={styles.sellerWidget}>
                 <div className={styles.sellerInfo}>
                   <div className={styles.sellerInfoIcon}>
-                    <img src="/images/DetailProduct/GroupImage/tikiIcon.webp"></img>
+                    <img src="/images/DetailProduct/GroupImage/tikiIcon.webp" />
                   </div>
                   <div className={styles.overviewRight}>
                     <span className={styles.sellerName}>
                       <span>Tiki Trading</span>
-                      <img src="/images/DetailProduct/GroupImage/official.webp"></img>
+                      <img src="/images/DetailProduct/GroupImage/official.webp" />
                     </span>
                   </div>
                 </div>
@@ -293,7 +282,7 @@ export default function Container() {
                     <div className={styles.title}>
                       <span>4.7 / 5</span>
                       <div className={styles.starIcon}>
-                        <StarIcon/>
+                        <StarIcon></StarIcon>
                       </div>
                     </div>
                     <div className={styles.subTitle}>5.2tr+</div>
@@ -308,11 +297,11 @@ export default function Container() {
                 </div>
                 <div className={styles.sellerAction}>
                   <div className={styles.shop}>
-                    <img src="/images/DetailProduct/GroupImage/shop.png"></img>
+                    <img src="/images/DetailProduct/GroupImage/shop.png" />
                     <span>Xem Shop</span>
                   </div>
                   <div className={styles.follow}>
-                    <img src="/images/DetailProduct/GroupImage/plus.png"></img>
+                    <img src="/images/DetailProduct/GroupImage/plus.png" />
                     <span>Theo Dõi</span>
                   </div>
                 </div>
@@ -340,20 +329,20 @@ export default function Container() {
               </div>
               <div className={styles.customerBenefit}>
                 <div className={styles.benefitItem}>
-                  <img src="/images/DetailProduct/GroupImage/safeIcon.png"></img>
+                  <img src="/images/DetailProduct/GroupImage/safeIcon.png" />
                   <span>
                     Hoàn tiền <br></br> <b>111%</b>
                     <br></br>nếu hàng giả
                   </span>
                 </div>
                 <div className={styles.benefitItem}>
-                  <img src="/images/DetailProduct/GroupImage/likeIcon.png"></img>
+                  <img src="/images/DetailProduct/GroupImage/likeIcon.png" />
                   <span>
                     Mở hộp<br></br>kiểm tra<br></br>nhận hàng
                   </span>
                 </div>
                 <div className={styles.benefitItem}>
-                  <img src="/images/DetailProduct/GroupImage/backIcon.png"></img>
+                  <img src="/images/DetailProduct/GroupImage/backIcon.png" />
                   <span>
                     Đổi trả trong<br></br>
                     <b>30 ngày</b>

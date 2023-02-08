@@ -32,23 +32,26 @@ export default function ContainerMiddle() {
                 {dataProduct?.data.specifications[0] ? (
                   <>
                     {dataProduct?.data.specifications[0].attributes.map(
-                      (product: {
-                        value: ReactNode;
-                        name:
-                          | string
-                          | number
-                          | boolean
-                          | React.ReactElement<
-                              any,
-                              string | React.JSXElementConstructor<any>
-                            >
-                          | React.ReactFragment
-                          | React.ReactPortal
-                          | null
-                          | undefined;
-                      }) => {
+                      (
+                        product: {
+                          value: ReactNode;
+                          name:
+                            | string
+                            | number
+                            | boolean
+                            | React.ReactElement<
+                                any,
+                                string | React.JSXElementConstructor<any>
+                              >
+                            | React.ReactFragment
+                            | React.ReactPortal
+                            | null
+                            | undefined;
+                        },
+                        index: React.Key | null | undefined
+                      ) => {
                         return (
-                          <tr>
+                          <tr key={index}>
                             <td>{product.name}</td>
                             <td>{parse(`${product.value}`)}</td>
                           </tr>
@@ -105,15 +108,15 @@ export default function ContainerMiddle() {
               <div
                 className="Container"
                 dangerouslySetInnerHTML={{ __html: dataShow }}
-              ></div>
-              <div className={styles.gradient}></div>
+              />
+              <div className={styles.gradient} />
             </ShowMore>
           </div>
         </div>
       </div>
       <div className={styles.right}>
         <div className="">
-          <img src="https://salt.tikicdn.com/cache/w1080/ts/tka/a2/72/4d/b24f18833652303c59d931310fbe2b7e.png.webp"></img>
+          <img src="https://salt.tikicdn.com/cache/w1080/ts/tka/a2/72/4d/b24f18833652303c59d931310fbe2b7e.png.webp" />
         </div>
       </div>
     </div>

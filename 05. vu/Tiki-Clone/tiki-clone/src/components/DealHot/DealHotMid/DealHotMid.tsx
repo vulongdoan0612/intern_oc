@@ -71,7 +71,7 @@ export default function DealHotMid() {
           return (
             <div className={styles.sliderWrapperItem}>
               <div className={styles.sliderItem}>
-                <img src={data.img} alt=""></img>
+                <img src={data.img} alt=""/>
                 <div className={styles.tagName}>{data.title}</div>
               </div>
             </div>

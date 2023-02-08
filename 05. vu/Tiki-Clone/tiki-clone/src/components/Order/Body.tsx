@@ -8,26 +8,19 @@ import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 export default function Body() {
-  function handleClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
-    event.preventDefault();
-    console.info("You clicked a breadcrumb.");
-  }
   const breadcrumbs = [
     <Link
       underline="hover"
       key="1"
       fontSize={"14px"}
-      //   color="inherit"
       fontWeight={"300"}
       color={"rgb(128, 128, 137)"}
       href="/"
-      // onClick={handleClick}
     >
       Trang chủ
     </Link>,
     <Typography
       key="3"
-      //   color="inherit"
       fontWeight={"300"}
       color={"rgb(128, 128, 137)"}
       fontSize={"14px"}

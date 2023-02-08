@@ -6,18 +6,7 @@ import HomeBrand from "./Widgets/HomeBrand";
 import HomeSecondBrand from "./Widgets/HomeSecondBrand";
 import Products from "./Widgets/Products";
 
-
 const Body: React.FC = () => {
-  function a11yProps(index: number) {
-    return {
-      id: `simple-tab-${index}`,
-      "aria-controls": `simple-tabpanel-${index}`,
-    };
-  }
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
-  const [value, setValue] = React.useState(0);
   const data = [
     { img: "/images/Home/Body/Widgets/Carousels/pic1.webp" },
     { img: "/images/Home/Body/Widgets/Carousels/pic2.webp" },
@@ -48,27 +37,27 @@ const Body: React.FC = () => {
                 </Carousel>
               </div>
               <div className={styles.rightBanner}>
-                <img src="/images/Home/Body/Widgets/Carousels/pic6.webp"></img>
+                <img src="/images/Home/Body/Widgets/Carousels/pic6.webp"/>
               </div>
             </div>
             <div className={styles.homeBrand}>
               <div className={styles.homeBrandTitle}>
                 Thương Hiệu Chính Hãng
-                <img src="/images/Home/Body/Widgets/HomeBrand/homeBrand.png"></img>
+                <img src="/images/Home/Body/Widgets/HomeBrand/homeBrand.png"/>
               </div>
               <div className={styles.homeBrandSlider}>
-                <HomeBrand></HomeBrand>
+                <HomeBrand />
               </div>
             </div>
             <div className={styles.homeSecondBrand}>
               <div className={styles.homeBrandTitle}>Thương Hiệu Sale Tết</div>
               <div className={styles.homeBrandSlider}>
-                <HomeSecondBrand></HomeSecondBrand>
+                <HomeSecondBrand />
               </div>
             </div>
 
             <div className={styles.widgetProduct}>
-              <Products></Products>
+              <Products />
             </div>
           </div>
         </div>

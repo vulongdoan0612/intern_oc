@@ -6,7 +6,6 @@ import RemoveIcon from "@mui/icons-material/Remove";
 export default function LeftContent() {
   const [checked, setChecked] = React.useState(true);
   const [checked2, setChecked2] = React.useState(true);
-  const [checked3, setChecked3] = React.useState(true);
   const data = [
     {
       img: "https://salt.tikicdn.com/ts/upload/30/24/79/8317b36e87e7c0920e33de0ab5c21b62.png",
@@ -67,7 +66,7 @@ export default function LeftContent() {
         <span>Số lượng</span>
         <span>Thành tiền</span>
         <span className={styles.removeIcon}>
-          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/trash.svg"></img>
+          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/trash.svg"/>
         </span>
       </div>
       <div className={styles.container}>
@@ -80,7 +79,7 @@ export default function LeftContent() {
                   onChange={handleChange2}
                   inputProps={{ "aria-label": "controlled" }}
                 />
-                <img src="https://salt.tikicdn.com/ts/upload/30/24/79/8317b36e87e7c0920e33de0ab5c21b62.png"></img>
+                <img src="https://salt.tikicdn.com/ts/upload/30/24/79/8317b36e87e7c0920e33de0ab5c21b62.png"/>
                 <a>{product.brand}</a>
               </div>
               <div className={styles.sellerSuggestion}>
@@ -107,7 +106,7 @@ export default function LeftContent() {
                         </label>
                       </div>
                       <a>
-                        <img src="https://salt.tikicdn.com/cache/w78/ts/product/03/7c/24/98462c5ea9e068e1ae15165e37aaf299.jpg.webp"></img>
+                        <img src="https://salt.tikicdn.com/cache/w78/ts/product/03/7c/24/98462c5ea9e068e1ae15165e37aaf299.jpg.webp"/>
                       </a>
                       <div className={styles.sellerContentProduct}>
                         <div className={styles.sellerName}>{product.title}</div>
@@ -231,7 +230,7 @@ export default function LeftContent() {
                   </div>
                   <div className={styles.sellerCol5}>
                     <span>
-                      <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/trash.svg"></img>
+                      <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/trash.svg"/>
                     </span>
                   </div>
                 </div>

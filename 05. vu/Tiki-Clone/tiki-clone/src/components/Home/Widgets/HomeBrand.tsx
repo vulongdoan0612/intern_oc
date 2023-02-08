@@ -29,7 +29,7 @@ const HomeBrand: React.FC = () => {
             <div className={styles.sliderWrapperItem}>
               <div className={styles.sliderItem}>
                 <Link href="/dealhot">
-                  <img src={data.img} alt=""></img>
+                  <img src={data.img} alt="" />
                 </Link>
               </div>
             </div>

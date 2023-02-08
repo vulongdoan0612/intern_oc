@@ -41,7 +41,7 @@ export default function LeftContent() {
   return (
     <div className={styles.wrapper}>
       <div className={styles.account}>
-        <img src="https://salt.tikicdn.com/desktop/img/avatar.png"></img>
+        <img src="https://salt.tikicdn.com/desktop/img/avatar.png"/>
         <div className={styles.infoAccount}>
           Tài khoản của<strong>Nguyễn Vũ</strong>
         </div>

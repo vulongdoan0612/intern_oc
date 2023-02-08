@@ -26,27 +26,11 @@ export default function CustomSeparator() {
     };
     getApi();
   }, [router]);
-  console.log(dataProduct?.data.breadcrumbs);
-  // dataProduct?.data.breadcumbs.forEach((data: any) => {
-  //   <Link
-  //     underline="hover"
-  //     key="1"
-  //     fontSize={"14px"}
-  //     //   color="inherit"
-  //     fontWeight={"300"}
-  //     color={"rgb(128, 128, 137)"}
-  //     href="/"
-  //     onClick={handleClick}
-  //   >
-  //     {data.name}
-  //   </Link>;
-  // });
   const breadcrumbs = [
     <Link
       underline="hover"
       key="1"
       fontSize={"14px"}
-      //   color="inherit"
       fontWeight={"300"}
       color={"rgb(128, 128, 137)"}
       href="/"
@@ -62,7 +46,6 @@ export default function CustomSeparator() {
       underline="hover"
       key="2"
       fontSize={"14px"}
-      //   color="inherit"
       fontWeight={"300"}
       color={"rgb(128, 128, 137)"}
       href="/material-ui/getting-started/installation/"
@@ -78,7 +61,6 @@ export default function CustomSeparator() {
       underline="hover"
       key="2"
       fontSize={"14px"}
-      //   color="inherit"
       fontWeight={"300"}
       color={"rgb(128, 128, 137)"}
       href="/material-ui/getting-started/installation/"
@@ -93,7 +75,6 @@ export default function CustomSeparator() {
     <Link
       underline="hover"
       key="2"
-      //   color="inherit"
       fontWeight={"300"}
       color={"rgb(128, 128, 137)"}
       fontSize={"14px"}
@@ -110,7 +91,6 @@ export default function CustomSeparator() {
       underline="hover"
       key="2"
       fontSize={"14px"}
-      //   color="inherit"
       fontWeight={"300"}
       color={"rgb(128, 128, 137)"}
       href="/material-ui/getting-started/installation/"
@@ -125,7 +105,6 @@ export default function CustomSeparator() {
 
     <Typography
       key="3"
-      //   color="inherit"
       fontWeight={"300"}
       color={"rgb(128, 128, 137)"}
       fontSize={"14px"}

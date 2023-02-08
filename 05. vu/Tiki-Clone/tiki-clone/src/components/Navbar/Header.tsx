@@ -4,7 +4,7 @@ import { Badge } from "@mui/material";
 import Link from "next/link";
 import { ControlledMenu, MenuItem, useMenuState } from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
-import "@szhsin/react-menu/dist/transitions/slide.css"; // import MailIcon from "@mui/icons-material/Mail";
+import "@szhsin/react-menu/dist/transitions/slide.css";
 
 const Header: React.FC = () => {
   const [menuProps, toggleMenu] = useMenuState({ transition: true });
@@ -17,7 +17,7 @@ const Header: React.FC = () => {
               <div style={{ display: "flex" }}>
                 <Link href="/">
                   {" "}
-                  <img src="/images/Navbar/logo.png" alt=""></img>
+                  <img src="/images/Navbar/logo.png" alt=""/>
                 </Link>
               </div>
             </div>
@@ -26,7 +26,7 @@ const Header: React.FC = () => {
                 className={styles.searchIcon}
                 src="/images/Navbar/search.png"
                 alt=""
-              ></img>
+              />
               <input
                 className={styles.searchInput}
                 placeholder="Bạn tìm gì hôm nay"
@@ -37,11 +37,11 @@ const Header: React.FC = () => {
           </div>
           <div className={styles.middleRight}>
             <div className={styles.home}>
-              <img src="/images/Navbar/home.png" alt=""></img>
+              <img src="/images/Navbar/home.png" alt=""/>
               <p>Trang chủ</p>
             </div>
             <div className={styles.astra}>
-              <img src="/images/Navbar/astra.png" alt=""></img>
+              <img src="/images/Navbar/astra.png" alt=""/>
               <p>Astra</p>
             </div>
             <div className={styles.user}>
@@ -49,11 +49,10 @@ const Header: React.FC = () => {
                 src="https://s3.amazonaws.com/arc-authors/washpost/8ecda6d3-9f58-433c-8b2b-c8cab71b62e5.jpg"
                 alt=""
                 style={{ borderRadius: "50%" }}
-              ></img>
+              />
               <p onPointerEnter={() => toggleMenu(true)}>Nguyễn Vũ</p>
               <ControlledMenu
                 {...menuProps}
-                // anchorRef={ref}
                 onPointerLeave={() => toggleMenu(false)}
                 onClose={() => toggleMenu(false)}
               >
@@ -67,8 +66,8 @@ const Header: React.FC = () => {
             <div className={styles.cart}>
               <Link href="/checkout/cart">
                 <div className={styles.badgeCart}>
-                  <Badge badgeContent={4} color="secondary">
-                    <img src="/images/Navbar/cart.png" alt=""></img>
+                  <Badge badgeContent={4} color="warning" >
+                    <img src="/images/Navbar/cart.png" alt=""/>
                   </Badge>
                 </div>
               </Link>
@@ -77,7 +76,6 @@ const Header: React.FC = () => {
         </div>
         <div className={styles.bottom}>
           <div className={styles.bottomLeft}>
-            {/* <div className={styles.quickLinks}> */}
             <a>trái cây</a>
             <a>thịt, trứng</a>
             <a>rau củ quả</a>
@@ -86,10 +84,9 @@ const Header: React.FC = () => {
             <a>gạo, mì ăn liền</a>
             <a>đồ uống, rượu bia</a>
             <a>bánh kẹo</a>
-            {/* </div> */}
           </div>
           <div className={styles.bottomRight}>
-            <img src="https://salt.tikicdn.com/ts/upload/88/5c/9d/f5ee506836792eb7775e527ef8350a44.png"></img>
+            <img src="https://salt.tikicdn.com/ts/upload/88/5c/9d/f5ee506836792eb7775e527ef8350a44.png"/>
             <h4>Giao đến</h4>
             <div className={styles.address}>
               Q. Bình Tân, P. An Lạc, Hồ Chí Minh

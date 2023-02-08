@@ -108,7 +108,7 @@ export default function LeftTopContent() {
                         <div className={styles.methodText}> Giao Tiết Kiệm</div>
                         <div className={styles.freeshipBadge}>
                           -36K{" "}
-                          <img src="https://salt.tikicdn.com/ts/upload/b7/77/7d/0a981c8d05f5bec66dc057f6575d2e2f.png"></img>
+                          <img src="https://salt.tikicdn.com/ts/upload/b7/77/7d/0a981c8d05f5bec66dc057f6575d2e2f.png"/>
                         </div>
                       </div>
                     </>
@@ -124,12 +124,12 @@ export default function LeftTopContent() {
         <img
           src="https://salt.tikicdn.com/ts/upload/05/9e/d8/f13e86df128f19d197397e44924f9616.png"
           className={styles.imgDeli}
-        ></img>
+        />
       </div>
       <div className={styles.wrapper}>
         <div className={styles.shippingPackage}>
           <div className={styles.shippingPackageTime}>
-            <img src="https://salt.tikicdn.com/ts/upload/ad/b7/93/7094a85d0b6d299f30ed89b03511deb9.png"></img>
+            <img src="https://salt.tikicdn.com/ts/upload/ad/b7/93/7094a85d0b6d299f30ed89b03511deb9.png"/>
             Gói 1:Giao vào Thứ Sáu, 03/02
           </div>
           <div className={styles.leftContent}>
@@ -180,7 +180,7 @@ export default function LeftTopContent() {
             <div className={styles.packageItemList}>
               <div className={styles.packageItem}>
                 <div className={styles.itemIcon}>
-                  <img src="https://salt.tikicdn.com/cache/96x96/ts/product/3d/92/c5/d6845fbde4d48ac2751a484601cfac96.jpg.webp"></img>
+                  <img src="https://salt.tikicdn.com/cache/96x96/ts/product/3d/92/c5/d6845fbde4d48ac2751a484601cfac96.jpg.webp"/>
                 </div>
                 <div className={styles.itemInfo}>
                   <div className={styles.itemInfoFirst}>
@@ -224,7 +224,7 @@ export default function LeftTopContent() {
         </div>
         <div className={styles.shippingPackage}>
           <div className={styles.shippingPackageTime}>
-            <img src="https://salt.tikicdn.com/ts/upload/ad/b7/93/7094a85d0b6d299f30ed89b03511deb9.png"></img>
+            <img src="https://salt.tikicdn.com/ts/upload/ad/b7/93/7094a85d0b6d299f30ed89b03511deb9.png"/>
             Gói 1:Giao vào Thứ Sáu, 03/02
           </div>
           <div className={styles.leftContent}>
@@ -275,7 +275,7 @@ export default function LeftTopContent() {
             <div className={styles.packageItemList}>
               <div className={styles.packageItem}>
                 <div className={styles.itemIcon}>
-                  <img src="https://salt.tikicdn.com/cache/96x96/ts/product/3d/92/c5/d6845fbde4d48ac2751a484601cfac96.jpg.webp"></img>
+                  <img src="https://salt.tikicdn.com/cache/96x96/ts/product/3d/92/c5/d6845fbde4d48ac2751a484601cfac96.jpg.webp"/>
                 </div>
                 <div className={styles.itemInfo}>
                   <div className={styles.itemInfoFirst}>
@@ -319,7 +319,7 @@ export default function LeftTopContent() {
         </div>
         <div className={styles.shippingPackage}>
           <div className={styles.shippingPackageTime}>
-            <img src="https://salt.tikicdn.com/ts/upload/ad/b7/93/7094a85d0b6d299f30ed89b03511deb9.png"></img>
+            <img src="https://salt.tikicdn.com/ts/upload/ad/b7/93/7094a85d0b6d299f30ed89b03511deb9.png"/>
             Gói 1:Giao vào Thứ Sáu, 03/02
           </div>
           <div className={styles.leftContent}>
@@ -370,7 +370,7 @@ export default function LeftTopContent() {
             <div className={styles.packageItemList}>
               <div className={styles.packageItem}>
                 <div className={styles.itemIcon}>
-                  <img src="https://salt.tikicdn.com/cache/96x96/ts/product/3d/92/c5/d6845fbde4d48ac2751a484601cfac96.jpg.webp"></img>
+                  <img src="https://salt.tikicdn.com/cache/96x96/ts/product/3d/92/c5/d6845fbde4d48ac2751a484601cfac96.jpg.webp"/>
                 </div>
                 <div className={styles.itemInfo}>
                   <div className={styles.itemInfoFirst}>

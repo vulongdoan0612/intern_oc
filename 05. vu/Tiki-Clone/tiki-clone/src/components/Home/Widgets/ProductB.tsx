@@ -6,79 +6,17 @@ import axios from "axios";
 import Link from "next/link";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Spinner from "@/components/Spinner/Spinner";
+import { Datum } from "@/interface";
 
-interface Product {
-  id: number;
-  master_id: number;
-  sku: string;
-  name: string;
-  url_key: string;
-  url_path: string;
-  type: string;
-  short_description: string;
-  price: number;
-  list_price: number;
-  original_price: number;
-  price_prefix: string;
-  discount: number;
-  discount_rate: number;
-  rating_average: number;
-  review_count: number;
-  favourite_count: number;
-  thumbnail_url: string;
-  has_ebook: boolean;
-  inventory_status: string;
-  inventory_type: string;
-  productset_group_name: string;
-  is_flower: boolean;
-  is_fresh: boolean;
-  is_gift_card: boolean;
-  seller_product_id: number;
-  delivery_info_text: string;
-}
-
-interface Datum {
-  progress: any;
-  thumbnail_url: string | undefined;
-  deal_id: number;
-  name: string;
-  deal_status: string;
-  status: number;
-  url: string;
-  tags: string;
-  discount_percent: number;
-  special_price: number;
-  special_from_date: number;
-  from_date: string;
-  special_to_date: number;
-  score: number;
-  store_id: number;
-  store_name: string;
-  store_logo: string;
-  product: Product;
-}
 export default function Product() {
   const router = useRouter();
+  const numberFormatter = Intl.NumberFormat("en-US");
 
   const [data, setData] = useState<Datum[]>([]);
 
   const [hasMore, sethasMore] = useState(true);
 
   const [page, setpage] = useState(12);
-  useEffect(() => {
-    const getAPI = async () => {
-      const res = await axios.get(
-        "https://api.tiki.vn/v2/widget/deals/collection?per_page=1&trackity_id=0e640482-cb3d-105a-0fc1-4b5219c5064b"
-      );
-      //VALIDATE DATA done
-      if (Array.isArray(res.data.data)) {
-        setData(res.data.data);
-      } else {
-        console.log("error");
-      }
-    };
-    getAPI();
-  }, []);
 
   const clickedDetail = (id: number) => {
     router.push({
@@ -89,15 +27,17 @@ export default function Product() {
     const commentsFormServer = await axios.get(
       `https://api.tiki.vn/v2/widget/deals/collection?per_page=${page}&trackity_id=0e640482-cb3d-105a-0fc1-4b5219c5064b`
     );
-    if (commentsFormServer.data.data.length > 40) {
-      console.log();
+    if (commentsFormServer.data.data.length > 240) {
       sethasMore(false);
     }
-    setData(commentsFormServer.data.data);
-    setpage(page + 6);
+    if (Array.isArray(commentsFormServer.data.data)) {
+      setData(commentsFormServer.data.data);
+    } else {
+      console.log("error");
+    }
+    setpage(page + 12);
   };
-  const scrollTop = document.documentElement.scrollTop;
-  console.log(scrollTop);
+
   return (
     <InfiniteScroll
       dataLength={data.length} //This is important field to render the next data
@@ -117,10 +57,10 @@ export default function Product() {
                 <>
                   <div className={styles.thumbnail}>
                     <div className={styles.smallImg}>
-                      <img src="/images/Home/Body/Widgets/Products/Product/uytin.png"></img>
+                      <img src="/images/Home/Body/Widgets/Products/Product/uytin.png" />
                     </div>
                     <div className={styles.thumbnailImg}>
-                      <img src={product.product?.thumbnail_url} alt=""></img>
+                      <img src={product.product?.thumbnail_url} alt="" />
                     </div>
                   </div>
                   <div className={styles.info}>
@@ -145,7 +85,10 @@ export default function Product() {
                         </div>
                       </div>
                     </div>
-                    <div className={styles.price}>{product.product?.price}</div>
+                    <div className={styles.price}>
+                      {" "}
+                      {numberFormatter.format(product.product?.price)}
+                    </div>
                     <div className={styles.underPrice}>
                       Tặng tới 45 ASA (10k ₫) <br></br>≈ 2.4% hoàn tiền
                     </div>

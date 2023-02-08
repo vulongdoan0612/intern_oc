@@ -1,0 +1,217 @@
+.wrapper {
+  margin-top: 16px;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: normal;
+  color: rgb(128, 128, 137) !important;
+  background-color: white;
+}
+.footerTop {
+  padding: 16px 0px;
+}
+.footerTopContainer {
+  width: 1270px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+}
+.footerBlockSuport {
+  width: 268px;
+}
+.footerBlockSuport h4 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: rgb(56, 56, 61) !important;
+  margin-bottom: 12px;
+  margin-top: 0px;
+}
+.footerBlockSuport p {
+  margin-bottom: 8px;
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(128, 128, 137) !important;
+  margin-bottom: 12px;
+  margin-top: 0px;
+}
+.footerBlockSuport a:nth-child(1) {
+  color: black !important;
+  font-weight: 500 !important;
+  display: inline !important;
+  font-size: 12px !important;
+  margin-bottom: 8px;
+}
+.footerBlockSuport a {
+  font-weight: 400 !important;
+  display: block !important;
+  font-size: 12px !important;
+  color: rgb(128, 128, 137) !important;
+  margin-bottom: 8px;
+}
+.footerBlockSuport span {
+  display: block;
+  margin-bottom: 8px;
+  color: rgb(128, 128, 137) !important;
+}
+.footerBlockAboutTiki {
+  width: 226px;
+}
+.footerBlockAboutTiki h4 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: rgb(56, 56, 61) !important;
+  margin-bottom: 12px;
+  margin-top: 0px;
+}
+.footerBlockAboutTiki a {
+  font-weight: 400 !important;
+  display: block !important;
+  font-size: 12px !important;
+  color: rgb(128, 128, 137) !important;
+  margin-bottom: 8px;
+}
+.footerBlockHopTac {
+  width: 226px;
+}
+.footerBlockHopTac h4 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: rgb(56, 56, 61);
+  margin-bottom: 12px;
+  margin-top: 0px;
+}
+.footerBlockHopTac a {
+  font-weight: 400 !important;
+  display: block !important;
+  font-size: 12px !important;
+  color: rgb(128, 128, 137) !important;
+  margin-bottom: 8px;
+}
+.footerBlockImg {
+  width: 226px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footerBlockImg img {
+  height: 32px !important;
+  //   width: 32px !important;
+}
+.footerBlockPayment p span svg:nth-child(10) {
+  width: 32px !important;
+  height: 32px !important;
+}
+.footerBlockPayment h4 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: rgb(56, 56, 61);
+  margin-bottom: 12px;
+  margin-top: 0px;
+}
+.footerBlockPayment p span:nth-child(10) {
+  display: block !important;
+  width: 32px !important;
+  height: 32px !important;
+}
+.footerBlockConnecting {
+  width: 226px;
+}
+.footerBlockConnecting h4 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  color: rgb(56, 56, 61);
+  margin-bottom: 12px;
+  margin-top: 0px;
+}
+.footerBlockConnecting p {
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(128, 128, 137);
+  margin-bottom: 12px;
+  margin-top: 0px;
+}
+.footerBlockConnecting p span {
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  vertical-align: middle;
+  width: 32px;
+  height: 32px;
+}
+.appleGoggle {
+  width: 226px;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.footerBlockConnecting img {
+  width: 80px !important;
+  height: 80px !important;
+}
+.appleGoggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+.appleGoggle img:nth-child(1) {
+  width: 80 !important;
+}
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+}
+.flex img {
+  width: 122px !important;
+  height: 80px !important;
+}
+.footerSeparate {
+  content: " ";
+  height: 1px;
+  background-color: rgb(235, 235, 240);
+  width: 1240px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.footerBottom {
+  padding: 16px 0px;
+  background-color: rgb(255, 255, 255);
+}
+.footerBottomContainer {
+  width: 1270px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+}
+.address {
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+}
+.addressInfo p {
+  display: block;
+  margin-bottom: 8px;
+  color: rgb(128, 128, 137);
+  font-size: 12px;
+  line-height: 16px;
+  color: rgb(128, 128, 137);
+  margin-bottom: 12px;
+  margin-top: 0px;
+}

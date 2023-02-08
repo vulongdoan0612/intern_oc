@@ -26,7 +26,7 @@ export default function LeftBottomContent() {
                 label={
                   <div className={styles.methodFlex}>
                     <div className={styles.methodLogo}>
-                      <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-method-cod.svg"></img>
+                      <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-method-cod.svg"/>
                     </div>
                     <div className={styles.methodText}>
                       Thanh toán tiền mặt khi nhận hàng
@@ -42,15 +42,15 @@ export default function LeftBottomContent() {
                   <>
                     <div className={styles.methodFlex}>
                       <div className={styles.methodLogo}>
-                        <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-method-credit.svg"></img>
+                        <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-method-credit.svg"/>
                       </div>
                       <div className={styles.methodText}>
                         <div>Thanh toán bằng thẻ quốc tế Visa, Master, JCB</div>
                         <div className={styles.methodCards}>
-                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-credit-type-tiki-card.svg"></img>
-                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-visa.png  "></img>
-                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-credit-type-mastercard.svg?v=1"></img>
-                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-credit-type-jcb.svg"></img>
+                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-credit-type-tiki-card.svg"/>
+                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-visa.png  "/>
+                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-credit-type-mastercard.svg?v=1"/>
+                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-credit-type-jcb.svg"/>
                         </div>
                       </div>
                     </div>
@@ -60,19 +60,19 @@ export default function LeftBottomContent() {
             </RadioGroup>
             <div className={styles.cardAndPromotion}>
               <button className={styles.cardNewAdd}>
-                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-add.svg"></img>
+                <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-add.svg"/>
                 <span>Thêm thẻ mới</span>
               </button>
               <div className={styles.bannerList}>
                 <div className={styles.blockTitle}>
-                  <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icons-promotion-outline.svg"></img>
+                  <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icons-promotion-outline.svg"/>
                   Ưu đãi thanh toán thẻ
                 </div>
                 <div className={styles.bannerListCard}>
                   <div className={styles.bannerCard}>
                     <div className={styles.rowFirst}>
                       <div className={styles.rowTitle}>Giảm 20K</div>
-                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"></img>
+                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"/>
                     </div>
                     <div className={styles.rowSecond}>
                       <div className={styles.rowSubTitle}>Đơn từ 400K</div>
@@ -104,7 +104,7 @@ export default function LeftBottomContent() {
                   <div className={styles.bannerCard}>
                     <div className={styles.rowFirst}>
                       <div className={styles.rowTitle}>Giảm 20K</div>
-                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"></img>
+                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"/>
                     </div>
                     <div className={styles.rowSecond}>
                       <div className={styles.rowSubTitle}>Đơn từ 400K</div>
@@ -136,7 +136,7 @@ export default function LeftBottomContent() {
                   <div className={styles.bannerCard}>
                     <div className={styles.rowFirst}>
                       <div className={styles.rowTitle}>Giảm 20K</div>
-                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"></img>
+                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"/>
                     </div>
                     <div className={styles.rowSecond}>
                       <div className={styles.rowSubTitle}>Đơn từ 400K</div>
@@ -168,7 +168,7 @@ export default function LeftBottomContent() {
                   <div className={styles.bannerCard}>
                     <div className={styles.rowFirst}>
                       <div className={styles.rowTitle}>Giảm 20K</div>
-                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"></img>
+                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"/>
                     </div>
                     <div className={styles.rowSecond}>
                       <div className={styles.rowSubTitle}>Đơn từ 400K</div>
@@ -200,7 +200,7 @@ export default function LeftBottomContent() {
                   <div className={styles.bannerCard}>
                     <div className={styles.rowFirst}>
                       <div className={styles.rowTitle}>Giảm 20K</div>
-                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"></img>
+                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"/>
                     </div>
                     <div className={styles.rowSecond}>
                       <div className={styles.rowSubTitle}>Đơn từ 400K</div>
@@ -232,7 +232,7 @@ export default function LeftBottomContent() {
                   <div className={styles.bannerCard}>
                     <div className={styles.rowFirst}>
                       <div className={styles.rowTitle}>Giảm 20K</div>
-                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"></img>
+                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"/>
                     </div>
                     <div className={styles.rowSecond}>
                       <div className={styles.rowSubTitle}>Đơn từ 400K</div>
@@ -264,7 +264,7 @@ export default function LeftBottomContent() {
                   <div className={styles.bannerCard}>
                     <div className={styles.rowFirst}>
                       <div className={styles.rowTitle}>Giảm 20K</div>
-                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"></img>
+                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"/>
                     </div>
                     <div className={styles.rowSecond}>
                       <div className={styles.rowSubTitle}>Đơn từ 400K</div>
@@ -296,7 +296,7 @@ export default function LeftBottomContent() {
                   <div className={styles.bannerCard}>
                     <div className={styles.rowFirst}>
                       <div className={styles.rowTitle}>Giảm 20K</div>
-                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"></img>
+                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"/>
                     </div>
                     <div className={styles.rowSecond}>
                       <div className={styles.rowSubTitle}>Đơn từ 400K</div>
@@ -328,7 +328,7 @@ export default function LeftBottomContent() {
                   <div className={styles.bannerCard}>
                     <div className={styles.rowFirst}>
                       <div className={styles.rowTitle}>Giảm 20K</div>
-                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"></img>
+                      <img src="https://salt.tikicdn.com/cache/w144/ts/upload/aa/31/ef/8bd8c2d691ea5291117df6012eb7f5a0.png.webp"/>
                     </div>
                     <div className={styles.rowSecond}>
                       <div className={styles.rowSubTitle}>Đơn từ 400K</div>
@@ -373,7 +373,7 @@ export default function LeftBottomContent() {
                 label={
                   <div className={styles.methodFlex}>
                     <div className={styles.methodLogo}>
-                      <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-method-cod.svg"></img>
+                      <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-method-cod.svg"/>
                     </div>
                     <div className={styles.methodText}>
                       Thanh toán tiền mặt khi nhận hàng
@@ -389,15 +389,15 @@ export default function LeftBottomContent() {
                   <>
                     <div className={styles.methodFlex}>
                       <div className={styles.methodLogo}>
-                        <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-method-credit.svg"></img>
+                        <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-method-credit.svg"/>
                       </div>
                       <div className={styles.methodText}>
                         <div>Thanh toán bằng thẻ quốc tế Visa, Master, JCB</div>
                         <div className={styles.methodCards}>
-                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-credit-type-tiki-card.svg"></img>
-                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-visa.png  "></img>
-                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-credit-type-mastercard.svg?v=1"></img>
-                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-credit-type-jcb.svg"></img>
+                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-credit-type-tiki-card.svg"/>
+                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-visa.png  "/>
+                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-credit-type-mastercard.svg?v=1"/>
+                          <img src="https://frontend.tikicdn.com/_desktop-next/static/img/icons/checkout/icon-payment-credit-type-jcb.svg"/>
                         </div>
                       </div>
                     </div>
