@@ -37,13 +37,13 @@ const Body: React.FC = () => {
                 </Carousel>
               </div>
               <div className={styles.rightBanner}>
-                <img src="/images/Home/Body/Widgets/Carousels/pic6.webp"/>
+                <img src="/images/Home/Body/Widgets/Carousels/pic6.webp" />
               </div>
             </div>
             <div className={styles.homeBrand}>
               <div className={styles.homeBrandTitle}>
                 Thương Hiệu Chính Hãng
-                <img src="/images/Home/Body/Widgets/HomeBrand/homeBrand.png"/>
+                <img src="/images/Home/Body/Widgets/HomeBrand/homeBrand.png" />
               </div>
               <div className={styles.homeBrandSlider}>
                 <HomeBrand />
